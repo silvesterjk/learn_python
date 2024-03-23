@@ -2,3 +2,4 @@
 random.txt
 PythonForDataScience/data/cifar-10-python.tar.gz
 PythonForDataScience/cifar_net.pth
+LargeLanguageModels/SFT_TogetherAPI/train.jsonl
