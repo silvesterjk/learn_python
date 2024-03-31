@@ -1,0 +1,2 @@
+
+Following our observations from this exercise, we resolved to further refine the model by focusing on distinct segments of the assessment. To enhance its performance, we employed a higngths and areas for improvement in the domain of CEFR speaking assessment.
