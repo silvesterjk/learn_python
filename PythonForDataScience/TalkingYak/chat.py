@@ -1,12 +1,36 @@
 import openai, os
 import gradio as gr
+from openai import OpenAI
+import os
 # import azure.cognitiveservices.speech as speechsdk
 from langchain import OpenAI
 from langchain.chains import ConversationChain
 from langchain.memory import ConversationSummaryBufferMemory
 from langchain.chat_models import ChatOpenAI
 
-openai.api_key = os.environ["OPENAI_API_KEY"]
+# openai.api_key = os.environ["OPENAI_API_KEY"]
+TOGETHER_API_KEY = os.environ.get("TOGETHER_API_KEY")
+
+client = OpenAI(
+  api_key=TOGETHER_API_KEY,
+  base_url='https://api.together.xyz/v1',
+)
+
+chat_completion = client.chat.completions.create(
+  messages=[
+    {
+      "role": "system",
+      "content": "You are an expert travel guide.",
+    },
+    {
+      "role": "user",
+      "content": "Tell me fun things to do in San Francisco.",
+    }
+  ],
+  model="mistralai/Mixtral-8x7B-Instruct-v0.1"
+)
+
+print(chat_completion.choices[0].message.content)
 
 memory = ConversationSummaryBufferMemory(llm=ChatOpenAI(), max_token_limit=2048)
 conversation = ConversationChain(
