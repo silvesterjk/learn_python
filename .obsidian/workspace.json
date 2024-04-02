@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Untitled.md",
+                "file": "Thoughts.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Untitled.md",
+                "file": "Thoughts.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Untitled.md",
+                "file": "Thoughts.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Untitled.md"
+                "file": "Thoughts.md"
               }
             }
           }
@@ -148,6 +148,9 @@
   },
   "active": "9c384d2bddb118fd",
   "lastOpenFiles": [
+    "PythonForDataScience/TalkingYak/chat.py",
+    "PythonForDataScience/TalkingYak/test.ipynb",
+    "PythonForDataScience/TalkingYak",
     "PythonForDataScience/TalkingYak/EvalYaks/Notebooks",
     "PythonForDataScience/TalkingYak/EvalYaks/untitled folder",
     "PythonForDataScience/TalkingYak/EvalYaks/testSheet.csv",
@@ -156,9 +159,6 @@
     "PythonForDataScience/TalkingYak/EvalYaks/Data/i-part3-train.csv",
     "PythonForDataScience/TalkingYak/EvalYaks/Data/i-part2-train.csv",
     "PythonForDataScience/TalkingYak/EvalYaks/Data/i-part1-train.csv",
-    "PythonForDataScience/TalkingYak/EvalYaks/test.py",
-    "PythonForDataScience/TalkingYak/EvalYaks/inf.ipynb",
-    "PythonForDataScience/TalkingYak/EvalYaks/finetune.ipynb",
-    "Untitled.md"
+    "Thoughts.md"
   ]
 }
