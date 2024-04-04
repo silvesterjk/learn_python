@@ -146,19 +146,19 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "9c384d2bddb118fd",
+  "active": "5bcc65f32a9790fb",
   "lastOpenFiles": [
+    "PythonForDataScience/Langchain/Chatbot/Together_app.py",
+    "PythonForDataScience/Langchain/Chatbot/OpenAI_app.py",
+    "PythonForDataScience/Langchain/Chatbot/app.py",
+    "PythonForDataScience/Langchain/Chatbot/app.pu",
+    "PythonForDataScience/Langchain/Chatbot",
+    "PythonForDataScience/Langchain",
     "PythonForDataScience/TalkingYak/chat.py",
     "PythonForDataScience/TalkingYak/test.ipynb",
     "PythonForDataScience/TalkingYak",
     "PythonForDataScience/TalkingYak/EvalYaks/Notebooks",
     "PythonForDataScience/TalkingYak/EvalYaks/untitled folder",
-    "PythonForDataScience/TalkingYak/EvalYaks/testSheet.csv",
-    "PythonForDataScience/TalkingYak/EvalYaks/test.ipynb",
-    "PythonForDataScience/TalkingYak/EvalYaks/Data/i-part4-train.csv",
-    "PythonForDataScience/TalkingYak/EvalYaks/Data/i-part3-train.csv",
-    "PythonForDataScience/TalkingYak/EvalYaks/Data/i-part2-train.csv",
-    "PythonForDataScience/TalkingYak/EvalYaks/Data/i-part1-train.csv",
     "Thoughts.md"
   ]
 }
