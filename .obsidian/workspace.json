@@ -148,6 +148,7 @@
   },
   "active": "5bcc65f32a9790fb",
   "lastOpenFiles": [
+    "PythonForDataScience/Langchain/Chatbot/Localama.py",
     "PythonForDataScience/Langchain/Chatbot/Together_app.py",
     "PythonForDataScience/Langchain/Chatbot/OpenAI_app.py",
     "PythonForDataScience/Langchain/Chatbot/app.py",
@@ -158,7 +159,6 @@
     "PythonForDataScience/TalkingYak/test.ipynb",
     "PythonForDataScience/TalkingYak",
     "PythonForDataScience/TalkingYak/EvalYaks/Notebooks",
-    "PythonForDataScience/TalkingYak/EvalYaks/untitled folder",
     "Thoughts.md"
   ]
 }
