@@ -1,0 +1,3 @@
+LLM Reasoning
+
+Over the last couple of years, large language models (LLMs) have made significant progress in a wide range of tasks. More recently, LLMs have shown the potential to exhibit reasoning abilities when scaled to a large enough size. Different types of reasoning are fundamental to intelligence but it's not fully understood how AI models can learn and harness this capability to solve complex problems. It is an area of huge focus and investment for many research labs.
