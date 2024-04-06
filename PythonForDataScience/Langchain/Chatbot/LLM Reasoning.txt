@@ -5,3 +5,5 @@ Reasoning with Foundation Models
 
 Sun et al. (2023)
 
+recently proposed an overview of reasoning with foundation models which focuses on the latest advancements in various reasoning tasks. This work also focuses on a more extensive look at reasoning that spans multimodal models and autonomous language agents.
+
