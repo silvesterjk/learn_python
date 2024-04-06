@@ -7,3 +7,4 @@ Sun et al. (2023)
 
 recently proposed an overview of reasoning with foundation models which focuses on the latest advancements in various reasoning tasks. This work also focuses on a more extensive look at reasoning that spans multimodal models and autonomous language agents.
 
+Reasoning tasks could include tasks such as mathematical reasoning, logical reasoning, causal reasoning, visual reasoning and more. The following figure shows an overview of reasoning tasks discussed in the survey paper, including reasoning techniques for foundation models such as alignment training and in-context learning.
