@@ -1,5 +1,2 @@
 LLM Reasoning:
 Over the last couple of years, large language models (LLMs) have made significant progress in a wide range of tasks. More recently, LLMs have shown the potential to exhibit reasoning abilities when scaled to a large enough size. Different types of reasoning are fundamental to intelligence but it's not fully understood how AI models can learn and harness this capability to solve complex problems. It is an area of huge focus and investment for many research labs.
-
-Reasoning with Foundation Models:
-Sun et al. (2023) recently proposed an overview of reasoning with foundation models which focuses on the latest advancements in various reasoning tasks. This work also focuses on a more extensive look at reasoning that spans multimodal models and autonomous language agents.Reasoning tasks could include tasks such as mathematical reasoning, logical reasoning, causal reasoning, visual reasoning and more. The following figure shows an overview of reasoning tasks discussed in the survey paper, including reasoning techniques for foundation models such as alignment training and in-context learning.
