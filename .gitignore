@@ -4,3 +4,5 @@ PythonForDataScience/data/cifar-10-python.tar.gz
 PythonForDataScience/cifar_net.pth
 LargeLanguageModels/SFT_TogetherAPI/train.jsonl
 PythonForDataScience/TalkingYak/CEFR_Paper1/Data
+PythonForDataScience/Langchain/.env
+PyLearn/PythonForDataScience/Langchain/.env
