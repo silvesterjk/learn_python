@@ -1,0 +1,11 @@
+All name changes
+Note: all a* methods have been removed; the async client must be used instead.
+
+openai.api_base -> openai.base_url
+openai.proxy -> openai.proxies (docs)
+openai.InvalidRequestError -> openai.BadRequestError
+openai.Audio.transcribe() -> client.audio.transcriptions.create()
+openai.Audio.translate() -> client.audio.translations.create()
+openai.ChatCompletion.create() -> client.chat.completions.create()
+openai.Completion.create() -> client.completions.create()
+openai.Edit.create() -> client.edits.create()

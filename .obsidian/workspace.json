@@ -148,6 +148,7 @@
   },
   "active": "5bcc65f32a9790fb",
   "lastOpenFiles": [
+    "PythonForDataScience/Langchain/Chatbot/some.txt",
     "PythonForDataScience/Langchain/Chatbot/langchain_all.ipynb",
     "PythonForDataScience/Langchain/Chatbot/LLM Reasoning.txt",
     "PythonForDataScience/Langchain/Chatbot/Localama.py",
@@ -158,7 +159,6 @@
     "PythonForDataScience/Langchain/Chatbot",
     "PythonForDataScience/Langchain",
     "PythonForDataScience/TalkingYak/chat.py",
-    "PythonForDataScience/TalkingYak/test.ipynb",
     "Thoughts.md"
   ]
 }
