@@ -1,6 +1,0 @@
-Cognitive Architectures for Language Agents
-Theodore R. Sumers∗ Shunyu Yao∗ Karthik Narasimhan Thomas L. Griffiths
-Princeton University
-{sumers, shunyuy, karthikn, tomg}@princeton.edu
-
-Reviewed on OpenReview: https: // openreview. net/ forum? id= 1i6ZCvflQJ
