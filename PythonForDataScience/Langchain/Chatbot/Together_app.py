@@ -6,35 +6,26 @@ import streamlit as st
 import os
 from dotenv import load_dotenv
 
-
-
-## Langmith tracking
-os.environ["TOGETHER_KEY"] = TOGETHER_KEY
-os.environ["LANGCHAIN_TRACING_V2"]="true"
-os.environ["LANGCHAIN_API_KEY"]=LANGCHAIN_API_KEY
-
-# os.environ["OPENAI_API_KEY"]=os.getenv("OPENAI_API_KEY")
 # ## Langmith tracking
+# os.environ["TOGETHER_KEY"] = TOGETHER_KEY
 # os.environ["LANGCHAIN_TRACING_V2"]="true"
-# os.environ["LANGCHAIN_API_KEY"]=os.getenv("LANGCHAIN_API_KEY")
+# os.environ["LANGCHAIN_API_KEY"]=LANGCHAIN_API_KEY
+
 
 ## Prompt Template
 
-prompt=ChatPromptTemplate.from_messages(
-    [
+messages = [
         ("system","You are a helpful assistant. Please response to the user queries"),
         ("user","Question:{question}")
     ]
+
+prompt=ChatPromptTemplate.from_messages(
+    messages
 )
-
-## streamlit framework
-
-st.title('Langchain Demo')
-input_text=st.text_input("Enter your text here:")
 
 # openAI LLm 
 llm = Together(
-    model="upstage/SOLAR-10.7B-Instruct-v1.0",
+    model="mistralai/Mistral-7B-Instruct-v0.2",
     temperature=0,
     max_tokens=128,
     top_k=1,
@@ -43,5 +34,5 @@ llm = Together(
 output_parser=StrOutputParser()
 chain=prompt|llm|output_parser
 
-if input_text:
-    st.write(chain.invoke({'question':input_text}))
+question = "What is your name?"
+print(chain.invoke({'question':question}))
