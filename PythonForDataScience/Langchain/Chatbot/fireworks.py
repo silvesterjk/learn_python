@@ -22,6 +22,7 @@ lang_memory = [[
     "<|im_end|>"
   ]]
 
+
 messages = lang_memory
 
 url = "https://api.fireworks.ai/inference/v1/chat/completions"
