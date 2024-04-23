@@ -1,7 +1,6 @@
 import requests
 import json
 
-
 lang_memory = [[
     {
       "role": "user",
