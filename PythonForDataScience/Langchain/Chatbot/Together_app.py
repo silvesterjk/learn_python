@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 # os.environ["TOGETHER_KEY"] = TOGETHER_KEY
 # os.environ["LANGCHAIN_TRACING_V2"]="true"
 # os.environ["LANGCHAIN_API_KEY"]=LANGCHAIN_API_KEY
-TOGETHER_KEY = "eeecd592eb2365831e544995d68830cb357a14bd46283a2de2d965170b29dc6e"
+TOGETHER_KEY = ""
 
 ## Prompt Template
 
