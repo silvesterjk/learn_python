@@ -3,7 +3,7 @@ from pydantic import BaseModel
 import requests
 from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
 from langchain_fireworks import ChatFireworks
-import json 
+import json
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -100,5 +100,3 @@ async def grammar(chat_request: ChatRequest):
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="127.0.0.1", port=8000)
-
-
