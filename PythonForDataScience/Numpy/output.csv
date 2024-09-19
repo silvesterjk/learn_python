@@ -1,4 +1,0 @@
-response,actual_answer,similarity_measure_scores,similarity_measure_category
-I am from delhi,I am from Kathmandu,73.3521044254303,GOOD_ACCURACY
-I have something to tell,I have something to share,74.05022978782654,GOOD_ACCURACY
-I am a genius,I am an idiot,50.90121030807495,WEAK_ACCURACY
