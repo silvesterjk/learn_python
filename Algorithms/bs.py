@@ -35,19 +35,38 @@ class BinarySearch:
         Returns:
             3. Optional[int]: Index of item if found, None otherwise
         """
+        """
+        This method works by repeatedly dividing the search interval in half:
+        
+        * low keeps track of the lower bound of the search space
+        * high keeps track of the upper bound
+        * While low <= high, it:
+
+        Finds the middle element mid = (low + high) // 2
+        * If the middle element is the target, returns its index
+        * If the middle element is too high, searches lower half
+        * If the middle element is too low, searches upper half
+
+        Returns None if item isn't found
+        
+        """
+        # For example: 
+        # list = [1, 4, 5, 8, 9] [1, 4] == 0.5 == 0
+        # item = 4
+
         low = 0                           # First index of the list
         high = len(list_of_items) - 1     # Last index of the list      
 
         while low <= high:
             mid = (low + high) // 2       # If there were 11 items then low == 0, high == 10. mid would be 5.
-            guess = list_of_items[mid]
+            guess = list_of_items[mid]    # guess would be 5
             
-            if guess == item:
-                return mid
-            if guess > item:              # If we are guessing 8
-                high = mid - 1
+            if guess == item:             # `guess` pops a value and we compare that with item we're looking for
+                return mid                # Here we output the index
+            if guess > item:              # If we are guessing 5 and the item is 4:
+                high = mid - 1            # `high` would become index 2 - 1 == 1, in the next round [1,4] would be tested, then [4]
             else:
-                low = mid + 1
+                low = mid + 1             # here that [4] would be captured
 
         return None
 
@@ -117,4 +136,5 @@ high = len(list_of_items) - 1
 
 print(booze)
 print(high)
+
 # %%
