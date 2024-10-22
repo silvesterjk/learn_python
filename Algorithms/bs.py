@@ -35,21 +35,6 @@ class BinarySearch:
         Returns:
             3. Optional[int]: Index of item if found, None otherwise
         """
-        """
-        This method works by repeatedly dividing the search interval in half:
-        
-        * low keeps track of the lower bound of the search space
-        * high keeps track of the upper bound
-        * While low <= high, it:
-
-        Finds the middle element mid = (low + high) // 2
-        * If the middle element is the target, returns its index
-        * If the middle element is too high, searches lower half
-        * If the middle element is too low, searches upper half
-
-        Returns None if item isn't found
-        
-        """
         # For example: 
         # list = [1, 4, 5, 8, 9] [1, 4] == 0.5 == 0
         # item = 4
