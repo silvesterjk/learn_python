@@ -122,13 +122,27 @@ match variable:
 
 """
 
-day = "Monday"
-match day:
-    case "Monday":
-        print("Start of the work week.")
-    case "Friday":
-        print("End of the work week.")
-    case _:
-        print("Midweek day.")
+# day = "Monday"
+# match day:
+#     case "Monday":
+#         print("Start of the work week.")
+#     case "Friday":
+#         print("End of the work week.")
+#     case _:
+#         print("Midweek day.")
+
+"""
+8. Boolean Type Conversion
+
+In Python, values can be converted to Boolean using the bool() function. Certain values are inherently False, such as None, 0, empty strings '', empty lists [], and empty dictionaries {}.
+
+Examples:
+
+"""
+
+print(bool(0))        # Outputs: False
+print(bool(1))        # Outputs: True
+print(bool(""))       # Outputs: False
+print(bool("Hello"))  # Outputs: True
 
 
