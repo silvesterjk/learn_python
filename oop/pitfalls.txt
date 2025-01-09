@@ -1,0 +1,7 @@
+1. A function masquerating as a class -- Unless you'd need multiple methods, simply stick to using functions.
+2. A module masquerating as a class
+3. Complex Inheritence structures
+4. Not relying on Abstractions
+5. Ignoring Encapsulation
+6. Excessive use of Getters and Setters
+7. Heavily relying on Mixins
