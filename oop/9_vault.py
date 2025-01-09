@@ -1,6 +1,12 @@
-# Operator Overloading. 
-# The __add__ method is used to overload the '+' operator.
-# The __add__ method is called when the '+' operator is used on the objects.
+"""
+
+Operator Overloading:  
+* The __add__ method is used to overload the '+' operator.
+* The __add__ method is called when the '+' operator is used on the objects.
+* The __add__ method takes two arguments: self and other.
+* other could mean more than one object.
+
+"""
 
 class Vault:
     def __init__(self, galleons=0, sickles=0, knuts=0):
