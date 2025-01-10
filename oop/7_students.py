@@ -44,3 +44,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# There is @staticmethod which is similar to @classmethod but it does not take cls as an argument.
+# @staticmethod is used when we don't need to access the class or instance in the method.
