@@ -19,3 +19,18 @@ class Car:
     
     def description(self):
         return f"{self.year} {self.colour} {self.model} is a car for sale."
+    
+# Inheritance. A --> B(A), C(A), D(A)
+
+class Animal: ...
+
+class Dog(Animal): ...
+
+class Cat(Animal): ...
+
+class Bird(Animal): ...
+
+
+# Multiple Inheritance --> Inherit from more than one parent class. C(A, B)
+
+# Multi Level Inheritance --> Inherit from a parent class which is inherited from another parent class. C(B) < B(A) < A

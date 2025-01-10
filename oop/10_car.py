@@ -1,4 +1,4 @@
-from car_class import Car
+from _class import Car
 
 car1 = Car("Toyota", 2021, "Red", True)
 print(car1.__dict__)
@@ -21,3 +21,4 @@ print(car1.description())
 # Instance variables are accessed using the self keyword. For example, self.model.
 # Inheritance is a way to create a new class from an existing class. The new class is called a subclass, and the existing class is called a superclass.
 # Inheritance allows you to reuse code and create a hierarchy of classes.
+
