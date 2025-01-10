@@ -20,4 +20,4 @@ print(car1.description())
 # Class variables are accessed using the class name. For example, Car.wheels.
 # Instance variables are accessed using the self keyword. For example, self.model.
 # Inheritance is a way to create a new class from an existing class. The new class is called a subclass, and the existing class is called a superclass.
-
+# Inheritance allows you to reuse code and create a hierarchy of classes.

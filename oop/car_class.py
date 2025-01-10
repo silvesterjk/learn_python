@@ -1,4 +1,7 @@
 class Car:
+
+    wheels = 4 # Class variable
+
     def __init__(self, model, year, colour, for_sale):
         self.model = model
         self.year = year
@@ -9,7 +12,10 @@ class Car:
         return f"Is the {self.year} {self.colour} {self.model} for sale? : {self.for_sale}."
     
     def drive(self):
-        return f"{self.model} is driving." 
+        return f"{self.model} is driving with {Car.wheels} wheels."  
+        # Here we are accessing the class variable using the class name.
+        # This is because the class variable is shared among all instances of the class. 
+        # And best practice is to access class variables using the class name.
     
     def description(self):
         return f"{self.year} {self.colour} {self.model} is a car for sale."
