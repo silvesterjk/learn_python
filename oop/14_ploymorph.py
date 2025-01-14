@@ -19,6 +19,8 @@ A Circle is a shape. And it is itself a circle. Thus carrying two forms.
 
 """
 
+# Inheritance Polymorphism
+
 from abc import ABC, abstractmethod # To work with abstract classes.
 
 class Shape:
@@ -78,3 +80,35 @@ for shape in shapes_dict:
     # In the above line: shapes_dict[shape] returns the object of the shape class.
     # .area() calls the area method of the object of the shape class. Returns the area of the shape.
     # shape is the key of the dictionary. It is the name of the shape.
+
+
+# Duck Typing Polymorphism
+# Duck typing is a concept related to dynamic typing, where the type or the class of an object is less important than the methods it defines.
+# When you use duck typing, you do not check types at all. Instead, you check for the presence of a given method or attribute.
+# If a method or attribute is present, the object is considered to be of the type you need.
+# Object must have the minimum required methods or attributes to be considered as the required type.
+# If it looks like a duck, swims like a duck, and quacks like a duck, then it probably is a duck.
+
+class Animal:
+    alive = True
+
+class Dog(Animal):
+    def speak(self):
+        return "Woof!"
+    
+class Cat(Animal):
+    def speak(self):
+        return "Meow!"
+    
+class Car:
+    # def sound(self):
+    def speak(self):
+        return "Vroom!"
+    
+animals = [Dog(), Cat(), Car()]
+
+for animal in animals:
+    # print(animal.speak())
+    # The above line will return an error for the Car class as it does not have the speak method and for sound instead.
+    # AttributeError: 'Car' object has no attribute 'speak'
+    print(animal.speak())
