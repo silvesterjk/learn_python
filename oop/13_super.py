@@ -7,7 +7,7 @@ class Shape:
         self.colour = colour
         self.filled = filled
     
-    def colour(self):
+    def describe(self):
         return f"The colour is {self.colour} and the fill state is state: {'filled' if self.filled else 'not filled'}"
 
 class Circle(Shape):
@@ -16,9 +16,10 @@ class Circle(Shape):
         super().__init__(colour, filled)
         self.radius = radius
 
-    def area(self):
+    def describe(self): # Although we have a describe method in the parent class, we can override it in the child class.
+        super().describe() # This will call the describe method of the parent class.
         return f"The area is {3.14159 * self.radius ** 2}"
-    
+        # To avoid method overriding, we can alternatively use an underscore before the method name in the child class.
     def circumference(self):
         return f"The circumference is : {2 * 3.14159 * self.radius} | Of Colour: {self.colour} and the state: {self.filled}"
 
@@ -51,9 +52,10 @@ class Triangle(Shape):
 Circle1 = Circle(5, "Red", True)
 Circle2 = Circle(radius=10, colour="Blue", filled=False)
 
-print(Circle1.__dict__)
-print(Circle1.area())
-print(Circle1.circumference())
+print(Circle1.__dict__) # {'colour': 'Red', 'filled': True, 'radius': 5}
+print(Circle1.area()) # The area is 78.53975
+print(Circle1.describe())  # The colour is Red and the fill state is state: filled
+print(Circle1.circumference()) # The circumference is : 31.4159 | Of Colour: Red and the state: True
 
 # Create an instance of the Square class
 Square1 = Square(5, "Green", True)
