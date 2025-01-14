@@ -39,12 +39,44 @@ class Bird(Animal):
 
 # Multi Level Inheritance --> Inherit from a parent class which is inherited from another parent class. C(B) < B(A) < A
 
-class Prey: ...
+class Animal: # Parent class -- Base class
 
-class Predator: ...
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
-class Rabbit(Prey): ...
+    # def breathe(self):
+    #     return "The animal is breathing."
+    # def eat(self):
+    #     return "The animal is eating."
+    # def sleep(self):
+    #     return "The animal is sleeping."
 
-class Hawk(Predator): ...
+    def breathe(self):
+        return f"{self.name} is breathing."
+    def eat(self):
+        return f"{self.name} is eating."
+    def sleep(self):
+        return f"{self.name} is sleeping."
 
-class Fish(Predator): ...
+class Prey(Animal): # Parent class
+    def flee(self):
+        return "The prey is fleeing."
+
+class Predator(Animal): # Parent class
+    def hunt(self):
+        return "The predator is hunting."
+
+class Rabbit(Prey): # Child class
+    def eat_grass(self):
+        return "The rabbit is eating grass."
+
+class Hawk(Predator): # Child class
+    def eat_meat(self):
+        return "The hawk is eating meat."
+
+class Fish(Prey, Predator): # Child class
+    def eat_fish(self):
+        return "The fish is being eaten."
+    def hunt_fish(self):
+        return "The fish is hunting a smaller fish."
