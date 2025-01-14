@@ -9,6 +9,9 @@ class Vehicle(ABC): # Abstract class
 
     @abstractmethod
     def drive(self):
+        # We don't need to implement the method here.
+        # We just need to define the method in the abstract class.
+        # Because the method will be implemented in the subclass.
         pass
 
     @abstractmethod
