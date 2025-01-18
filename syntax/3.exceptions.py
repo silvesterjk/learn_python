@@ -77,4 +77,3 @@ def get_int():
             return int(input("What's x? "))
         except ValueError:
             pass  # Ignore the error and prompt again
-
