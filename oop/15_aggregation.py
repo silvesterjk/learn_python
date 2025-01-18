@@ -12,7 +12,6 @@ class Book:
 # They can exist independently of each other. The Library class can exist without the Book class and vice versa.
 # This is the difference between aggregation and composition. In composition, the objects are dependent on each other.
 
-
 class Library:
     def __init__(self, name):
         self.name = name # attribute to store the name of the library
@@ -23,7 +22,7 @@ class Library:
 
     def display_books(self):
         for index, book in enumerate(self.books):
-            return f'{index}. {book.title} by {book.author}'
+            print( f'{index}. {book.title} by {book.author}')
 
 
 class Book:
@@ -43,5 +42,4 @@ library.add_book(book3)
 
 # The Library class has a list of Book objects. This is an example of aggregation.
 # The Book object can exist independently of the Library object. The Library object can exist without the Book object.
-
 library.display_books()
