@@ -87,6 +87,7 @@ Packages are collections of modules. Python's Package Index (PyPI) hosts thousan
 # pip install cowsay
 
 import cowsay
+import sys
 
 cowsay.cow("Hello, world!")
 
