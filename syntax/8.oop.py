@@ -99,4 +99,62 @@ Here: In this example, the Student class includes getter and setter methods to v
 
 """
 
+"""6. Inheritance
 
+Inheritance allows a new class (subclass) to acquire the properties and methods of an existing class (superclass), promoting code reuse.
+
+Here, Student inherits from Person, reusing the name attribute and adding a new house attribute."""
+
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+class Student(Person):
+    def __init__(self, name, house):
+        super().__init__(name)
+        self.house = house
+
+"""7. Class Methods and Static Methods
+
+Class Methods: Operate on the class itself rather than instances. Defined using the @classmethod decorator.
+
+Static Methods: Do not operate on the class or its instances. Defined using the @staticmethod decorator."""
+
+class School:
+    students = []
+
+    @classmethod
+    def add_student(cls, student):
+        cls.students.append(student)
+
+    @staticmethod
+    def school_motto():
+        return "Knowledge is power."
+
+
+"""8. Operator Overloading
+
+Operator overloading allows defining how operators behave with objects of a class."""
+
+class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, other):
+        return Vector(self.x + other.x, self.y + other.y)
+
+# This enables the use of the + operator to add two Vector objects.
+
+v1 = Vector(2, 4)
+v2 = Vector(1, 3)
+v3 = v1 + v2 # v3 = v1.__add__(v2) --> (3, 7) that is (x, y)
+print(v3.x)  # Outputs: 3 --> Here we're calling the x attribute of the v3 object.
+
+"""
+# Because we defined the __add__ method, the + operator can be used to add two Vector objects.
+# The resulting Vector object has x = 2 + 1 = 3 and y = 4 + 3 = 7.
+# The __add__ method returns a new Vector object with these values.
+# The resulting Vector object is stored in v3, and its x attribute is printed.
+
+"""
