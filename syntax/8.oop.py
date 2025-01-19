@@ -37,3 +37,66 @@ class Student:
 student = Student("Hermione", "Gryffindor")
 print(student.introduce())  # Outputs: My name is Hermione and I belong to Gryffindor house.
 
+"""5. Encapsulation and Data Validation
+
+Encapsulation restricts direct access to an object's attributes to prevent unintended modifications. 
+This can be achieved by defining methods that control how attributes are accessed or modified.
+In this example, the `Student` class includes getter and setter methods to validate and encapsulate the `name` and `house` attributes."""
+
+class Student:
+    def __init__(self, name, house):
+        self.name = name  # Uses the setter
+        self.house = house  # Uses the setter
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        if not name:
+            raise ValueError("Missing name")
+        self._name = name
+
+    @property
+    def house(self):
+        return self._house
+
+    @house.setter
+    def house(self, house):
+        if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]:
+            raise ValueError("Invalid house")
+        self._house = house
+
+""" Equally correct way to implement this: 
+
+class Student:
+    def __init__(self, name, house):
+        self.name = name  # Uses the setter
+        self.house = house  # Uses the setter
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        if not name:
+            raise ValueError("Missing name")
+        self._name = name
+
+    @property
+    def house(self):
+        return self._house
+
+    @house.setter
+    def house(self, house):
+        if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]:
+            raise ValueError("Invalid house")
+        self._house = house
+
+Here: In this example, the Student class includes getter and setter methods to validate and encapsulate the name and house attributes.
+
+"""
+
+
