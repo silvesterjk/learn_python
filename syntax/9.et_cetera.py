@@ -133,6 +133,4 @@ print(squared_dict)
 for index, value in enumerate(numbers):
     print(f"Index: {index}, Value: {value}")
 
-# Output:
-for index, value in enumerate(numbers, start=1):
-    print(f"Index: {index}, Value: {value}")
+# zip: Aggregates elements from multiple iterables.
