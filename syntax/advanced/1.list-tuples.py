@@ -79,6 +79,36 @@ print(mytuple.count(2)) # 2
 
 print(mytuple.index(2.2)) # 5 is the first occurance of 2.2
 
+# Tuple unpacking
+a, b, c, d, e, f  = mytuple  # matching one for one between the variable and the items in the tuple -- the values must match the number of elements in the tuple
+print(a) # apple
+print(b) # banana
+print(c) # cherry
+print(d) # 2
+print(e) # 2
+print(f) # 2.2
 
-# # Tuple unpacking
-# a, b, c, d, e = mytuple  # apple banana cherry 2 2.2
+
+# Slicing tuple
+print(mytuple[1:3]) # ('banana', 'cherry')
+
+import sys
+mytestlist = [0, 1, 2, "apple", "banana", "cherry", 2.2]
+mytesttuple = (0, 1, 2, "apple", "banana", "cherry", 2.2)
+print(sys.getsizeof(mytestlist), "bytes") # 120 bytes
+print(sys.getsizeof(mytesttuple), "bytes") # 96 bytes
+
+import timeit
+print(timeit.timeit(stmt="[0, 1, 2, 3, 4, 5]", number=1000000)) # ~0.087 seconds
+# Here we are creating a list and tuple with the same elements and then we are measuring the time taken to create the list and tuple.
+# We are creating the list and tuple 1000000 times and then we are measuring the time taken to create the list and tuple.
+print(timeit.timeit(stmt="(0, 1, 2, 3, 4, 5)", number=1000000)) # `0.019 seconds -- tuple is faster than list. In this case by 4.5 times
+
+"""
+In Summary: 
+* List is mutable and tuple is immutable
+* tuple is more efficient than list. Because tuple is immutable and it is faster to access the elements in tuple than in list.
+* tuple is used when we want to make sure that the data is not changed.
+* tuple has less footprint than list. So, tuple is used when we want to store the data in less memory.
+* List is used when we want to store the data that can be changed. List is used when we want to store the data that can be changed.
+"""
