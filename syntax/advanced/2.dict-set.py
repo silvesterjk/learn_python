@@ -61,3 +61,27 @@ print(mydict5[4])  # apple -- 4 instead of 0 because the key is 4
 
 mydict6 = {["name", "age"]: "John"}  # TypeError: unhashable type: 'list' 
 # List is mutable and cannot be used as a key in a dictionary
+
+"""SET"""
+
+myset = {"apple", "banana", "cherry"}
+print(myset)  # {'banana', 'apple', 'cherry'} -- unordered
+
+myset2 = {"apple", "banana", "cherry", "cherry", "banana"}
+print(myset2) # {'banana', 'apple', 'cherry'} -- no duplicates
+
+
+# myset = {"apple", "banana", "cherry", "apple"}  # {'banana', 'apple', 'cherry'} -- no duplicates
+
+# If we try to access an element in a set using an index, we will get an error
+# If there are duplicates in the set, only one will be 
+
+myset.add("orange")
+print(myset)  # {'banana', 'apple', 'cherry', 'orange'}
+
+myset.update(["orange", "mango", "grapes"])
+print(myset)  # {'orange', 'banana', 'apple', 'mango', 'grapes', 'cherry'}
+# The update() method can take lists, tuples, dictionaries, and sets
+
+# An empty set cannot be created using {}
+myset3 = set() # create an empty set
