@@ -1,3 +1,5 @@
+"""DICTIONARY"""
+
 mydict = {"name": "John", "age": 36, "country": "Norway", "city": "Oslo"}
 print(mydict)
 
