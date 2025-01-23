@@ -129,3 +129,37 @@ print(set5)  # {1, 2, 3} --> set1 - set2
 # Symmetric difference of two sets
 set6 = set1.symmetric_difference(set2)
 print(set6)  # {1, 2, 3, 4, 5, 6} --> (set1 - set2) U (set2 - set1)
+
+# issubset() method
+set7 = {1, 2, 3}
+set8 = {1, 2, 3, 4, 5}
+set9 = {1, 2, 4}
+print(set7.issubset(set8))  # True
+print(set7.issubset(set9))  # False
+
+set7.update(set9)
+print(set7)  # {1, 2, 3, 4}
+
+set7.intersection_update(set9)
+print(set7)  # {1, 2, 4} --> Here we are updating set7 with the intersection of set7 and set9
+
+set7.difference_update(set9)
+print(set7)  # {2} --> Here we are updating set7 with the difference of set7 and set9
+
+set7.symmetric_difference_update(set9)
+print(set7)  # {1, 4} --> Here we are updating set7 with the symmetric difference of set7 and set9
+
+# isdisjoint() method
+set10 = {1, 2, 3}
+set11 = {4, 5, 6}
+set12 = {7, 8, 9}
+print(set10.isdisjoint(set11))  # True
+print(set10.isdisjoint(set12))  # True
+print(set11.isdisjoint(set12))  # True
+
+# issuperset() method
+set13 = {1, 2, 3, 4, 5}
+set14 = {1, 2, 3}
+set15 = {1, 2, 3, 4, 7}
+print(set13.issuperset(set14))  # True -- set13 is a superset of set14
+print(set14.issuperset(set15)) # False -- set14 is not a superset of set15
