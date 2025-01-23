@@ -163,3 +163,22 @@ set14 = {1, 2, 3}
 set15 = {1, 2, 3, 4, 7}
 print(set13.issuperset(set14))  # True -- set13 is a superset of set14
 print(set14.issuperset(set15)) # False -- set14 is not a superset of set15
+
+# To copy a set. We cannot use the assignment operator
+set16 = set15.copy()
+print(set16)  # {1, 2, 3, 4, 7}
+
+# or
+
+set17 = set(set15)
+print(set17)  # {1, 2, 3, 4, 7}
+
+# Frozenset
+# A frozenset is an immutable set. It cannot be changed after it is created
+# Frozensets can be used as keys in dictionaries
+# Frozensets can be created using the frozenset() constructor
+
+set18 = frozenset([1, 2, 3, 4, 5])
+print(set18)  # frozenset({1, 2, 3, 4, 5})
+
+# set18.add(6)  # AttributeError: 'frozenset' object has no attribute 'add'
