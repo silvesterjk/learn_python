@@ -57,6 +57,11 @@ def meow(n: int) -> None: # None is used to indicate that the function does not 
     for _ in range(n):
         print("meow") # The output will be the same as before. That is meow meow meow.
 
+# With mypy, you can run the following command to check for type consistency:
+# mypy filename.py
+# For example, if you run mypy on the file containing the meow function, it will check if the input and output types match the type hints specified.
+
+
 """5. Docstrings
 
 # Docstrings provide documentation for modules, classes, and functions, explaining their purpose and usage.
@@ -133,3 +138,9 @@ print(squared_dict)
 for index, value in enumerate(numbers):
     print(f"Index: {index}, Value: {value}")
 
+
+"""9. Generators and Iterators"""
+# Generators produce values one at a time and are more memory-efficient than lists.
+# The yield keyword is used to return values from a generator function.
+
+# Generators allow for the creation of iterators with a concise syntax using the yield statement.
