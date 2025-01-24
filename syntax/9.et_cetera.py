@@ -152,3 +152,24 @@ def countdown(n):
 
 for number in countdown(5):
     print(number)
+
+# Generators are memory-efficient and are used for iterating over large datasets.
+
+"""10. Lambda Functions"""
+# Lambda functions are small, anonymous functions defined using the lambda keyword.
+# They can have any number of arguments but only one expression.
+# Lambda functions are often used as arguments to higher-order functions.
+
+add = lambda x, y: x + y
+print(add(2, 3))  # Output: 5
+
+# Another example:
+numbers = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x ** 2, numbers))
+
+# Another example:
+def myfunc(n):
+    return lambda a: a * n
+
+mydoubler = myfunc(2)
+
