@@ -144,3 +144,11 @@ for index, value in enumerate(numbers):
 # The yield keyword is used to return values from a generator function.
 
 # Generators allow for the creation of iterators with a concise syntax using the yield statement.
+
+def countdown(n):
+    while n > 0:
+        yield n
+        n -= 1
+
+for number in countdown(5):
+    print(number)
