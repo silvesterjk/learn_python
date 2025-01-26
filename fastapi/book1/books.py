@@ -76,3 +76,5 @@ async def delete_book(book_title: str):
             break
 
 @app.put("/books/update_book/{book_title}")
+def update_book_by_title(book_title: str, updated_book=Body()):
+    ...
