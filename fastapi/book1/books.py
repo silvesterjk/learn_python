@@ -76,5 +76,8 @@ async def delete_book(book_title: str):
             break
 
 @app.put("/books/update_book/{book_title}")
-def update_book_by_title(book_title: str, updated_book=Body()):
-    ...
+def update_book(book_title: str, updated_book=Body()):
+    for i in range(len(BOOKS)):
+        if BOOKS[i].get('title').casefold() == book_title.casefold():
+            BOOKS[i] = updated_book
+            return BOOKS[i]
