@@ -74,3 +74,8 @@ async def delete_book(book_title: str):
         if BOOKS[i].get('title').casefold() == book_title.casefold():
             BOOKS.pop(i)
             break
+
+
+if __name__ == '__main__':
+    import uvicorn
+    uvicorn.run(app, host=5000)
