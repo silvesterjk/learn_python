@@ -77,3 +77,8 @@ async def delete_book(book_title: str):
 
 
 @app.delete("/books/delete_books/")
+async def delete_books_by_category(category: str):
+    for i in range(len(BOOKS)):
+        if BOOKS[i].get('category').casefold() == category.casefold():
+            BOOKS.pop(i)
+            break
