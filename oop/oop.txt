@@ -23,4 +23,7 @@
 Note: 
 * Interfaces are similar to abstract classes, but they only contain abstract methods and final variables.
 * Encapsulation helps in hiding the internal state of an object and restricting access to the object's internal data.
-* interface or protocol is a common way to achieve abstraction in programming languages that do not support multiple inheritance.
+* interface or protocol is a common way to define a contract between objects that communicate with each other.
+* For Example: In the context of a car, the user only needs to know how to drive the car and not the internal working of the car.
+    -- Here the interface would be the steering wheel, pedals, and gear shift, which are the only things the user interacts with, while the internal working of the car is hidden from the user.
+    -- And Protocol is a set of rules that defines how objects communicate with each other.
