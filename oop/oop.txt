@@ -41,3 +41,14 @@ Note:
 10. For Example: In the context of animals, a Dog class can inherit from an Animal class, which contains common properties and methods shared by all animals.
 
 # POLYMORPHISM IN OOP (Object Oriented Programming)
+1. Polymorphism is the concept of using a single interface to represent different underlying forms (data types).
+2. It is one of the four fundamental OOP concepts.
+3. Polymorphism allows objects of different classes to be treated as objects of a common superclass.
+4. Polymorphism can be achieved through method overriding and method overloading.
+5. Method Overriding: Method overriding is the concept of defining a method in the subclass that is already defined in the superclass. The method in the subclass overrides the method in the superclass.
+6. Method Overloading: Method overloading is the concept of defining multiple methods with the same name but different parameters in the same class.
+7. Polymorphism helps in achieving flexibility and extensibility in the code.
+8. For Example: In the context of shapes, a Circle class and a Rectangle class can both inherit from a Shape class, and the draw() method in each subclass can be implemented differently to draw a circle or a rectangle.
+9. If a class has multiple methods with the same name but different parameters, it is called method overloading.
+10. If a subclass has a method with the same name and signature as a method in the superclass, it is called method overriding.
+11. If it sounds like a duck, walks like a duck, and quacks like a duck, then it must be a duck.
