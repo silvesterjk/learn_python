@@ -9,3 +9,14 @@
 8. Abstraction is used to simplify the complex system by breaking it into small modules.
 
 
+# ENCAPSULATION IN OOP (Object Oriented Programming)
+1. Encapsulation is the concept of wrapping the data (variables) and code acting on the data (methods) together as a single unit.
+2. It is one of the four fundamental OOP concepts.
+3. Encapsulation helps in hiding the internal state of an object and restricting access to the object's internal data.
+4. Encapsulation can be achieved by using access specifiers such as public, private, and protected.
+5. Public: Public members are accessible from outside the class.
+6. Private: Private members are only accessible within the class.
+7. Protected: Protected members are accessible within the class and its subclasses.
+8. Encapsulation helps in achieving data hiding, reusability, and modularity.
+9. For Example: In the context of a car, the user only needs to know how to drive the car and not the internal working of the car.
+
