@@ -20,3 +20,7 @@
 8. Encapsulation helps in achieving data hiding, reusability, and modularity.
 9. For Example: In the context of a car, the user only needs to know how to drive the car and not the internal working of the car.
 
+Note: 
+* Interfaces are similar to abstract classes, but they only contain abstract methods and final variables.
+* Encapsulation helps in hiding the internal state of an object and restricting access to the object's internal data.
+* interface or protocol is a common way to achieve abstraction in programming languages that do not support multiple inheritance.
