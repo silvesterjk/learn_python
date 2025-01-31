@@ -27,3 +27,17 @@ Note:
 * For Example: In the context of a car, the user only needs to know how to drive the car and not the internal working of the car.
     -- Here the interface would be the steering wheel, pedals, and gear shift, which are the only things the user interacts with, while the internal working of the car is hidden from the user.
     -- And Protocol is a set of rules that defines how objects communicate with each other.
+
+# INHERITANCE IN OOP (Object Oriented Programming)
+1. Inheritance is the concept of creating a new class by inheriting the properties and methods of an existing class.
+2. It is one of the four fundamental OOP concepts.
+3. Inheritance helps in reusing the code and establishing a relationship between classes.
+4. The class that is inherited from is called the base class or parent class, and the class that inherits from the base class is called the derived class or child class.
+5. Inheritance can be of different types: Single Inheritance, Multiple Inheritance, Multilevel Inheritance, and Hierarchical Inheritance.
+6. Single Inheritance: A class inherits from only one base class.
+7. Multiple Inheritance: A class inherits from multiple base classes.
+8. Multilevel Inheritance: A class inherits from a derived class, which in turn inherits from another base class.
+9. Hierarchical Inheritance: Multiple classes inherit from a single base class.
+10. For Example: In the context of animals, a Dog class can inherit from an Animal class, which contains common properties and methods shared by all animals.
+
+# POLYMORPHISM IN OOP (Object Oriented Programming)
