@@ -1,0 +1,11 @@
+# ABSTRACTION IN OOP (Object Oriented Programming)
+1. Abstraction is the concept of hiding the complex implementation from the user and only showing the necessary features of the object.
+2. It is one of the four fundamental OOP concepts.
+3. Abstraction can be achieved in two ways: Abstract Classes and Interfaces.
+4. Abstract Classes: Abstract classes are classes that contain one or more abstract methods. An abstract method is a method that is declared, but contains no implementation.
+5. Interfaces: Interfaces are similar to abstract classes, but they only contain abstract methods and final variables.
+6. Abstraction helps in reducing programming complexity and effort.
+7. For Example: In the context of an aeroplane, the user only needs to know how to fly the plane and not the internal working of the plane.
+8. Abstraction is used to simplify the complex system by breaking it into small modules.
+
+
