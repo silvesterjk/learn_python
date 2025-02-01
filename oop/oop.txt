@@ -52,3 +52,10 @@ Note:
 9. If a class has multiple methods with the same name but different parameters, it is called method overloading.
 10. If a subclass has a method with the same name and signature as a method in the superclass, it is called method overriding.
 11. If it sounds like a duck, walks like a duck, and quacks like a duck, then it must be a duck.
+
+# OOP PRINCIPLES
+1. SOLID Principles: SOLID is an acronym for five design principles that help make software designs more understandable, flexible, and maintainable.
+2. Single Responsibility Principle (SRP): A class should have only one reason to change, meaning that a class should have only one job or responsibility.
+3. Open/Closed Principle (OCP): Software entities should be open for extension but closed for modification, meaning that the behavior of a module can be extended without modifying its source code.
+4. Liskov Substitution Principle (LSP): Objects of a superclass should be replaceable with objects of its subclasses without affecting the correctness of the program.
+5. Interface Segregation Principle (ISP): A client should not be forced to implement an interface that it does not use, meaning that interfaces should be specific to the needs of the client.
