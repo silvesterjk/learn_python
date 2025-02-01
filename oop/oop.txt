@@ -64,8 +64,3 @@ Note:
 8. KISS Principle: KISS stands for Keep It Simple, Stupid, meaning that systems should be designed in the simplest way possible to avoid unnecessary complexity.
 9. YAGNI Principle: YAGNI stands for You Aren't Gonna Need It, meaning that features should not be added until they are actually needed.
 10. Composition Over Inheritance: Composition is the concept of creating complex objects by combining simpler objects, rather than using inheritance to create complex objects.
-11. Encapsulate What Varies: Encapsulate What Varies is a design principle that suggests encapsulating the parts of a system that are likely to change in the future.
-12. Favor Composition Over Inheritance: Favor Composition Over Inheritance is a design principle that suggests using composition to build complex objects instead of relying on inheritance.
-13. Law of Demeter: The Law of Demeter is a design principle that suggests limiting the interactions between objects to reduce coupling and increase encapsulation.
-14. Tell, Don't Ask: Tell, Don't Ask is a design principle that suggests telling objects what to do rather than asking them for information and then making decisions based on that information.
-15. Principle of Least Astonishment: The Principle of Least Astonishment is a design principle that suggests designing systems in a way that minimizes surprises or unexpected behavior.
