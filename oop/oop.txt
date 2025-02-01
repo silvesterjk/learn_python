@@ -53,6 +53,14 @@ Note:
 10. If a subclass has a method with the same name and signature as a method in the superclass, it is called method overriding.
 11. If it sounds like a duck, walks like a duck, and quacks like a duck, then it must be a duck.
 
+# Relationship between Objects
+1. Association: Association is a relationship between two classes that describes how they are related to each other. It can be one-to-one, one-to-many, or many-to-many.
+2. Aggregation: Aggregation is a type of association where one class contains a reference to another class, but the referenced class can exist independently of the container class.
+3. Composition: Composition is a type of association where one class contains an instance of another class, and the contained class cannot exist independently of the container class.
+4. Dependency: Dependency is a relationship between two classes where one class depends on another class, but the dependency is not as strong as association, aggregation, or composition.
+5. implementation: Implementation is a relationship between two classes where one class implements an interface defined by another class.
+6. Inheritance: Inheritance is a relationship between two classes where one class inherits the properties and methods of another class.
+
 # OOP PRINCIPLES
 1. SOLID Principles: SOLID is an acronym for five design principles that help make software designs more understandable, flexible, and maintainable.
 2. Single Responsibility Principle (SRP): A class should have only one reason to change, meaning that a class should have only one job or responsibility.
