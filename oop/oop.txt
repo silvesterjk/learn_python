@@ -59,3 +59,8 @@ Note:
 3. Open/Closed Principle (OCP): Software entities should be open for extension but closed for modification, meaning that the behavior of a module can be extended without modifying its source code.
 4. Liskov Substitution Principle (LSP): Objects of a superclass should be replaceable with objects of its subclasses without affecting the correctness of the program.
 5. Interface Segregation Principle (ISP): A client should not be forced to implement an interface that it does not use, meaning that interfaces should be specific to the needs of the client.
+6. Dependency Inversion Principle (DIP): High-level modules should not depend on low-level modules. Both should depend on abstractions, meaning that the dependency should be on abstractions rather than concrete implementations.
+7. DRY Principle: DRY stands for Don't Repeat Yourself, meaning that duplication in code should be avoided by abstracting common functionality into reusable modules.
+8. KISS Principle: KISS stands for Keep It Simple, Stupid, meaning that systems should be designed in the simplest way possible to avoid unnecessary complexity.
+9. YAGNI Principle: YAGNI stands for You Aren't Gonna Need It, meaning that features should not be added until they are actually needed.
+10. Composition Over Inheritance: Composition is the concept of creating complex objects by combining simpler objects, rather than using inheritance to create complex objects.
