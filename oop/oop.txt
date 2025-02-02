@@ -1,4 +1,4 @@
-# ABSTRACTION IN OOP (Object Oriented Programming)
+# ABSTRACTION IN OOP
 1. Abstraction is the concept of hiding the complex implementation from the user and only showing the necessary features of the object.
 2. It is one of the four fundamental OOP concepts.
 3. Abstraction can be achieved in two ways: Abstract Classes and Interfaces.
@@ -9,15 +9,14 @@
 8. Abstraction is used to simplify the complex system by breaking it into small modules.
 
 
-# ENCAPSULATION IN OOP (Object Oriented Programming)
+# ENCAPSULATION IN OOP
 1. Encapsulation is the concept of wrapping the data (variables) and code acting on the data (methods) together as a single unit.
-2. It is one of the four fundamental OOP concepts.
+2. It is one of the four fundamental OOP concepts.   
 3. Encapsulation helps in hiding the internal state of an object and restricting access to the object's internal data.
 4. Encapsulation can be achieved by using access specifiers such as public, private, and protected.
 5. Public: Public members are accessible from outside the class.
 6. Private: Private members are only accessible within the class.
-7. Protected: Protected members are accessible within the class and its subclasses.
-8. Encapsulation helps in achieving data hiding, reusability, and modularity.
+   8. Encapsulation helps in achieving data hiding, reusability, and modularity.
 9. For Example: In the context of a car, the user only needs to know how to drive the car and not the internal working of the car.
 
 Note: 
@@ -28,7 +27,7 @@ Note:
     -- Here the interface would be the steering wheel, pedals, and gear shift, which are the only things the user interacts with, while the internal working of the car is hidden from the user.
     -- And Protocol is a set of rules that defines how objects communicate with each other.
 
-# INHERITANCE IN OOP (Object Oriented Programming)
+# INHERITANCE IN OOP
 1. Inheritance is the concept of creating a new class by inheriting the properties and methods of an existing class.
 2. It is one of the four fundamental OOP concepts.
 3. Inheritance helps in reusing the code and establishing a relationship between classes.
@@ -40,7 +39,7 @@ Note:
 9. Hierarchical Inheritance: Multiple classes inherit from a single base class.
 10. For Example: In the context of animals, a Dog class can inherit from an Animal class, which contains common properties and methods shared by all animals.
 
-# POLYMORPHISM IN OOP (Object Oriented Programming)
+# POLYMORPHISM IN OOP
 1. Polymorphism is the concept of using a single interface to represent different underlying forms (data types).
 2. It is one of the four fundamental OOP concepts.
 3. Polymorphism allows objects of different classes to be treated as objects of a common superclass.
@@ -60,6 +59,22 @@ Note:
 4. Dependency: Dependency is a relationship between two classes where one class depends on another class, but the dependency is not as strong as association, aggregation, or composition.
 5. implementation: Implementation is a relationship between two classes where one class implements an interface defined by another class.
 6. Inheritance: Inheritance is a relationship between two classes where one class inherits the properties and methods of another class.
+
+In Essence:
+
+Depen­den­cy: Class А can be affect­ed by changes in class B.
+
+Asso­ci­a­tion: Object А knows about object B. Class A depends on B.
+
+Aggre­ga­tion: Object А knows about object B, and con­sists of B. Class A depends on B.
+
+Com­po­si­tion: Object А knows about object B, con­sists of B, and man­ages B’s life cycle. Class A depends on B.
+
+Imple­men­ta­tion: Class А defines meth­ods declared in inter­face B. Objects A can be treat­ed as B. Class A depends on B.
+
+Inher­i­tance: Class А inher­its inter­face and imple­men­ta­tion of class B but can extend it. Objects A can be treat­ed as B. Class A depends on B.
+
+
 
 # OOP PRINCIPLES
 1. SOLID Principles: SOLID is an acronym for five design principles that help make software designs more understandable, flexible, and maintainable.
