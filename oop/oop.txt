@@ -54,6 +54,8 @@ Note:
 
 # Relationship between Objects
 1. Association: Association is a relationship between two classes that describes how they are related to each other. It can be one-to-one, one-to-many, or many-to-many.
+                In the case of association between two classes, one class is associated with another class, but the associated class can exist independently of the main class.
+
 2. Aggregation: Aggregation is a type of association where one class contains a reference to another class, but the referenced class can exist independently of the container class.
 3. Composition: Composition is a type of association where one class contains an instance of another class, and the contained class cannot exist independently of the container class.
 4. Dependency: Dependency is a relationship between two classes where one class depends on another class, but the dependency is not as strong as association, aggregation, or composition.
@@ -73,6 +75,146 @@ Com­po­si­tion: Object А knows about object B, con­sists of B, and man­age
 Imple­men­ta­tion: Class А defines meth­ods declared in inter­face B. Objects A can be treat­ed as B. Class A depends on B.
 
 Inher­i­tance: Class А inher­its inter­face and imple­men­ta­tion of class B but can extend it. Objects A can be treat­ed as B. Class A depends on B.
+
+
+1. DEPENDENCY:
+Analogy: Professor (A) uses Gradebook System (B)
+Professor temporarily uses gradebook to input grades
+If IT changes gradebook's interface (B changes), Professor's grading process breaks (A affected)
+
+```python
+class GradebookSystem:  # Class B
+    def record_grade(self, student_id: str, grade: int):
+        return "Grade recorded"
+
+class Professor:  # Class A
+    def grade_paper(self, gradebook: GradebookSystem):  # A depends on B
+        # If record_grade() method signature changes, this code breaks
+        gradebook.record_grade("123", 95)
+```
+
+2. ASSOCIATION
+Analogy: Advisor (A) mentors Students (B)
+Advisor maintains references to their assigned students
+If student changes their study habits/availability (B changes), advisor's mentoring process is affected (A impacted)
+
+```python
+class Student:  # Class B
+    def receive_guidance(self):
+        print("Following advisor's guidance")
+
+class Advisor:  # Class A
+    def __init__(self):
+        self.students = []  # A knows about B
+        
+    def add_student(self, student: Student):
+        self.students.append(student)
+        
+    def mentor(self):
+        for student in self.students:
+            student.receive_guidance()  # If this method changes, advisor's code breaks
+```
+
+3. AGGREGATION
+Analogy: Department (A) has Professors (B)
+- Department consists of professors but doesn't control their existence
+- Professors can exist without department
+
+```python
+class Professor:  # Class B
+    def teach(self):
+        pass
+
+class Department:  # Class A
+    def __init__(self):
+        self.professors = []  # A consists of B
+    
+    def add_professor(self, prof: Professor):
+        self.professors.append(prof)
+```
+
+4. COMPOSITION
+Analogy: University (A) has Departments (B)
+- University creates and fully manages departments
+- Departments cannot exist without university
+
+```python
+class Department:  # Class B
+    def __init__(self, name: str):
+        self.name = name
+
+class University:  # Class A
+    def __init__(self):
+        # A creates and manages B's lifecycle
+        self.departments = [
+            Department("Physics"),
+            Department("Math")
+        ]  # Departments die when University dies
+```
+
+5. IMPLEMENTATION
+Analogy: TeachingAssistant (A) implements Instructor interface (B)
+- TA must provide all methods defined by Instructor
+
+```python
+class Instructor:  # Interface B
+    def teach(self): pass
+    def grade(self): pass
+
+class TeachingAssistant(Instructor):  # Class A
+    def teach(self):  # A must implement B's methods
+        print("Leading discussion")
+    def grade(self):
+        print("Grading papers")
+```
+
+6. INHERITANCE
+Analogy: ResearchProfessor (A) inherits from Professor (B)
+- Research Professor is a specialized Professor
+- Gets all Professor capabilities plus adds more
+
+```python
+class Professor:  # Class B
+    def teach(self):
+        print("Teaching class")
+
+class ResearchProfessor(Professor):  # Class A
+    def research(self):  # Extends B with new capabilities
+        print("Conducting research")
+```
+
+TO CALL THE METHODS:
+
+# 1. Dependency
+gradebook = GradebookSystem()
+professor = Professor()
+professor.grade_paper(gradebook)  # Temporary use
+
+# 2. Association 
+advisor = Advisor()
+student = Student(advisor)  # Permanent relationship
+student.advisor.office_hours()
+
+# 3. Aggregation
+department = Department()
+prof1 = Professor()
+prof2 = Professor() 
+department.add_professor(prof1)
+department.add_professor(prof2)
+
+# 4. Composition
+university = University()  # Departments created automatically
+print(university.departments)  # Access departments
+
+# 5. Implementation
+ta = TeachingAssistant()
+ta.teach()  # Uses interface methods
+ta.grade()
+
+# 6. Inheritance 
+research_prof = ResearchProfessor()
+research_prof.teach()  # Inherited method
+research_prof.research()  # New method
 
 
 
