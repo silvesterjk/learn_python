@@ -1,0 +1,236 @@
+# ABSTRACTION IN OOP
+1. Abstraction is the concept of hiding the complex implementation from the user and only showing the necessary features of the object.
+2. It is one of the four fundamental OOP concepts.
+3. Abstraction can be achieved in two ways: Abstract Classes and Interfaces.
+4. Abstract Classes: Abstract classes are classes that contain one or more abstract methods. An abstract method is a method that is declared, but contains no implementation.
+5. Interfaces: Interfaces are similar to abstract classes, but they only contain abstract methods and final variables.
+6. Abstraction helps in reducing programming complexity and effort.
+7. For Example: In the context of an aeroplane, the user only needs to know how to fly the plane and not the internal working of the plane.
+8. Abstraction is used to simplify the complex system by breaking it into small modules.
+
+
+# ENCAPSULATION IN OOP
+1. Encapsulation is the concept of wrapping the data (variables) and code acting on the data (methods) together as a single unit.
+2. It is one of the four fundamental OOP concepts.   
+3. Encapsulation helps in hiding the internal state of an object and restricting access to the object's internal data.
+4. Encapsulation can be achieved by using access specifiers such as public, private, and protected.
+5. Public: Public members are accessible from outside the class.
+6. Private: Private members are only accessible within the class.
+   8. Encapsulation helps in achieving data hiding, reusability, and modularity.
+9. For Example: In the context of a car, the user only needs to know how to drive the car and not the internal working of the car.
+
+Note: 
+* Interfaces are similar to abstract classes, but they only contain abstract methods and final variables.
+* Encapsulation helps in hiding the internal state of an object and restricting access to the object's internal data.
+* interface or protocol is a common way to define a contract between objects that communicate with each other.
+* For Example: In the context of a car, the user only needs to know how to drive the car and not the internal working of the car.
+    -- Here the interface would be the steering wheel, pedals, and gear shift, which are the only things the user interacts with, while the internal working of the car is hidden from the user.
+    -- And Protocol is a set of rules that defines how objects communicate with each other.
+
+# INHERITANCE IN OOP
+1. Inheritance is the concept of creating a new class by inheriting the properties and methods of an existing class.
+2. It is one of the four fundamental OOP concepts.
+3. Inheritance helps in reusing the code and establishing a relationship between classes.
+4. The class that is inherited from is called the base class or parent class, and the class that inherits from the base class is called the derived class or child class.
+5. Inheritance can be of different types: Single Inheritance, Multiple Inheritance, Multilevel Inheritance, and Hierarchical Inheritance.
+6. Single Inheritance: A class inherits from only one base class.
+7. Multiple Inheritance: A class inherits from multiple base classes.
+8. Multilevel Inheritance: A class inherits from a derived class, which in turn inherits from another base class.
+9. Hierarchical Inheritance: Multiple classes inherit from a single base class.
+10. For Example: In the context of animals, a Dog class can inherit from an Animal class, which contains common properties and methods shared by all animals.
+
+# POLYMORPHISM IN OOP
+1. Polymorphism is the concept of using a single interface to represent different underlying forms (data types).
+2. It is one of the four fundamental OOP concepts.
+3. Polymorphism allows objects of different classes to be treated as objects of a common superclass.
+4. Polymorphism can be achieved through method overriding and method overloading.
+5. Method Overriding: Method overriding is the concept of defining a method in the subclass that is already defined in the superclass. The method in the subclass overrides the method in the superclass.
+6. Method Overloading: Method overloading is the concept of defining multiple methods with the same name but different parameters in the same class.
+7. Polymorphism helps in achieving flexibility and extensibility in the code.
+8. For Example: In the context of shapes, a Circle class and a Rectangle class can both inherit from a Shape class, and the draw() method in each subclass can be implemented differently to draw a circle or a rectangle.
+9. If a class has multiple methods with the same name but different parameters, it is called method overloading.
+10. If a subclass has a method with the same name and signature as a method in the superclass, it is called method overriding.
+11. If it sounds like a duck, walks like a duck, and quacks like a duck, then it must be a duck.
+
+# Relationship between Objects
+1. Association: Association is a relationship between two classes that describes how they are related to each other. It can be one-to-one, one-to-many, or many-to-many.
+                In the case of association between two classes, one class is associated with another class, but the associated class can exist independently of the main class.
+
+2. Aggregation: Aggregation is a type of association where one class contains a reference to another class, but the referenced class can exist independently of the container class.
+3. Composition: Composition is a type of association where one class contains an instance of another class, and the contained class cannot exist independently of the container class.
+4. Dependency: Dependency is a relationship between two classes where one class depends on another class, but the dependency is not as strong as association, aggregation, or composition.
+5. implementation: Implementation is a relationship between two classes where one class implements an interface defined by another class.
+6. Inheritance: Inheritance is a relationship between two classes where one class inherits the properties and methods of another class.
+
+In Essence:
+
+Depen­den­cy: Class А can be affect­ed by changes in class B.
+
+Asso­ci­a­tion: Object А knows about object B. Class A depends on B.
+
+Aggre­ga­tion: Object А knows about object B, and con­sists of B. Class A depends on B.
+
+Com­po­si­tion: Object А knows about object B, con­sists of B, and man­ages B’s life cycle. Class A depends on B.
+
+Imple­men­ta­tion: Class А defines meth­ods declared in inter­face B. Objects A can be treat­ed as B. Class A depends on B.
+
+Inher­i­tance: Class А inher­its inter­face and imple­men­ta­tion of class B but can extend it. Objects A can be treat­ed as B. Class A depends on B.
+
+
+1. DEPENDENCY:
+Analogy: Professor (A) uses Gradebook System (B)
+Professor temporarily uses gradebook to input grades
+If IT changes gradebook's interface (B changes), Professor's grading process breaks (A affected)
+
+```python
+class GradebookSystem:  # Class B
+    def record_grade(self, student_id: str, grade: int):
+        return "Grade recorded"
+
+class Professor:  # Class A
+    def grade_paper(self, gradebook: GradebookSystem):  # A depends on B
+        # If record_grade() method signature changes, this code breaks
+        gradebook.record_grade("123", 95)
+```
+
+2. ASSOCIATION
+Analogy: Advisor (A) mentors Students (B)
+Advisor maintains references to their assigned students
+If student changes their study habits/availability (B changes), advisor's mentoring process is affected (A impacted)
+
+```python
+class Student:  # Class B
+    def receive_guidance(self):
+        print("Following advisor's guidance")
+
+class Advisor:  # Class A
+    def __init__(self):
+        self.students = []  # A knows about B
+        
+    def add_student(self, student: Student):
+        self.students.append(student)
+        
+    def mentor(self):
+        for student in self.students:
+            student.receive_guidance()  # If this method changes, advisor's code breaks
+```
+
+3. AGGREGATION
+Analogy: Department (A) has Professors (B)
+- Department consists of professors but doesn't control their existence
+- Professors can exist without department
+
+```python
+class Professor:  # Class B
+    def teach(self):
+        pass
+
+class Department:  # Class A
+    def __init__(self):
+        self.professors = []  # A consists of B
+    
+    def add_professor(self, prof: Professor):
+        self.professors.append(prof)
+```
+
+4. COMPOSITION
+Analogy: University (A) has Departments (B)
+- University creates and fully manages departments
+- Departments cannot exist without university
+
+```python
+class Department:  # Class B
+    def __init__(self, name: str):
+        self.name = name
+
+class University:  # Class A
+    def __init__(self):
+        # A creates and manages B's lifecycle
+        self.departments = [
+            Department("Physics"),
+            Department("Math")
+        ]  # Departments die when University dies
+```
+
+5. IMPLEMENTATION
+Analogy: TeachingAssistant (A) implements Instructor interface (B)
+- TA must provide all methods defined by Instructor
+
+```python
+class Instructor:  # Interface B
+    def teach(self): pass
+    def grade(self): pass
+
+class TeachingAssistant(Instructor):  # Class A
+    def teach(self):  # A must implement B's methods
+        print("Leading discussion")
+    def grade(self):
+        print("Grading papers")
+```
+
+6. INHERITANCE
+Analogy: ResearchProfessor (A) inherits from Professor (B)
+- Research Professor is a specialized Professor
+- Gets all Professor capabilities plus adds more
+
+```python
+class Professor:  # Class B
+    def teach(self):
+        print("Teaching class")
+
+class ResearchProfessor(Professor):  # Class A
+    def research(self):  # Extends B with new capabilities
+        print("Conducting research")
+```
+
+TO CALL THE METHODS:
+
+# 1. Dependency
+gradebook = GradebookSystem()
+professor = Professor()
+professor.grade_paper(gradebook)  # Temporary use
+
+# 2. Association 
+advisor = Advisor()
+student = Student(advisor)  # Permanent relationship
+student.advisor.office_hours()
+
+# 3. Aggregation
+department = Department()
+prof1 = Professor()
+prof2 = Professor() 
+department.add_professor(prof1)
+department.add_professor(prof2)
+
+# 4. Composition
+university = University()  # Departments created automatically
+print(university.departments)  # Access departments
+
+# 5. Implementation
+ta = TeachingAssistant()
+ta.teach()  # Uses interface methods
+ta.grade()
+
+# 6. Inheritance 
+research_prof = ResearchProfessor()
+research_prof.teach()  # Inherited method
+research_prof.research()  # New method
+
+
+
+# OOP PRINCIPLES
+1. SOLID Principles: SOLID is an acronym for five design principles that help make software designs more understandable, flexible, and maintainable.
+2. Single Responsibility Principle (SRP): A class should have only one reason to change, meaning that a class should have only one job or responsibility.
+3. Open/Closed Principle (OCP): Software entities should be open for extension but closed for modification, meaning that the behavior of a module can be extended without modifying its source code.
+4. Liskov Substitution Principle (LSP): Objects of a superclass should be replaceable with objects of its subclasses without affecting the correctness of the program.
+5. Interface Segregation Principle (ISP): A client should not be forced to implement an interface that it does not use, meaning that interfaces should be specific to the needs of the client.
+6. Dependency Inversion Principle (DIP): High-level modules should not depend on low-level modules. Both should depend on abstractions, meaning that the dependency should be on abstractions rather than concrete implementations.
+7. DRY Principle: DRY stands for Don't Repeat Yourself, meaning that duplication in code should be avoided by abstracting common functionality into reusable modules.
+8. KISS Principle: KISS stands for Keep It Simple, Stupid, meaning that systems should be designed in the simplest way possible to avoid unnecessary complexity.
+9. YAGNI Principle: YAGNI stands for You Aren't Gonna Need It, meaning that features should not be added until they are actually needed.
+10. Composition Over Inheritance: Composition is the concept of creating complex objects by combining simpler objects, rather than using inheritance to create complex objects.
+11. Encapsulate What Varies: Encapsulate What Varies is a design principle that suggests encapsulating the parts of a system that are likely to change in the future.
+12. Favor Composition Over Inheritance: Favor Composition Over Inheritance is a design principle that suggests using composition to build complex objects instead of relying on inheritance.
+13. Law of Demeter: The Law of Demeter is a design principle that suggests limiting the interactions between objects to reduce coupling and increase encapsulation.
+14. Tell, Don't Ask: Tell, Don't Ask is a design principle that suggests telling objects what to do rather than asking them for information and then making decisions based on that information.
+15. Principle of Least Astonishment: The Principle of Least Astonishment is a design principle that suggests designing systems in a way that minimizes surprises or unexpected behavior.
