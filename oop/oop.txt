@@ -239,3 +239,4 @@ research_prof.research()  # New method
 1. Design patterns are reusable solutions to common problems in software design.
 2. Design patterns help in creating flexible, maintainable, and scalable software systems.
 3. There are three main categories of design patterns: Creational, Structural, and Behavioral.
+4. Creational Design Patterns: Creational design patterns deal with object creation mechanisms, trying to create objects in a manner suitable to the situation.
