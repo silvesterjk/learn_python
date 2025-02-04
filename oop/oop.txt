@@ -241,3 +241,4 @@ research_prof.research()  # New method
 3. There are three main categories of design patterns: Creational, Structural, and Behavioral.
 4. Creational Design Patterns: Creational design patterns deal with object creation mechanisms, trying to create objects in a manner suitable to the situation.
 5. Structural Design Patterns: Structural design patterns deal with object composition and provide ways to form objects into larger structures.
+6. Behavioral Design Patterns: Behavioral design patterns deal with object collaboration and communication between objects.
