@@ -217,7 +217,6 @@ research_prof.teach()  # Inherited method
 research_prof.research()  # New method
 
 
-
 # OOP PRINCIPLES
 1. SOLID Principles: SOLID is an acronym for five design principles that help make software designs more understandable, flexible, and maintainable.
 2. Single Responsibility Principle (SRP): A class should have only one reason to change, meaning that a class should have only one job or responsibility.
@@ -234,3 +233,9 @@ research_prof.research()  # New method
 13. Law of Demeter: The Law of Demeter is a design principle that suggests limiting the interactions between objects to reduce coupling and increase encapsulation.
 14. Tell, Don't Ask: Tell, Don't Ask is a design principle that suggests telling objects what to do rather than asking them for information and then making decisions based on that information.
 15. Principle of Least Astonishment: The Principle of Least Astonishment is a design principle that suggests designing systems in a way that minimizes surprises or unexpected behavior.
+
+
+# DESIGN PATTERNS
+1. Design patterns are reusable solutions to common problems in software design.
+2. Design patterns help in creating flexible, maintainable, and scalable software systems.
+3. There are three main categories of design patterns: Creational, Structural, and Behavioral.
