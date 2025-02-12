@@ -16,7 +16,7 @@ print(mystring3)
 print(mystring4)
 
 mystring5 = "Hello, World!"
-mystring5[0] = 'h' # TypeError: 'str' object does not support item assignment
+# mystring5[0] = 'h' # TypeError: 'str' object does not support item assignment
 char = mystring5[0]
 print(char) # H
 
@@ -33,3 +33,12 @@ step3rev = mystring5[::-1]
 print(step3rev) # !dlroW ,olleH
 
 # String concatenation
+string1 = "Hello"
+string2 = "-"
+string3 = "World"
+string4 = string1 + " " + string2 + " " + string3 # Hello - World
+string5 = string1 + string2 + string3 # HelloWorld --> This does not concatenate the strings with a space because we did not add a space in the concatenation.
+# That is why we have to add a space in the concatenation. For example, string1 + " " + string2 + " " + string3
+print(string5) # HelloWorld
+string6 = string1 + string3 # HelloWorld --> This concatenates the strings without a space because we did not add a space in the concatenation.
+
