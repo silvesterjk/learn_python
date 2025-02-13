@@ -45,3 +45,4 @@ string6 = string1 + string3 # HelloWorld --> This concatenates the strings witho
 # String formatting
 name = "John"
 age = 25
+formatted_string = "My name is {} and I am {} years old".format(name, age)
