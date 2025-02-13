@@ -44,3 +44,4 @@ string6 = string1 + string3 # HelloWorld --> This concatenates the strings witho
 
 # String formatting
 name = "John"
+age = 25
