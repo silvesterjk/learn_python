@@ -42,3 +42,5 @@ string5 = string1 + string2 + string3 # HelloWorld --> This does not concatenate
 print(string5) # HelloWorld
 string6 = string1 + string3 # HelloWorld --> This concatenates the strings without a space because we did not add a space in the concatenation.
 
+# String formatting
+name = "John"
