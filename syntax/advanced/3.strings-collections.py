@@ -53,3 +53,5 @@ print(formatted_string2) # My name is John and I am 25 years old
 
 formatted_string3 = "My name is {name} and I am {age} years old".format(name="John", age=25)
 print(formatted_string3) # My name is John and I am 25 years old
+
+# f-strings
