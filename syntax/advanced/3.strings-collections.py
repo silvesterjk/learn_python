@@ -80,3 +80,9 @@ print(string9) # ['Hello', ' World!'] --> Splits the string into a list
 
 string10 = string8_check.replace("Hello", "Hi")
 print(string10) # Hi, World! --> Replaces Hello with Hi 
+
+string11 = string8_check.startswith("Hello")
+print(string11) # True
+
+string12 = string8_check.endswith("World!")
+print(string12) # True
