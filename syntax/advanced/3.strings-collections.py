@@ -58,6 +58,17 @@ print(formatted_string3) # My name is John and I am 25 years old
 formatted_string4 = f"My name is {name} and I am {age} years old"
 print(formatted_string4) # My name is John and I am 25 years old
 
+# % operator
+formatted_string5 = "My name is %s and I am %d years old" % (name, age)
+print(formatted_string5) # My name is John and I am 25 years old
+
+pi_value = 3.14159
+formatted_string6 = "The value of pi is %.2f" % pi_value # The value of pi is 3.14
+
+# .format() method
+formatted_string7 = "My name is {name} and I am {age} years old".format(name="John", age=25)
+print(formatted_string7) # My name is John and I am 25 years old
+
 # String presence and absence
 
 string7 = "Hello, World!"
@@ -76,7 +87,9 @@ string8_check = string8.strip()
 print(string8_check) # Hello, World! --> Removes the leading and trailing whitespaces
 
 string9 = string8_check.split(",")
-print(string9) # ['Hello', ' World!'] --> Splits the string into a list
+print(string9) # ['Hello', ' World!'] --> Splits the string into a list seperated by comma
+string9_two = string8_check.split(" ")
+print(string9_two) # The result would be ['Hello,', 'World!'] --> Splits the string into a list seperated by space
 
 string10 = string8_check.replace("Hello", "Hi")
 print(string10) # Hi, World! --> Replaces Hello with Hi 
@@ -86,3 +99,19 @@ print(string11) # True
 
 string12 = string8_check.endswith("World!")
 print(string12) # True
+print(string8_check.count("l")) # 3 --> Returns the number of occurrences of the substring
+print(string8_check.find("l")) # 2 --> Returns the index of the first occurrence of the substring
+
+# bad way to concatenate strings
+mylist = ["a", "b", "c"]
+
+mystring = ""
+for letter in mylist:
+    mystring += letter
+print(mystring) # abc --> bad because it creates a new string object for each concatenation
+
+# good way to concatenate strings
+mylist = ["a", "b", "c"]
+mystring = "".join(mylist)
+
+print(mystring) # abc --> good because it creates a new string object for each concatenation
