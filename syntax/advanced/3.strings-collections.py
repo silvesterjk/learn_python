@@ -55,19 +55,22 @@ formatted_string3 = "My name is {name} and I am {age} years old".format(name="Jo
 print(formatted_string3) # My name is John and I am 25 years old
 
 # f-strings
-formatted_string4 = f"My name is {name} and I am {age} years old"
-print(formatted_string4) # My name is John and I am 25 years old
+formatted_string4 = f"My name is {name} and I am {age} years old and I will be {age*2} in another 25 years."
+print(formatted_string4) # My name is John and I am 25 years old and I will be 50 in another 25 years.
 
 # % operator
 formatted_string5 = "My name is %s and I am %d years old" % (name, age)
 print(formatted_string5) # My name is John and I am 25 years old
 
 pi_value = 3.14159
+e_value = 2.71828
 formatted_string6 = "The value of pi is %.2f" % pi_value # The value of pi is 3.14
 
 # .format() method
 formatted_string7 = "My name is {name} and I am {age} years old".format(name="John", age=25)
 print(formatted_string7) # My name is John and I am 25 years old
+
+formatted_string8 = "The value of pi is {:.2f} and the value of e is {:.3f}".format(pi_value, e_value) # The value of pi is 3.14 and the value of e is 2.718
 
 # String presence and absence
 
