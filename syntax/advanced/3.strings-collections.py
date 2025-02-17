@@ -57,3 +57,26 @@ print(formatted_string3) # My name is John and I am 25 years old
 # f-strings
 formatted_string4 = f"My name is {name} and I am {age} years old"
 print(formatted_string4) # My name is John and I am 25 years old
+
+# String presence and absence
+
+string7 = "Hello, World!"
+if 'x' in string7:
+    print("x is in string7")
+elif 'X' in string7:
+    print("X is in string7")
+else:
+    print("Char not in string7")
+
+string8 = "    Hello, World!    "
+if string8.strip():
+    print("string8 is not empty")
+
+string8_check = string8.strip()
+print(string8_check) # Hello, World! --> Removes the leading and trailing whitespaces
+
+string9 = string8_check.split(",")
+print(string9) # ['Hello', ' World!'] --> Splits the string into a list
+
+string10 = string8_check.replace("Hello", "Hi")
+print(string10) # Hi, World! --> Replaces Hello with Hi 
