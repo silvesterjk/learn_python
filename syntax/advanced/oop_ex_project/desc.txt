@@ -1,0 +1,10 @@
+We're creating a game with a hero and a monster. 
+
+-- We'll create enemies and heroes with different attributes.
+-- Different types of enemies: goblin, troll, dragon
+-- Different types of heroes: warrior, mage, rogue
+
+-- Each enemy with have a name, health, attack power and attack damage.
+-- Each hero will have a name, health, attack power and attack damage.
+
+-- This will be built with the four pillars of OOP: encapsulation, inheritance, polymorphism, and abstraction.
