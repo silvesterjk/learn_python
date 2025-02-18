@@ -8,3 +8,5 @@ We're creating a game with a hero and a monster.
 -- Each hero will have a name, health, attack power and attack damage.
 
 -- This will be built with the four pillars of OOP: encapsulation, inheritance, polymorphism, and abstraction.
+
+We'll start by creating the classes for the enemies and heroes.
