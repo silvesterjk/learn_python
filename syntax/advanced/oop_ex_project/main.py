@@ -114,17 +114,39 @@ print(f"The type of enemy is {orc_type}.")
     - Hybrid Inheritance
 
 11. Single Inheritance is when a class inherits from only one class.
-    For example:
-        class Enemy:
-            def __init__(self, type_of_enemy, enemy_health=10, enemy_damage=5):
-                self.__type_of_enemy: str = type_of_enemy
-                self.enemy_health: int = enemy_health
-                self.enemy_damage: int = enemy_damage
-
-            def talk(self):
-                print(f'I am a {self.__type_of_enemy}. I will kill you') 
-
 12. Multiple Inheritance is when a class inherits from more than one class.
-    For example:
-        
+13. Multilevel Inheritance is when a class inherits from a class which in turn inherits from another class.
+14. Hierarchical Inheritance is when more than one class inherits from a single class.
+15. Hybrid Inheritance is when a class is derived from two or more classes.
+
+Examples of inheritance:
+    - class DerivedClassName(BaseClassName):
+        pass
+    - class DerivedClassName(BaseClassName1, BaseClassName2):
+        pass
+    - class DerivedClassName(BaseClassName1, BaseClassName2, BaseClassName3):
+        pass
+
+"""
+
+# POLYMORPHISM
+
+"""
+1. Polymorphism is the ability to present the same interface for different data types.
+2. Polymorphism allows methods to do different things based on the object it is acting upon.
+3. Polymorphism is a way to make the code more scalable.
+4. Polymorphism is a way to make the code more reusable.
+
+For example:
+    - The + operator is used to add two numbers and concatenate two strings.
+    - The * operator is used to multiply two numbers and repeat a string multiple times.
+"""
+
+# SELF VS. SUPER
+
+"""
+1. self is a reference to the current instance of the class.
+2. self is used to access the attributes and methods of the class.
+3. Super is a reference to the parent class.
+4. Super is used to call the constructor and methods of the parent class.
 """

@@ -15,3 +15,6 @@ class Enemy:
 
     def get_the_type_of_enemy(self):
         return self.__type_of_enemy
+    
+
+# SELF VS. SUPER
