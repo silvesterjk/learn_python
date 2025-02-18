@@ -1,7 +1,10 @@
 from fastapi import Body, FastAPI
 
-app = FastAPI()
+app = FastAPI() # This is for uviorn to know that this is the app to run
 
+@app.get("/")
+async def first_api():
+    return {"data": "First Data"}
 
 BOOKS = [
     {'title': 'Title One', 'author': 'Author One', 'category': 'science'},
