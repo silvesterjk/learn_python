@@ -10,3 +10,7 @@ We're creating a game with a hero and a monster.
 -- This will be built with the four pillars of OOP: encapsulation, inheritance, polymorphism, and abstraction.
 
 We'll start by creating the classes for the enemies and heroes.
+
+1. Abstraction is like a flash light with on and off switch. You don't need to know how it works, just that it works.
+   -- It essentially abstracts the details of how it works.
+   -- User just needs to interact with the on/off switch. The interface.
