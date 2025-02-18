@@ -1,8 +1,6 @@
 from enemy import *
 
-orc = Enemy() # This is a constructor.
-
-orc.type_of_enemy = "Orc"
+orc = Enemy("Orc", 20, 5) # This is an instance of the class Enemy. Example of a constructor.
 
 # print(f"The type of enemy is {enemy.type_of_enemy} and it has {enemy.enemy_health} health points and does {enemy.enemy_damage} damage points.")
 
@@ -16,4 +14,36 @@ orc.type_of_enemy = "Orc"
 """
 
 print(orc.walk())
+
+print(orc.attack())
+
+print(orc.talk())
+
+# CONSTRUCTOR
+
+"""
+1. A constructor is a special method that is called when an object is created.
+2. There are 4 types of constructors in Python:
+    - Default/Empty constructor
+    - Parameter constructor
+    - No Argument constructor
+
+    A. Default constructor is the one that doesn't take any arguments.
+        - Example code: 
+            def __init__(self):
+                pass
+    B. Parameter constructor is the one that takes arguments.
+        - Example code:
+            def __init__(self, name, age):
+                self.name = name
+                self.age = age
+    C. No Argument constructor is the one that takes no arguments.
+        - Example code:
+            def __init__(self):
+                print("Enemy has been created.")
+            def talk(self):
+                return "I am an enemy."
+"""
+
+# INHERITANCE
 

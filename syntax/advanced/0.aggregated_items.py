@@ -97,3 +97,5 @@ dog = Dog("Buddy")
 print(dog.name) # Buddy 
 
 # Four pillars of object-oriented programming: Encapsulation, Inheritance, Polymorphism, and Abstraction.
+
+

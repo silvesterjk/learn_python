@@ -1,7 +1,8 @@
-class Enemy():
-    type_of_enemy: str
-    enemy_health: int = 100
-    enemy_damage: int = 10
+class Enemy:
+    def __init__(self, type_of_enemy, enemy_health=10, enemy_damage=5):
+        self.type_of_enemy: str = type_of_enemy
+        self.enemy_health: int = enemy_health
+        self.enemy_damage: int = enemy_damage
 
     def talk(self):
         print(f'I am a {self.type_of_enemy}. I will kill you')
