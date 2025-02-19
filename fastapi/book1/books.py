@@ -1,10 +1,7 @@
 from fastapi import Body, FastAPI
 
-app = FastAPI() # This is for uviorn to know that this is the app to run
+app = FastAPI()
 
-@app.get("/")
-async def first_api():
-    return {"data": "First Data"}
 
 BOOKS = [
     {'title': 'Title One', 'author': 'Author One', 'category': 'science'},
@@ -84,3 +81,4 @@ async def delete_books_by_category(category: str):
         if BOOKS[i].get('category').casefold() == category.casefold():
             BOOKS.pop(i)
             break
+            
