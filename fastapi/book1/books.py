@@ -2,6 +2,9 @@ from fastapi import Body, FastAPI
 
 app = FastAPI()
 
+@app.get("/api-get")
+async def first_api():
+    return {"data": "Next API"}
 
 BOOKS = [
     {'title': 'Title One', 'author': 'Author One', 'category': 'science'},
