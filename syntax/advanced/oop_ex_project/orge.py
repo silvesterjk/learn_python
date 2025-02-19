@@ -22,7 +22,7 @@ class Orge(Enemy): # Orge is a child class of Enemy
         did_sattack_work = random.random() < 0.2 # 20% chance of True
         if did_sattack_work:
             print(f'{self.get_the_type_of_enemy()} has successfully infected you!')
-            self.enemy_health += 49
-            print(f"Orge's furious and increased the HP to {self.enemy_health}")
+            # self.enemy_health += 49
+            # print(f"Orge's furious and increased the HP to {self.enemy_health}")
         else:
             print(f'{self.get_the_type_of_enemy()} tried to infect you but failed!') 

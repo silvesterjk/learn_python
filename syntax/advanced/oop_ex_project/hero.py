@@ -1,4 +1,4 @@
-from weapon import *
+from weapon import Weapon
 
 class Hero:
     def __init__(self, health_points, attack_damage):
@@ -9,18 +9,18 @@ class Hero:
         self.weapon: Weapon = None
 
     def equip_weapon(self):
-        if self.weapon is None and not self.is_weapon_equiped: # If there is no weapon and weapon is not equiped
+        if self.weapon is not None and not self.is_weapon_equiped: # If there is a weapon and weapon is not equiped
             self.attack_damage += self.weapon.attack_increase # Increase the attack damage
             self.is_weapon_equiped = True
 
     def attack(self):
         print(f'{self.name} attacks with the power of {self.attack_damage}')
 
-    def is_alive(self):
-        return self.health > 0
+    # def is_alive(self):
+    #     return self.health > 0
 
-    def __str__(self):
-        return f'{self.name} has {self.health} health and wields a {self.weapon}'
+    # def __str__(self):
+    #     return f'{self.name} has {self.health} health and wields a {self.weapon}'
 
 # EXAMPLE USAGE:
 
