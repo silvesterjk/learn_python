@@ -180,3 +180,59 @@ orge = Orge(20, 5)
 
 battle(zombie)
 battle(orge)
+
+
+# COMPOSITION
+
+"""
+1. Composition is a way to combine objects or classes together.
+2. Composition is a way to make the code more scalable, reusable and maintainable.
+3. HAS-A and IS-A are two types of relationships in object-oriented programming.
+4. HAS-A : A car has an engine but an engine does not have a car.
+5. IS-A : A car is a vehicle.
+"""
+
+# COMPOSITION EXAMPLE
+
+class Engine:
+    def __init__(self, horsepower):
+        self.horsepower = horsepower
+
+    def start(self):
+        return "Engine has started."
+
+    def stop(self):
+        return "Engine has stopped."
+    
+    def accelerate(self):
+        return "Engine is accelerating."
+    
+    def decelerate(self):
+        return "Engine is decelerating."
+
+class Car:
+    def __init__(self, make, model, year, engine):
+        self.make = make
+        self.model = model
+        self.year = year
+        self.engine = engine
+
+    def start(self):
+        return self.engine.start()
+
+    def stop(self):
+        return self.engine.stop()
+    
+    def accelerate(self):
+        return self.engine.accelerate()
+    
+    def decelerate(self):
+        return self.engine.decelerate()
+
+engine = Engine(200)
+car = Car("Toyota", "Corolla", 2022, engine)
+
+print(car.start()) # Engine has started.
+print(car.accelerate()) # Engine is accelerating.
+print(car.decelerate()) # Engine is decelerating.
+print(car.stop()) # Engine has stopped.
