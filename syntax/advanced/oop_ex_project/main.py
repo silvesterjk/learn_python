@@ -1,4 +1,6 @@
 from enemy import *
+from zombie import *
+from orge import *
 
 orc = Enemy("Orc", 20, 5) # This is an instance of the class Enemy. Example of a constructor.
 
@@ -150,3 +152,31 @@ For example:
 3. Super is a reference to the parent class.
 4. Super is used to call the constructor and methods of the parent class.
 """
+
+# INHERITENCE
+
+zombie = Zombie(30, 10) # This is an instance of the class Zombie. Example of a constructor.
+
+print(zombie.get_the_type_of_enemy()) # This is a method in the Enemy class.
+print(zombie.talk()) # Method overide
+print(zombie.spread_infection()) # This is a new method in the Zombie class.
+
+# POLYMORPHISM
+
+"""
+1. Polymorphism is the ability to present the same interface for different data types.
+2. Polymorphism allows methods to do different things based on the object it is acting upon.
+3. Polymorphism is a way to make the code more scalable.
+4. Polymorphism is a way to make the code more reusable.
+"""
+
+def battle(e: Enemy): # e: Enemy means --> e is an instance of the class Enemy
+    e.attack()
+    e.talk()
+
+
+zombie = Zombie(10,1)
+orge = Orge(20, 5)
+
+battle(zombie)
+battle(orge)
