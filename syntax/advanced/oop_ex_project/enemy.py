@@ -18,3 +18,9 @@ class Enemy:
     
 
 # SELF VS. SUPER
+"""
+1. We use self when we're referring to a aruguments within the different methods of a Class.
+2. When inheriting form an another class we use Super()__init__ to pull data from a different class
+3. 
+"""
+
