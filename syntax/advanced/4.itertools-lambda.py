@@ -123,3 +123,8 @@ print(c) # [2, 4, 6] | List comprehension can also be used to achieve the same r
 4 They are syntactically restricted to a single expression.
 """
 
+# reduce function --> reduce(function, iterable)
+from functools import reduce
+a = [1, 2, 3, 4]
+product_a = reduce(lambda x, y: x*y, a) # multiplies all the elements in the list
+print(product_a) # 24 | 1*2 = 2, 2*3 = 6, 6*4 = 24 | reduce cannot be printed directly as it returns an iterator object
