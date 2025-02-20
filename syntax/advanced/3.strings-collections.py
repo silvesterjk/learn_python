@@ -118,3 +118,12 @@ mylist = ["a", "b", "c"]
 mystring = "".join(mylist)
 
 print(mystring) # abc --> good because it creates a new string object for each concatenation
+
+
+# COLLECTIONS
+
+# Counter
+from collections import Counter
+a = "aaaaabbbbcccdde"
+my_counter = Counter(a)
+print(my_counter) # Counter({'a': 5, 'b': 4, 'c': 3, 'd': 2, 'e': 1})
