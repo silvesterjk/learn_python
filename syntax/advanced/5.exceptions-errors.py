@@ -71,3 +71,51 @@ try:
 except Exception as e:
     print("An error occurred")
     print(e)
+
+# Multiple exceptions
+
+try:
+    a/5 =1
+    b = a+'10'
+except (ZeroDivisionError, TypeError) as e:
+    print("An error occurred")
+    print(e)
+
+# or
+
+except ZeroDivisionError as e:
+    print("An error occurred")
+    print(e)
+except TypeError as e:
+    print("An error occurred")
+    print(e)
+
+# We can add an else block to the try-except 
+# block to run the code if there are no exceptions
+else:
+    print("No exceptions occurred")
+finally:
+    print("This will run no matter what") # This will run no matter what. Used for cleanup code like closing a file or a database connection.
+
+# Custom exceptions
+class ValueTooSmallError(Exception):
+    def __init__(self, message, value):
+        self.message = message
+        self.value = value
+    
+
+class ValueTooLargeError(Exception):
+    pass
+
+def test_value(x):
+    if x > 0:
+        raise ValueTooSmallError("Value is too small")
+    if x > 100:
+        raise ValueTooLargeError("Value is too large")
+
+try:
+    test_value(200)
+except ValueTooSmallError as e:
+    print(e.message, e.value)
+except ValueTooLargeError as e:
+    print(e)
