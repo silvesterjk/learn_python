@@ -125,5 +125,47 @@ print(mystring) # abc --> good because it creates a new string object for each c
 # Counter
 from collections import Counter
 a = "aaaaabbbbcccdde"
-my_counter = Counter(a)
+my_counter = Counter(a) # We could use list or tuple as well
 print(my_counter) # Counter({'a': 5, 'b': 4, 'c': 3, 'd': 2, 'e': 1})
+print(my_counter.items()) # dict_items([('a', 5), ('b', 4), ('c', 3), ('d', 2), ('e', 1)])
+print(my_counter.keys()) # dict_keys(['a', 'b', 'c', 'd', 'e'])
+print(my_counter.values()) # dict_values([5, 4, 3, 2, 1])
+print(my_counter.most_common(1)) # [('a', 5)] --> Returns the most common element in the dictionary
+print(my_counter.most_common(2)) # [('a', 5), ('b', 4)] --> Returns the most common
+print(my_counter.most_common(1)[0][0]) # a --> Returns the tuple at index 0 and the element at index 0
+print(my_counter.most_common(1)[0][1]) # 5 --> Returns the tuple at index 0 and the element at index 1
+print(my_counter.elements()) # <itertools.chain object at 0x7f3c7c7b5e80> --> Returns an iterator
+print(list(my_counter.elements())) # ['a', 'a', 'a', 'a', 'a', 'b', 'b', 'b', 'b', 'c', 'c', 'c', 'd', 'd', 'e'] --> Returns a list of the elements
+
+
+#namedTuple
+from collections import namedtuple
+Point = namedtuple("Point", "x,y") # Point is the name of the tuple and x and y are the fields. x and y can also be seperated by space.
+pt = Point(1, -4)
+print(pt) # Point(x=1, y=-4)
+print(pt.x) # 1
+
+#OrderedDict
+from collections import OrderedDict
+ordered_dict = OrderedDict()
+ordered_dict['a'] = 1
+ordered_dict['b'] = 2
+ordered_dict['c'] = 3
+ordered_dict['d'] = 4
+ordered_dict['e'] = 5
+print(ordered_dict) # OrderedDict([('a', 1), ('b', 2), ('c', 3), ('d', 4), ('e', 5)]) --> Maintains the order of the elements
+# OrderDict is used for ordered dictionaries. It is a dictionary subclass that remembers the order in which the elements were inserted.
+# Can be used to implement a stack or queue.
+
+#defaultdict
+from collections import defaultdict
+d = defaultdict(int) # If we use float instead of int then the default value would be 0.0. Similarly the usage of list would be []
+d['a'] = 1
+d['b'] = 2
+print(d) # defaultdict(<class 'int'>, {'a': 1, 'b': 2})
+print(d['c']) # 0 --> Returns 0 because the key does not exist in the dictionary
+print(d) # defaultdict(<class 'int'>, {'a': 1, 'b': 2, 'c': 0}) --> Adds the key to the dictionary with the default value of 0
+# defaultdict is a dictionary subclass that calls a factory function to supply missing values.
+# It is used to create a dictionary with a default value for each key.
+
+#deque --> Double-ended queue
