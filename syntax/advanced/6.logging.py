@@ -60,3 +60,55 @@ logger.error("This is an error message")
 formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 file_handler.setFormatter(formatter)
 logger.error("This is an error message")
+
+# We can use logging.config.dictConfig to configure the logger using a dictionary
+# We can use logging.config.fileConfig to configure the logger using a configuration file
+# We can use logging.config.listen to listen for configuration events
+# We can use logging.config.stopListening to stop listening for configuration events
+
+try:
+    a = [1,2,3,4,5]
+    val = a[7]
+except IndexError as e:
+    logging.error(e, exc_info=True) # This will store the log and also the trace on which line the error happened etc. | Traceback
+
+
+# Alternatively:
+import traceback
+try:
+    a = [1,2,3,4,5]
+    val = a[7]
+except:
+    logging.error("The erroe is %s", traceback.format_exc()) # This does the same things as above.
+
+
+# RotatingFileHandler
+import logging
+from logging.handlers import RotatingFileHandler
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+# The RotatingFileHandler will rotate the log file when it reaches a certain size
+# The log file will be rotated 3 times and each file will be 1KB
+handler = RotatingFileHandler("app.log", maxBytes=1000, backupCount=3)
+logger.addHandler(handler)
+
+for _ in range(10000):
+    logger.info("Hello, world!")
+
+# TimedRotatingFileHandler
+import logging
+from logging.handlers import TimedRotatingFileHandler
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+# The TimedRotatingFileHandler will rotate the log file at certain timed intervals
+# The log file will be rotated every minute and will be kept for 5 minutes
+# s, m, h, d, midnight, w0, w1, w2, w3, w4, w5, w6 --> seconds, minutes, hours, days, midnight, weekdays
+handler = TimedRotatingFileHandler("app.log", when="m", interval=1, backupCount=5)
+logger.addHandler(handler)
+
+
+# Tip: Use python json logger for microservices
