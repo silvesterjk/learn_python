@@ -169,3 +169,42 @@ print(d) # defaultdict(<class 'int'>, {'a': 1, 'b': 2, 'c': 0}) --> Adds the key
 # It is used to create a dictionary with a default value for each key.
 
 #deque --> Double-ended queue
+from collections import deque
+d = deque()
+d.append(1)
+d.append(2)
+d.appendleft(3)
+print(d) # deque([3, 1, 2])
+d.pop()
+print(d) # deque([3, 1])
+d.popleft()
+print(d) # deque([1])
+d.extend([4, 5, 6])
+print(d) # deque([1, 4, 5, 6])
+d.rotate(1)
+print(d) # deque([6, 1, 4, 5])
+d.rotate(-1)
+print(d) # deque([1, 4, 5, 6])
+# deque is a list-like container with fast appends and pops on either end. 
+# It is used to implement queues and stacks.
+
+#ChainMap
+from collections import ChainMap
+dict1 = {'a': 1, 'b': 2}
+dict2 = {'c': 3, 'd': 4}
+chain_map = ChainMap(dict1, dict2)
+print(chain_map) # ChainMap({'a': 1, 'b': 2}, {'c': 3, 'd': 4})
+print(chain_map['a']) # 1
+print(chain_map['c']) # 3
+print(chain_map.maps) # [{'a': 1, 'b': 2}, {'c': 3, 'd': 4}]
+dict2['c'] = 5
+print(chain_map.maps) # [{'a': 1, 'b': 2}, {'c': 5, 'd': 4}]
+print(chain_map['c']) # 5
+print(chain_map['e']) # KeyError: 'e'
+# ChainMap is a dictionary-like class that makes it easy to work with multiple dictionaries.
+# It is used to combine multiple dictionaries or mappings.
+
+
+
+
+
