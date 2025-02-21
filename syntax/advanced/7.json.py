@@ -77,3 +77,5 @@ with open("person.json", "r") as file: # here we are reading the JSON data from 
 
 # Output:
 # {'name': 'John', 'age': 30, 'city': 'New York', 'languages': ['English', 'Spanish', 'French'], 'programming': {'languages': ['Python', 'Java'], 'experience': 5}, 'has_children': False}
+
+# JSON to Python
