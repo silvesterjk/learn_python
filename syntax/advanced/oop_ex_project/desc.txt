@@ -26,3 +26,4 @@ We'll start by creating the classes for the enemies and heroes.
 4. Polymorphism is like a shape shifter.
    -- The same method can do different things depending on the object.
    -- The same method can have different implementations depending on the object.
+

@@ -158,3 +158,15 @@ print(v3.x)  # Outputs: 3 --> Here we're calling the x attribute of the v3 objec
 # The resulting Vector object is stored in v3, and its x attribute is printed.
 
 """
+
+
+# COMPOSITION
+
+"""
+1. Composition is a way to combine objects or classes together.
+2. Composition is a way to create complex objects.
+3. Composition is a way to create a has-a relationship.
+4. Composition is a way to create a part-of relationship.
+5. Composition is a way to create a whole-part relationship.
+"""
+
