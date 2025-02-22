@@ -159,7 +159,6 @@ print(v3.x)  # Outputs: 3 --> Here we're calling the x attribute of the v3 objec
 
 """
 
-
 # COMPOSITION
 
 """
