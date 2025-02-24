@@ -94,3 +94,27 @@ print(userJSON)
 
 # Output: {"name": "John", "age": 30}
 
+print(type(userJSON)) # <class 'str'> --> This is not a dict but a string because we have converted the object to a JSON string
+
+from json import JSONEncoder
+# To make it a dict: 
+"""
+In the following code:
+1. We have created a UserEncoder class that inherits from JSONEncoder.
+2. We have overridden the default method to handle the User object.
+3. If the object is an instance of User, we return a dictionary with the user's name and age.
+4. We call the JSONEncoder's default method for other types of objects.
+5. We have created an instance of the User class and converted it to a JSON string using the UserEncoder class.
+6. We have converted the JSON string back to a dictionary using the json.loads method.
+"""
+class UserEncoder(JSONEncoder):
+    def default(self, o):
+        if isinstance(o, User):
+            return {"name": o.name, "age": o.age, o.__class__.__name__: True}
+        return JSONEncoder.default(self, o)
+    
+userJSON2 = json.dumps(user, cls=UserEncoder)
+print(userJSON2) # {"name": "John", "age": 30}
+
+userJSON3 = json.loads(userJSON2)
+print(type(userJSON3)) # <class 'dict'> --> This is a dict because we have converted the JSON string to a dict
