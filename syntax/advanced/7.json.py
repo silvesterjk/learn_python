@@ -130,3 +130,4 @@ def decode_user(dct):
 user = json.loads(userJSON2, object_hook=decode_user)
 print(user.name) # John --> This is the name of the user object
 print(user.age) # 30 --> This is the age of the user object
+print(type(user)) # <class '__main__.User'> --> This is the type of the user object
