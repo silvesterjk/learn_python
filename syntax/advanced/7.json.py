@@ -81,3 +81,4 @@ with open("person.json", "r") as file: # here we are reading the JSON data from 
 # JSON to Python
 person = json.loads(personJSON)
 print(person)
+
