@@ -82,3 +82,15 @@ with open("person.json", "r") as file: # here we are reading the JSON data from 
 person = json.loads(personJSON)
 print(person)
 
+class User:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+user = User("John", 30)
+
+userJSON = json.dumps(user.__dict__) # __dict__ is a dictionary that contains all the attributes of the object
+print(userJSON)
+
+# Output: {"name": "John", "age": 30}
+
