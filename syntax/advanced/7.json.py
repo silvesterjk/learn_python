@@ -118,3 +118,15 @@ print(userJSON2) # {"name": "John", "age": 30}
 
 userJSON3 = json.loads(userJSON2)
 print(type(userJSON3)) # <class 'dict'> --> This is a dict because we have converted the JSON string to a dict
+
+# To decode:
+# Which means: If the dictionary contains the key "name" and "age", then it is a User object.
+
+def decode_user(dct):
+    if User.__name__ in dct:
+        return User(name=dct["name"], age=dct["age"])
+    return dct
+
+user = json.loads(userJSON2, object_hook=decode_user)
+print(user.name) # John --> This is the name of the user object
+print(user.age) # 30 --> This is the age of the user object
