@@ -1,4 +1,8 @@
 # DECORATORS
+# There are two types of decorators in Python: function decorators and class decorators.
+# Function Decorators: Modify the behavior of a function or a method.
+# Class Decorators: Modify the behavior of a class.
+# Decorators are used to modify the behavior of functions or methods. They are used to add functionality to existing functions or methods without changing their structure.
 
 def my_decorator(func):
     def wrapper():
