@@ -3,6 +3,8 @@
 # Function Decorators: Modify the behavior of a function or a method.
 # Class Decorators: Modify the behavior of a class.
 # Decorators are used to modify the behavior of functions or methods. They are used to add functionality to existing functions or methods without changing their structure.
+# Functions in python are first-class objects. This means that functions can be passed as arguments to other functions, returned as values from other functions, and assigned to variables.
+# A decorator is a function that takes another function as an argument and returns a new function. The @ symbol is used to apply a decorator to a function.
 
 def my_decorator(func):
     def wrapper():
