@@ -6,3 +6,4 @@ def my_decorator(func):
         func()
         print("Something is happening after the function is called.")
     return wrapper
+
