@@ -42,3 +42,6 @@ Start
 Hello man
 End
 """
+
+# Decorators with arguments
+# Decorators can also take arguments. To do this, we need to add another layer of functions.
