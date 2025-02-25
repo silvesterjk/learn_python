@@ -24,4 +24,21 @@ def say_hello():
     print("Hello man!")
 
 say_hello = start_end_decorator(say_hello)
-say_hello()
+say_hello() # This will print:
+
+"""
+Start
+Hello man
+End
+"""
+
+# This is the same as:
+@start_end_decorator
+def say_hello():
+    print("Hello man") # THis will print:
+
+"""
+Start
+Hello man
+End
+"""
