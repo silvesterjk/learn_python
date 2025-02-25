@@ -45,3 +45,15 @@ End
 
 # Decorators with arguments
 # Decorators can also take arguments. To do this, we need to add another layer of functions.
+# The outer function takes the arguments, and the inner function takes the function to be decorated.
+# The inner function then returns the wrapper function that will be applied to the function to be decorated.
+# The following code shows a decorator that takes an argument:  --> This is a decorator factory
+
+def repeat(num_times):
+    def decorator_repeat(func):
+        def wrapper(*args, **kwargs):
+            for _ in range(num_times):
+                result = func(*args, **kwargs)
+            return result
+        return wrapper
+    return decorator_repeat
