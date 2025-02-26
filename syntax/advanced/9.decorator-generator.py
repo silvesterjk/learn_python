@@ -86,7 +86,9 @@ def repeat(num_times):
 # This is how we use the decorator with arguments:
 @repeat(num_times=3)
 def greet(name):
-    print(f"Hello {name}") # This will print: Hello John Hello John Hello John
+    print(f"Hello {name}")
+
+greet("World") # This will print Hello World three times --> Hello World Hello World Hello World
 
 def add5(x):
     return x + 5
@@ -94,5 +96,5 @@ def add5(x):
 add5 = repeat(num_times=3)(add5)
 result = add5(10)
 print(result) # This will print 20
-
+ 
 
