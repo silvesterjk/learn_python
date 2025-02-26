@@ -58,6 +58,7 @@ def repeat(num_times):
         return wrapper
     return decorator_repeat
 
+# This is how we use the decorator with arguments:
 @repeat(num_times=3)
 def greet(name):
     print(f"Hello {name}")
