@@ -5,6 +5,9 @@
 # Decorators are used to modify the behavior of functions or methods. They are used to add functionality to existing functions or methods without changing their structure.
 # Functions in python are first-class objects. This means that functions can be passed as arguments to other functions, returned as values from other functions, and assigned to variables.
 # A decorator is a function that takes another function as an argument and returns a new function. The @ symbol is used to apply a decorator to a function.
+
+"""FUNCTION DECORATORS"""
+
 """
 def my_decorator(func):
     def wrapper():
@@ -96,5 +99,74 @@ def add5(x):
 add5 = repeat(num_times=3)(add5)
 result = add5(10)
 print(result) # This will print 20
- 
 
+"""
+Following function will:
+1. Call the repeat function with num_times=3 as an argument.
+2. The repeat function returns the decorator_repeat function.
+3. The decorator_repeat function takes the add5 function as an argument.
+"""
+def debug(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        args_repr = [repr(a) for a in args]
+        kwargs_repr = [f"{k}={v!r}" for k, v in kwargs.items()]
+        signature = ", ".join(args_repr + kwargs_repr)
+        print(f"Calling {func.__name__}({signature})")
+        result = func(*args, **kwargs)
+        print(f"{func.__name__!r} returned {result!r}")
+        return result
+    return wrapper
+
+@debug
+@start_end_decorator_two
+def say_hello_two(name):
+    greet = f'Hello {name}'
+    print(greet)
+    return greet
+
+say_hello_two("World") # This will print: Calling say_hello_two('World') Start Hello World End 'Hello World' say_hello_two returned 'Hello World'
+
+
+"""CLASS DECORATORS"""
+
+# Class decorators are used to modify the behavior of a class. They are used to add functionality to existing classes without changing their structure.
+# The following code shows how to use class decorators:
+
+class CountCalls:
+    def __init__(self, func):
+        self.func = func
+        self.num_calls = 0
+
+    def __call__(self, *args, **kwargs):
+        self.num_calls += 1
+        print(f"This is executed {self.num_calls} times")
+        return self.func(*args, **kwargs)
+
+@CountCalls 
+def say_hello():
+    print("Hello")
+
+say_hello() # This will print: This is executed 1 times - And print: Hello
+say_hello() # This will print: This is executed 2 times - And print: Hello 
+say_hello() # This will print: This is executed 3 times - And print: Hello
+
+"""GENERATORS"""
+# Generators are a type of iterable, like lists or tuples. They do not allow indexing, but they can still be iterated through using for loops.
+# Generators are a type of iterable that does not store the values in memory. Instead, they generate the values on the fly.
+# Generators are created using functions and the yield keyword.
+# The following code shows how to create a generator:
+
+my_generator = (x*x for x in range(3))
+print(my_generator) # This will print: <generator object <genexpr> at 0x7f8b3c6c6a50>
+for i in my_generator:
+    print(i) # This will print: 0 1 4
+
+# The following code shows how to create a generator using a function:
+def my_generator_two():
+    yield 1
+    yield 2
+    yield 3
+
+gen = my_generator_two()
+print(gen) # This will print: <generator object my_generator_two at 0x7f8b3c6c6a50>
