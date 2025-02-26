@@ -43,6 +43,31 @@ Hello man
 End
 """
 
+# Using functools.wraps
+# When we use decorators, the metadata of the original function is lost. This means that the name and the docstring of the original function are lost.
+# To preserve the metadata of the original function, we can use the wraps decorator from the functools module.
+# The wraps decorator is used to preserve the metadata of the original function when using decorators.
+# The following code shows how to use the wraps decorator:
+
+import functools
+
+def start_end_decorator_two(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        # Do something now
+        print("Start")
+        result = func(*args, **kwargs)
+        # Do something else
+        print("End")
+        return result
+    return wrapper
+
+@start_end_decorator_two
+def say_hello_two():
+    print("Hello") # This will print: Start Hello End
+
+"""ANOTHER EXAMPLE"""
+
 # Decorators with arguments
 # Decorators can also take arguments. To do this, we need to add another layer of functions.
 # The outer function takes the arguments, and the inner function takes the function to be decorated.
@@ -70,25 +95,4 @@ add5 = repeat(num_times=3)(add5)
 result = add5(10)
 print(result) # This will print 20
 
-# Using functools.wraps
-# When we use decorators, the metadata of the original function is lost. This means that the name and the docstring of the original function are lost.
-# To preserve the metadata of the original function, we can use the wraps decorator from the functools module.
-# The wraps decorator is used to preserve the metadata of the original function when using decorators.
-# The following code shows how to use the wraps decorator:
 
-import functools
-
-def start_end_decorator_two(func):
-    @functools.wraps(func)
-    def wrapper(*args, **kwargs):
-        # Do something now
-        print("Start")
-        result = func(*args, **kwargs)
-        # Do something else
-        print("End")
-        return result
-    return wrapper
-
-@start_end_decorator_two
-def say_hello_two():
-    print("Hello") # This will print: Start Hello End
