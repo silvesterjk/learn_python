@@ -154,6 +154,8 @@ say_hello() # This will print: This is executed 3 times - And print: Hello
 """GENERATORS"""
 # Generators are a type of iterable, like lists or tuples. They do not allow indexing, but they can still be iterated through using for loops.
 # Generators are a type of iterable that does not store the values in memory. Instead, they generate the values on the fly.
+# It returns objects that can be iterated over. They are used to create iterators.
+# Generators are used to create iterators. They are a type of iterable that does not store the values in memory. Instead, they generate the values on the fly.
 # Generators are created using functions and the yield keyword.
 # The following code shows how to create a generator:
 
@@ -164,9 +166,73 @@ for i in my_generator:
 
 # The following code shows how to create a generator using a function:
 def my_generator_two():
-    yield 1
-    yield 2
+    yield 1 # Only one is returned at a time. This is the difference between a generator and a normal function. The normal function will return all the values at once.
+    yield 2 # Only returns what is asked for
     yield 3
 
 gen = my_generator_two()
 print(gen) # This will print: <generator object my_generator_two at 0x7f8b3c6c6a50>
+for i in gen:
+    print(i) # This will print: 1 2 3
+
+#OR
+
+value = next(gen)
+print(value) # This will print: 1 --> Returns only till the first yield
+value = next(gen)
+print(value) # This will print: 2 --> Returns only till the second yield
+value = next(gen)
+print(value) # This will print: 3 --> Returns till the third yield
+value = next(gen)
+print(value) # This will raise a StopIteration error because there are no more values
+
+# Inputs to other functions
+
+g = my_generator_two()
+double = map(lambda x: x*2, g)
+print(list(double)) # This will print: [2, 4, 6]
+
+sorted_gen = sorted(g)
+print(sorted_gen) # This will print: [1, 2, 3]
+
+def countdown(num):
+    print("Starting")
+    while num > 0:
+        yield num # This will remember the state of the function and will continue from where it left off
+        num -= 1 # This will subtract 1 from the num
+        # This is the difference between a generator and a normal function. The normal function will return all the values at once.
+
+cd = countdown(4)
+value = next(cd)
+print(value) # This will print: 4
+value = next(cd)
+print(value) # This will print: 3
+value = next(cd)
+print(value) # This will print: 2
+value = next(cd)
+print(value) # This will print: 1
+value = next(cd)
+print(value) # This will raise a StopIteration error because there are no more values
+
+def firstn(n):
+    num = 0
+    while num < n:
+        yield num
+        num += 1
+
+sum_of_first_n = sum(firstn(1000000))
+print(sum_of_first_n) # This will print: 499999500000
+
+# Ineffienct way to do this would be:
+def firstn_list(n):
+    nums = []
+    num = 0
+    while num < n:
+        nums.append(num)
+        num += 1
+    return nums
+
+sum_of_first_n = sum(firstn_list(1000000))
+print(sum_of_first_n) # This will print: 499999500000
+
+# This is inefficient because it stores all the values in memory. Generators are more memory efficient.
