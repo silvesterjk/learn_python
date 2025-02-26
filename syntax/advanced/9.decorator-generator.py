@@ -214,6 +214,7 @@ print(value) # This will print: 1
 value = next(cd)
 print(value) # This will raise a StopIteration error because there are no more values
 
+import sys
 def firstn(n):
     num = 0
     while num < n:
@@ -222,6 +223,7 @@ def firstn(n):
 
 sum_of_first_n = sum(firstn(1000000))
 print(sum_of_first_n) # This will print: 499999500000
+sys_1 = sys.getsizeof(firstn(1000000)) # This will print: 112
 
 # Ineffienct way to do this would be:
 def firstn_list(n):
@@ -234,5 +236,32 @@ def firstn_list(n):
 
 sum_of_first_n = sum(firstn_list(1000000))
 print(sum_of_first_n) # This will print: 499999500000
+sys_2 = sys.getsizeof(firstn_list(1000000)) # This will print: 8697464
 
 # This is inefficient because it stores all the values in memory. Generators are more memory efficient.
+
+# Fibonacci sequence using a generator
+
+def fibonacci(limit):
+    # 0 1 1 2 3 5 8 13 21 34 55
+    a, b = 0, 1
+    while a < limit:
+        yield a
+        a, b = b, a + b
+
+fib = fibonacci(30)
+for i in fib:
+    print(i) # This will print: 0 1 1 2 3 5 8 13 21
+
+# GENERATOR EXPRESSIONS
+# Generator expressions are similar to list comprehensions, but they use parentheses instead of square brackets.
+# The following code shows how to create a generator expression:
+
+my_generator = (i for i in range(100000) if i % 2 == 0) # This creates a generator that generates even numbers from 0 to 4
+for i in my_generator:
+    print(i) # This will print: 0 2 4 ... 99998
+sys_3 = sys.getsizeof(my_generator) # This will print: 120
+
+mylist = [i for i in range(100000) if i % 2 == 0] # This creates a list that contains even numbers from 0 to 4
+print(mylist) # This will print: [0, 2, 4, ..., 99998]
+sys_4 = sys.getsizeof(mylist) # This will print: 406488
