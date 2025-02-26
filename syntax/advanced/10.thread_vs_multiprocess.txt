@@ -1,0 +1,73 @@
+#PROCESS
+
+"""
+A process is an instance of a program that is being executed. It contains the program code and its current activity.
+
+Pros:
++ Separate memory space: Each process runs independently in its own memory space, providing memory protection and isolation.
++ Independent execution: Processes can run concurrently and independently of each other.
++ Robustness: If one process fails, it does not affect other processes.
++ Process can be interrupted and killed.
++ One GIL (Global Interpreter Lock) per process. This means that each process can run Python code concurrently without being blocked by the GIL.
+
+Cons:
+- Heavyweight: Processes are heavyweight compared to threads because they have their own memory space.
+- Slow to create and manage: Creating and managing processes is slower than creating and managing threads.
+- Communication between processes is more complex and slower than communication between threads.
+- More resource-intensive: Processes consume more system resources than threads.
+"""
+
+# THREADS
+
+"""
+A thread is the smallest unit of execution within a process. It contains the program code and a thread ID.
+
+Pros:
++ Lightweight: Threads are lightweight compared to processes because they share the same memory space.
++ Fast to create and manage: Creating and managing threads is faster than creating and managing processes.
++ Communication between threads is faster and easier than communication between processes.
++ Threads are suitable for I/O-bound tasks.
+
+Cons:
+- Shared memory space: Threads share the same memory space
+- Less robust: If one thread crashes, it can affect other threads in the same process.
+- One GIL (Global Interpreter Lock) per process. This means that multiple threads in the same process cannot run Python code concurrently.
+- Threads are not suitable for CPU-bound tasks because of the GIL.
+- Not interruptible: Threads cannot be interrupted or killed individually. If one thread crashes, it can affect other threads in the same process. This may cause memory leaks or other issues.
+
+"""
+
+# GIL (Global Interpreter Lock)
+
+"""
+The Global Interpreter Lock (GIL) is a mutex that protects access to Python objects, preventing multiple threads from executing Python bytecodes simultaneously. 
+This means that only one thread can execute Python code at a time in a single process
+
+Needed in CPython because CPython's memory management is not thread-safe. 
+
+Avoid:
+- Use multiprocessing instead of multithreading for CPU-bound tasks.
+- Use asynchronous programming (e.g., asyncio) for I/O-bound tasks.
+- Use multiple processes instead of multiple threads for CPU-bound tasks.
+- Use multiple threads for I/O-bound tasks.
+- Use a different Python implementation (e.g., Jython, IronPython) that does not have a GIL.
+"""
+
+# Multiprocessing
+
+"""
+Multiprocessing is a technique in which multiple processes are executed concurrently on a multi-core CPU.
+
+Pros:
++ Separate memory space: Each process runs independently in its own memory space, providing memory protection and isolation.
++ Independent execution: Processes can run concurrently and independently of each other.
++ Robustness: If one process fails, it does not affect other processes.
++ Process can be interrupted and killed.
++ One GIL (Global Interpreter Lock) per process. This means that each process can run Python code concurrently without being blocked by the GIL.
+
+Cons:
+- Heavyweight: Processes are heavyweight compared to threads because they have their own memory space.
+- Slow to create and manage: Creating and managing processes is slower than creating and managing threads.
+- Communication between processes is more complex and slower than communication between threads.
+- More resource-intensive: Processes consume more system resources than threads.
+"""
