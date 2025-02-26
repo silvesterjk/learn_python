@@ -181,12 +181,12 @@ print(middle) # This will print [2, 3] --> This is a list because the *middle sy
 print(secondlast) # This will print 4
 print(last) # This will print 5
 
-beginning, *middle, last = num_dict
+beginning, *middle, last = num_dict1
 print(beginning) # This will print a
 print(middle) # This will print ['b', 'c', 'd']
 print(last) # This will print e
 
-beginning, *middle, last = num_dict.values()
+beginning, *middle, last = num_dict1.values()
 print(beginning) # This will print 1
 print(middle) # This will print [2, 3, 4]
 print(last) # This will print 5
