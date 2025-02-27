@@ -25,7 +25,7 @@ from hero import *
 #         print(f'{e2.get_the_type_of_enemy()} has won!')
 
 
-def hero_battle(hero: Hero, enemy: Enemy):   
+def hero_battle(hero: Hero, enemy: Enemy):   # hero: and enemy: are type hints --> They are used to specify the type of the parameter
 
     print(f"Hero's health: {hero.health_points}")
     print(f"{enemy.get_the_type_of_enemy()}'s health: {enemy.enemy_health}")
