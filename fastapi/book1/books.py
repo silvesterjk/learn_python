@@ -12,7 +12,8 @@ BOOKS = [
     {'title': 'Title Three', 'author': 'Author Three', 'category': 'history'},
     {'title': 'Title Four', 'author': 'Author Four', 'category': 'math'},
     {'title': 'Title Five', 'author': 'Author Five', 'category': 'math'},
-    {'title': 'Title Six', 'author': 'Author Two', 'category': 'math'}
+    {'title': 'Title Six', 'author': 'Author Two', 'category': 'math'},
+    {'title': 'Title Seven', 'author': 'Author Three', 'category': 'history'},
 ]
 
 @app.get("/books")
