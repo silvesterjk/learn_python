@@ -86,3 +86,36 @@ async def read_category_author(category: str, author: str):
         if book.get('category').casefold() == category.casefold() and book.get('author').casefold() == author.casefold():
             books_to_return.append(book)
     return books_to_return
+
+"""QUERY PARAMETERS"""
+# Get all books from a specific category and author using query parameters. Attached after the URL with a question mark.
+# The query parameters are the category and the author. They have name=value pairs.
+# The query parameters are passed to the function as arguments
+# The function returns all the books with the category and author that match the query parameters
+# The function returns a list of books with the category and author that match the query parameters
+
+@app.get("/read_books")
+async def read_books_query(category: str, author: str):
+    """
+    1. The query parameters are the category and the author
+    2. The query parameters are passed to the function as arguments
+    3. The function returns all the books with the category and author that match the query parameters
+    4. The function returns a list of books with the category and author that match the query parameters
+    """
+    books_to_return = []
+    for book in BOOKS:
+        if book.get('category').casefold() == category.casefold() and book.get('author').casefold() == author.casefold():
+            books_to_return.append(book)
+    return books_to_return
+
+"""
+Example REQUEST BODY:
+
+# 'http://0.0.0.0:8000/read_books?category=history&author=Author%20Three' -> This is the URL
+
+{
+    "author": "Author Three",
+    "category": "history"
+}
+
+"""
