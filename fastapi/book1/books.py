@@ -140,4 +140,31 @@ async def create_book(book: dict = Body(...)): # Body with upper case B is a cla
 Example REQUEST BODY:
 
 {"title": "Title Eight", "author": "Author Eight", "category": "history"}
+
+"""
+
+# PUT request with a request body
+# Update a book using a PUT request with a request body
+# The request body is the book
+
+@app.put("/books/update_book")
+async def update_book(book: dict = Body(...)): # Body with upper case B is a class from FastAPI ... is used to specify that the parameter is required 
+    """
+    1. The request body is the book
+    2. The request body is passed to the function as an argument
+    3. The function updates the book
+    4. The function returns the updated book
+    """
+    for b in BOOKS:
+        if b.get('title') == book.get('title'):
+            b.update(book)
+            print(f'"Book {book.get("title")} has been updated."')
+            return b
+    return {"data": "Book not found."}
+
+"""
+Example REQUEST BODY:
+
+{"title": "Title Eight", "author": "Author One", "category": "history"}
+
 """
