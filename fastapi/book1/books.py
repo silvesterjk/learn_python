@@ -168,3 +168,29 @@ Example REQUEST BODY:
 {"title": "Title Eight", "author": "Author One", "category": "history"}
 
 """
+
+# DELETE request with a request body
+# Delete a book using a DELETE request with a request body
+# The request body is the book
+
+@app.delete("/books/delete_book")
+async def delete_book(book: dict = Body(...)):
+    """
+    1. The request body is the book
+    2. The request body is passed to the function as an argument
+    3. The function deletes the book
+    4. The function returns the deleted book
+    """
+    for b in BOOKS:
+        if b.get('title') == book.get('title'):
+            BOOKS.remove(b)
+            print(f'"Book {book.get("title")} has been deleted."')
+            return b
+    return {"data": "Book not found."}
+
+"""
+Example REQUEST BODY:
+
+{"title": "Title Eight", "author": "Author One", "category": "history"}
+
+"""
