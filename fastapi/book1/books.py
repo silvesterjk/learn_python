@@ -124,8 +124,8 @@ Example REQUEST BODY:
 # Create a new book using a POST request with a request body
 # The request body is the book
 
-@app.post("/books")
-async def create_book(book: dict = Body(...)): # Body with upper case B is a class from FastAPI
+@app.post("/books/create_book")
+async def create_book(book: dict = Body(...)): # Body with upper case B is a class from FastAPI ... is used to specify that the parameter is required 
     """
     1. The request body is the book
     2. The request body is passed to the function as an argument
@@ -133,4 +133,11 @@ async def create_book(book: dict = Body(...)): # Body with upper case B is a cla
     4. The function returns the new book
     """
     BOOKS.append(book)
+    print(f'"Book {book.get("title")} has been created."')
     return book
+
+"""
+Example REQUEST BODY:
+
+{"title": "Title Eight", "author": "Author Eight", "category": "history"}
+"""
