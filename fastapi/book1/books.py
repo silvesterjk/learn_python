@@ -33,8 +33,24 @@ async def read_all_books():
 # Dynamic path parameters
 # Get all books from a specific category using path parameters
 
+@app.get("/books")
+async def read_book()
+    return BOOKS
+
+@app.get("/books/{dynamic_parameter}")
+async def read_books(dynamic_parameter: str):
+    return {'books_to_return': dynamic_parameter}
+
+# ___________________________________________________
+
 @app.get("/books/category/{category}")
 async def read_category(category: str):
+    """
+    1. The path parameter is the category
+    2. The path parameter is passed to the function as an argument
+    3. The function returns all the books with the category that matches the path parameter
+    4. The function returns a list of books with the category that matches the path parameter
+    """
     books_to_return = []
     for book in BOOKS:
         if book.get('category').casefold() == category.casefold():
@@ -54,20 +70,6 @@ async def read_category():
 # http://0.0.0.0:8000/books/category/science/author/Author%20One -> This is the URL
 # science -> This is the category path parameter
 # Author One -> This is the author path parameter
-
-@app.get("/books/{book_title}")
-async def read_book(book_title: str):
-    for book in BOOKS:
-        if book.get('title').casefold() == book_title.casefold(): # casefold() is used to make the comparison case-insensitive
-            return book
-
-@app.get("/books/")
-async def read_category_by_query(category: str):
-    books_to_return = []
-    for book in BOOKS:
-        if book.get('category').casefold() == category.casefold():
-            books_to_return.append(book)
-    return books_to_return
 
 # Get all books from a specific author using path or query parameters
 @app.get("/books/byauthor/")
