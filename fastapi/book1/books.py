@@ -119,3 +119,18 @@ Example REQUEST BODY:
 }
 
 """
+
+# POST request with a request body
+# Create a new book using a POST request with a request body
+# The request body is the book
+
+@app.post("/books")
+async def create_book(book: dict = Body(...)): # Body with upper case B is a class from FastAPI
+    """
+    1. The request body is the book
+    2. The request body is passed to the function as an argument
+    3. The function creates a new book
+    4. The function returns the new book
+    """
+    BOOKS.append(book)
+    return book
