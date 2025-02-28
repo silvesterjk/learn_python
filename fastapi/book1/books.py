@@ -20,13 +20,46 @@ BOOKS = [
 async def read_all_books():
     return BOOKS
 
+"""PATH PARAMETERS"""
+# Get a specific book using path parameters
+# The path parameter is the book title
+# The path parameter is passed to the function as an argument
+# The function returns the book with the title that matches the path parameter
+
+# http://0.0.0.0:8000/ -> This is the base URL
+# books -> This is the path
+# Title One -> This is the path parameter (book title)
+
+# Dynamic path parameters
+# Get all books from a specific category using path parameters
+
+@app.get("/books/category/{category}")
+async def read_category(category: str):
+    books_to_return = []
+    for book in BOOKS:
+        if book.get('category').casefold() == category.casefold():
+            books_to_return.append(book)
+    return books_to_return
+
+"""
+# The order of the path parameters matters
+# Get all books from a specific category and author using path parameters
+@app.get("/books/category/horror")
+async def read_category():
+    return {"data": "Horror"}
+# ^ The above path will not work because the path parameters are not in the correct order. 
+# @app.get("/books/category/{category}") will not work because the path parameters are not in the correct order.
+"""
+# %20 is the URL encoding for a space character
+# http://0.0.0.0:8000/books/category/science/author/Author%20One -> This is the URL
+# science -> This is the category path parameter
+# Author One -> This is the author path parameter
 
 @app.get("/books/{book_title}")
 async def read_book(book_title: str):
     for book in BOOKS:
-        if book.get('title').casefold() == book_title.casefold():
+        if book.get('title').casefold() == book_title.casefold(): # casefold() is used to make the comparison case-insensitive
             return book
-
 
 @app.get("/books/")
 async def read_category_by_query(category: str):
@@ -35,7 +68,6 @@ async def read_category_by_query(category: str):
         if book.get('category').casefold() == category.casefold():
             books_to_return.append(book)
     return books_to_return
-
 
 # Get all books from a specific author using path or query parameters
 @app.get("/books/byauthor/")
