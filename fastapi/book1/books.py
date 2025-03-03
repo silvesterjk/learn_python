@@ -222,6 +222,3 @@ Example Request Body:
 {"title": "Title Eight", "author": "Author One", "category": "history"}
 
 """
-
-# DELETE request with a query parameter
-# Delete a book using a DELETE request with a query parameter
