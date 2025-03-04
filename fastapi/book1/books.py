@@ -224,3 +224,4 @@ Example Request Body:
 """
 
 # DELETE request with a query parameter
+# Delete a book using a DELETE request with a query parameter
