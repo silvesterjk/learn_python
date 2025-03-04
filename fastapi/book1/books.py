@@ -223,4 +223,3 @@ Example Request Body:
 
 """
 
-# DELETE request with a query parameter
