@@ -135,5 +135,6 @@ print(type(user)) # <class '__main__.User'> --> This is the type of the user obj
 
 # JSON to Python
 
-
+def from_json(json_data):
+    return json.loads(json_data, object_hook=decode_user)
 
