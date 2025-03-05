@@ -139,4 +139,4 @@ def from_json(json_data):
     return json.loads(json_data, object_hook=decode_user)
 
 file1 = open("person.json", "r")
-
+person = from_json(file1.read())
