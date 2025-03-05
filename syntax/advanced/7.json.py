@@ -140,3 +140,4 @@ def from_json(json_data):
 
 file1 = open("person.json", "r")
 person = from_json(file1.read())
+print(person)
