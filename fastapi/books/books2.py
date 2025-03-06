@@ -25,3 +25,20 @@ Pydantic 2 has made some changes to the library. The three biggest are:
 
 from fastapi import FastAPI, Body, HTTPException
 from typing import Optional, List
+
+app = FastAPI()
+
+# Create a list of books
+BOOKS = [
+    {"title": "Title One", "author": "Author One", "category": "history"},
+    {"title": "Title Two", "author": "Author Two", "category": "fiction"},
+    {"title": "Title Three", "author": "Author Three", "category": "science"},
+    {"title": "Title Four", "author": "Author Four", "category": "biography"},
+    {"title": "Title Five", "author": "Author Five", "category": "history"},
+    {"title": "Title Six", "author": "Author Six", "category": "fiction"},
+    {"title": "Title Seven", "author": "Author Seven", "category": "science"}
+]
+
+@app.get("/get_books")
+async def get_all_books():
+    return BOOKS
