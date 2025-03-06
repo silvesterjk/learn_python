@@ -15,5 +15,13 @@ HTTP Request Methods: Comparision between CRUD and HTTP Request Methods
 4. DELETE: To delete data from the server. This is similar to the Delete operation in CRUD.
 """
 
+"""
+Pydantic 1 vs Pydantic 2
+Pydantic 2 has made some changes to the library. The three biggest are:
+* .dict() function is now renamed to .model_dump()
+* schema_extra function within a Config class is now renamed to json_schema_extra
+* Optional variables need a =None example: id: Optional[int] = None
+"""
+
 from fastapi import FastAPI, Body, HTTPException
 from typing import Optional, List
