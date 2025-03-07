@@ -65,3 +65,5 @@ async def create_book(book_request = Body()): # Instead of Book = Body(...) we c
     return book_request
 
 @app.post("/add_books")
+async def add_books():
+    ...
