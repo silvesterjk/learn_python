@@ -81,9 +81,25 @@ async def create_book(book_request: BookRequest):  # Use type hint for proper va
     """
     # print(type(book_request)) # <class 'books2.BookRequest'>
     new_book = Book(**book_request.model_dump())
-    print(type(new_book)) # <class 'books2.Book'> | As we are converting the BookRequest to Book
-    BOOKS.append(book_request)
+    # print(type(new_book)) # <class 'books2.Book'> | As we are converting the BookRequest to Book
+    BOOKS.append(find_book_by_id(new_book)) # Append the new book to the BOOKS list
     return book_request # Return the created book
+
+def find_book_by_id(book: Book):
+    """
+    1. The find_book_by_id function takes a Book object as a parameter.
+    2. The function iterates through the BOOKS list.
+    3. If the book.id matches the id of a book in the BOOKS list, the function returns the book.
+    4. If the book.id does not match the id of any book in the BOOKS list, the function raises an HTTPException with a 404 status code.
+    """
+    if len(BOOKS) > 0:
+        book.id = BOOKS[-1].id + 1 # Increment the id by 1 for the new book
+    else:
+        book.id = 1
+    return book
+
+    # We could alternatively use the below code to find the book by id
+    # book.id = 1 if len(BOOKS) == 0 else BOOKS[-1].id + 1
 
 @app.get("/get_books/{book_id}")
 async def get_book_by_id(book_id: int):
