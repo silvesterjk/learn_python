@@ -29,6 +29,21 @@ from pydantic import BaseModel, Field
 
 app = FastAPI()
 
+class Book:
+    id: int
+    title: str
+    author: str
+    description: Optional[str] = None
+    category: Optional[str] = None
+
+    def __init__(self, id: int, title: str, author: str, description: Optional[str] = None, category: Optional[str] = None):
+        self.id = id
+        self.title = title
+        self.author = author
+        self.description = description
+        self.category = category
+
+
 class BookRequest(BaseModel):
     id: int
     title: str 
@@ -53,6 +68,14 @@ async def get_all_books():
 
 @app.post("/get_books/create_book")
 async def create_book(book_request: BookRequest):  # Use type hint for proper validation
-    print(type(book_request)) # <class 'books2.BookRequest'>
+    # print(type(book_request)) # <class 'books2.BookRequest'>
+    new_book = Book(**book_request.model_dump())
     BOOKS.append(book_request)
-    return book_request
+    return book_request # Return the created book
+
+@app.get("/get_books/{book_id}")
+async def get_book_by_id(book_id: int):
+    for book in BOOKS:
+        if book.id == book_id:
+            return book
+    raise HTTPException(status_code=404, detail="Book not found")
