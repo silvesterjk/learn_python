@@ -63,3 +63,5 @@ async def get_all_books():
 async def create_book(book_request = Body()): # Instead of Book = Body(...) we could also use Body() with a type hint
     BOOKS.append(book_request)
     return book_request
+
+@app.post("/add_books")
