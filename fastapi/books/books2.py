@@ -25,7 +25,7 @@ Pydantic 2 has made some changes to the library. The three biggest are:
 
 from fastapi import FastAPI, Body, HTTPException
 from typing import Optional, List
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 app = FastAPI()
 
@@ -34,25 +34,17 @@ class BookRequest(BaseModel):
     title: str 
     author: str
     description: Optional[str] = None
-    category: str
-
-    # Constructor
-    def __init__(self, id, title, author, description=None, category=None):
-        self.id = id
-        self.title = title
-        self.author = author
-        self.description = description
-        self.category = category
+    category: Optional[str] = None  # Made this optional with default=None
 
 # Create a list of books
 BOOKS = [
-    BookRequest(id=1, title="Title One", author="Author One", description="Amazing work",category="history"),
+    BookRequest(id=1, title="Title One", author="Author One", description="Amazing work", category="history"),
     BookRequest(id=2, title="Title Two", author="Author Two", category="science"),
     BookRequest(id=3, title="Title Three", author="Author Three", category="fiction"),
     BookRequest(id=4, title="Title Four", author="Author Four", category="history"),
     BookRequest(id=5, title="Title Five", author="Author Five", category="science"),
     BookRequest(id=6, title="Title Six", author="Author Six", category="fiction"),
-    BookRequest(7, "Title Seven", "Author Seven", "Great work", "history")
+    BookRequest(id=7, title="Title Seven", author="Author Seven", description="Great work", category="history")
 ]
 
 @app.get("/get_books")
@@ -60,10 +52,7 @@ async def get_all_books():
     return BOOKS
 
 @app.post("/get_books/create_book")
-async def create_book(book_request = Body()): # Instead of Book = Body(...) we could also use Body() with a type hint
+async def create_book(book_request: BookRequest):  # Use type hint for proper validation
+    print(type(book_request)) # <class 'books2.BookRequest'>
     BOOKS.append(book_request)
     return book_request
-
-@app.post("/add_books")
-async def add_books():
-    ...
