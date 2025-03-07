@@ -68,8 +68,20 @@ async def get_all_books():
 
 @app.post("/get_books/create_book")
 async def create_book(book_request: BookRequest):  # Use type hint for proper validation
+    """
+    1. The create_book function is decorated with the @app.post() decorator.
+    2. The function takes a single parameter, book_request, which is of type BookRequest.
+    3. The function returns a BookRequest object.
+    4. The function creates a new Book object using the BookRequest object.
+    5. The new Book object is appended to the BOOKS list.
+    6. The function returns the created book.
+    7. The reason to use Book class instead of BookRequest class is to have a separate class for the request and response objects.
+    8. For example, the BookRequest class can have additional fields that are not present in the Book class.
+    9. The Book class can have additional fields that are not present in the BookRequest class.
+    """
     # print(type(book_request)) # <class 'books2.BookRequest'>
     new_book = Book(**book_request.model_dump())
+    print(type(new_book)) # <class 'books2.Book'> | As we are converting the BookRequest to Book
     BOOKS.append(book_request)
     return book_request # Return the created book
 
