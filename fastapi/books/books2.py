@@ -51,6 +51,17 @@ class BookRequest(BaseModel):
     description: Optional[str] = None # Made this optional with default=None
     category: str = Field(min_length=1, max_length=50)  # Added Field with min_length and max_length
 
+    model_config = {
+        "json_schema_extra": {
+            "example": {
+                "title": "Title One",
+                "author": "Author One",
+                "description": "Amazing work",
+                "category": "history"
+            }
+        }
+    }
+
 # Create a list of books
 BOOKS = [
     BookRequest(id=1, title="Title One", author="Author One", description="Amazing work", category="history"),
