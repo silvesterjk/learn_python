@@ -144,7 +144,11 @@ async def update_book(book_id: int, book_request: BookRequest):
 
 @app.delete("/get_books/delete_book/{book_id}")
 async def delete_book(book_id: int):
-    for index, book in enumerate(BOOKS):
+    for index, book in enumerate(BOOKS): # This is to get the index of the book in the list
+    # for i in range(len(BOOKS)):
+    #     if BOOKS[i].id == book_id:
+    #         deleted_book = BOOKS.pop(i)
+    #         return deleted_book
         if book.id == book_id:
             deleted_book = BOOKS.pop(index)
             return deleted_book
