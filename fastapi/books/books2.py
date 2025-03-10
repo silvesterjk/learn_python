@@ -26,6 +26,7 @@ Pydantic 2 has made some changes to the library. The three biggest are:
 from fastapi import FastAPI, Body, HTTPException, Path, Query
 from typing import Optional, List
 from pydantic import BaseModel, Field
+from starlette import status
 
 app = FastAPI()
 
@@ -84,11 +85,11 @@ BOOKS = [
     BookRequest(id=8, title="Title Eight", author="Author Eight", category="science", rating=3, published_year=2015),
 ]
 
-@app.get("/get_books")
+@app.get("/get_books", status_code=status.HTTP_200_OK)
 async def get_all_books():
     return BOOKS
 
-@app.get("/books/publish/")
+@app.get("/books/publish/", status_code=status.HTTP_200_OK)
 async def get_books_by_publish_year(publish_year: int = Query(..., description="The year the book was published", gt=1900, le=2022)):
     books_to_return = []
     for book in BOOKS:
@@ -96,7 +97,7 @@ async def get_books_by_publish_year(publish_year: int = Query(..., description="
             books_to_return.append(book)
     return books_to_return
 
-@app.post("/get_books/create_book")
+@app.post("/get_books/create_book", status_code=status.HTTP_201_CREATED) # Use status_code to return the status code in the response
 async def create_book(book_request: BookRequest):  # Use type hint for proper validation
     """
     1. The create_book function is decorated with the @app.post() decorator.
@@ -115,7 +116,7 @@ async def create_book(book_request: BookRequest):  # Use type hint for proper va
     BOOKS.append(find_book_by_id(new_book)) # Append the new book to the BOOKS list
     return book_request # Return the created book
 
-def find_book_by_id(book: Book):
+def find_book_by_id(book: Book, book_id: int = Path(description="The ID of the book you want to get", gt=0)):
     """
     1. The find_book_by_id function takes a Book object as a parameter.
     2. The function iterates through the BOOKS list.
@@ -131,14 +132,14 @@ def find_book_by_id(book: Book):
     # We could alternatively use the below code to find the book by id
     # book.id = 1 if len(BOOKS) == 0 else BOOKS[-1].id + 1
 
-@app.get("/get_books/{book_id}")
+@app.get("/get_books/{book_id}", status_code=status.HTTP_200_OK)
 async def get_book_by_id(book_id: int = Path(description="The ID of the book you want to get", gt=0)):
     for book in BOOKS:
         if book.id == book_id:
             return book
     raise HTTPException(status_code=404, detail="Book not found")
 
-@app.get("/books/")
+@app.get("/books/", status_code=status.HTTP_200_OK)
 async def read_book_by_rating(book_rating: int = Query(..., description="The rating of the book you want to get", gt=0, le=5)):
     books_to_return = []
     for book in BOOKS:
@@ -147,7 +148,7 @@ async def read_book_by_rating(book_rating: int = Query(..., description="The rat
     return books_to_return
 
 
-@app.put("/get_books/update_book/{book_id}")
+@app.put("/get_books/update_book/{book_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def update_book(book_request: BookRequest, book_id: int = Path(gt=0)):
     for book in BOOKS:
         if book.id == book_id:
@@ -158,7 +159,7 @@ async def update_book(book_request: BookRequest, book_id: int = Path(gt=0)):
             return book
     raise HTTPException(status_code=404, detail="Book not found")
 
-@app.delete("/get_books/delete_book/{book_id}")
+@app.delete("/get_books/delete_book/{book_id}", status_code=status.HTTP_200_OK)
 async def delete_book(book_id: int = Path(description="The ID of the book you want to delete", gt=0)):
     for index, book in enumerate(BOOKS): # This is to get the index of the book in the list
     # for i in range(len(BOOKS)):
