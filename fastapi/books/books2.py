@@ -45,7 +45,7 @@ class Book:
 
 
 class BookRequest(BaseModel):
-    id: int = Field(gt=0, lt=999)  # Added Field with gt=0
+    id: Optional[int] = Field(description="Not needed on create", default=None)  # Added Field with gt=0
     title: str = Field(min_length=1, max_length=100)  # Added Field with min_length and max_length
     author: str = Field(min_length=1, max_length=50)  # Added Field with min_length and max_length
     description: Optional[str] = None # Made this optional with default=None
