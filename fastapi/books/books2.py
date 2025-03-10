@@ -23,7 +23,7 @@ Pydantic 2 has made some changes to the library. The three biggest are:
 * Optional variables need a = None --> For example: id: Optional[int] = None
 """
 
-from fastapi import FastAPI, Body, HTTPException, Path
+from fastapi import FastAPI, Body, HTTPException, Path, Query
 from typing import Optional, List
 from pydantic import BaseModel, Field
 
@@ -89,7 +89,7 @@ async def get_all_books():
     return BOOKS
 
 @app.get("/books/publish/")
-async def get_books_by_publish_year(publish_year: int):
+async def get_books_by_publish_year(publish_year: int = Query(..., description="The year the book was published", gt=1900, le=2022)):
     books_to_return = []
     for book in BOOKS:
         if book.published_year == publish_year:
@@ -139,7 +139,7 @@ async def get_book_by_id(book_id: int = Path(description="The ID of the book you
     raise HTTPException(status_code=404, detail="Book not found")
 
 @app.get("/books/")
-async def read_book_by_rating(book_rating: int):
+async def read_book_by_rating(book_rating: int = Query(..., description="The rating of the book you want to get", gt=0, le=5)):
     books_to_return = []
     for book in BOOKS:
         if book.rating == book_rating:
@@ -172,3 +172,52 @@ async def delete_book(book_id: int = Path(description="The ID of the book you wa
 
 # Run the application using uvicorn
 # uvicorn books2:app --reload
+
+"""
+STATUS CODES:
+
+1. 200 OK: The request was successful. --> Common among all the CRUD operations
+2. 201 Created: The request was successful, and a new resource was created. --> Common for POST requests
+3. 204 No Content: The request was successful, but there is no content to return. --> Common for PUT requests
+4. 400 Bad Request: The request was invalid.
+5. 401 Unauthorized: The request requires authentication.
+6. 403 Forbidden: The request is forbidden.
+7. 404 Not Found: The requested resource was not found.
+8. 405 Method Not Allowed: The request method is not allowed.
+9. 500 Internal Server Error: The server encountered an error.
+10. 503 Service Unavailable: The server is unavailable.
+
+In general:
+1xx --> Informational responses (e.g., 100 Continue)
+2xx --> Success (e.g., 200 OK)
+3xx --> Redirection (e.g., 301 Moved Permanently)
+4xx --> Client errors (e.g., 400 Bad Request)
+5xx --> Server errors (e.g., 500 Internal Server Error)
+"""
+
+
+"""
+HTTP Exception Handling:
+1. The HTTPException class is used to raise exceptions with a specific status code.
+2. The HTTPException class takes two arguments: status_code and detail.
+3. The status_code argument is the status code of the exception.
+4. The detail argument is a message that describes the exception.
+5. The raise statement is used to raise the exception.
+6. The raise statement is followed by the HTTPException class and its arguments.
+"""
+
+"""
+Path Parameters: Path parameters are used to pass data to the server using the URL path.
+1. Path parameters are defined in the URL path.
+2. Path parameters are enclosed in curly braces {}.
+3. Path parameters can have a data type and constraints.
+4. Path parameters are passed as arguments to the function.
+5. Path parameters are used to get data from the server.
+
+Query Parameters: Query parameters are used to pass data to the server using the URL query string.
+1. Query parameters are defined in the URL query string.
+2. Query parameters are separated by the ? character.
+3. Query parameters are key-value pairs.
+4. Query parameters are passed as arguments to the function.
+5. Query parameters are used to filter data from the server.
+"""
