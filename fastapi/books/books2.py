@@ -50,6 +50,7 @@ class BookRequest(BaseModel):
     author: str = Field(min_length=1, max_length=50)  # Added Field with min_length and max_length
     description: Optional[str] = None # Made this optional with default=None
     category: str = Field(min_length=1, max_length=50)  # Added Field with min_length and max_length
+    rating: Optional[int] = Field(ge=1, le=5, default=None)  # Added rating field
 
     model_config = {
         "json_schema_extra": {
@@ -57,20 +58,22 @@ class BookRequest(BaseModel):
                 "title": "Title One",
                 "author": "Author One",
                 "description": "Amazing work",
-                "category": "history"
+                "category": "history",
+                "rating" : 5
             }
         }
     }
 
 # Create a list of books
 BOOKS = [
-    BookRequest(id=1, title="Title One", author="Author One", description="Amazing work", category="history"),
-    BookRequest(id=2, title="Title Two", author="Author Two", category="science"),
-    BookRequest(id=3, title="Title Three", author="Author Three", category="fiction"),
-    BookRequest(id=4, title="Title Four", author="Author Four", category="history"),
-    BookRequest(id=5, title="Title Five", author="Author Five", category="science"),
-    BookRequest(id=6, title="Title Six", author="Author Six", category="fiction"),
-    BookRequest(id=7, title="Title Seven", author="Author Seven", description="Great work", category="history")
+    BookRequest(id=1, title="Title One", author="Author One", description="Amazing work", category="history", rating=5),
+    BookRequest(id=2, title="Title Two", author="Author Two", category="science", rating=4),
+    BookRequest(id=3, title="Title Three", author="Author Three", category="fiction", rating=3),
+    BookRequest(id=4, title="Title Four", author="Author Four", category="history", rating=2),
+    BookRequest(id=5, title="Title Five", author="Author Five", category="science", rating=1),
+    BookRequest(id=6, title="Title Six", author="Author Six", category="fiction", rating=1),
+    BookRequest(id=7, title="Title Seven", author="Author Seven", description="Great work", category="history", rating=2),
+    BookRequest(id=8, title="Title Eight", author="Author Eight", category="science", rating=3)
 ]
 
 @app.get("/get_books")
@@ -120,12 +123,9 @@ async def get_book_by_id(book_id: int):
     raise HTTPException(status_code=404, detail="Book not found")
 
 @app.put("/books/")
-async def update_book(book_request: BookRequest):
+async def read_book_by_rating(book_rating: int):
+    books_to_return = []
     for book in BOOKS:
-        if book.id == book_request.id:
-            book.title = book_request.title
-            book.author = book_request.author
-            book.description = book_request.description
-            book.category = book_request.category
-            return book
-    raise HTTPException(status_code=404, detail="Book not found")
+        if book.rating == book_rating:
+            books_to_return.append(book)
+    return books_to_return
