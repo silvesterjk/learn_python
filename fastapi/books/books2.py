@@ -122,10 +122,33 @@ async def get_book_by_id(book_id: int):
             return book
     raise HTTPException(status_code=404, detail="Book not found")
 
-@app.put("/books/")
+@app.get("/books/")
 async def read_book_by_rating(book_rating: int):
     books_to_return = []
     for book in BOOKS:
         if book.rating == book_rating:
             books_to_return.append(book)
     return books_to_return
+
+
+@app.put("/get_books/update_book/{book_id}")
+async def update_book(book_id: int, book_request: BookRequest):
+    for book in BOOKS:
+        if book.id == book_id:
+            book.title = book_request.title
+            book.author = book_request.author
+            book.description = book_request.description
+            book.category = book_request.category
+            return book
+    raise HTTPException(status_code=404, detail="Book not found")
+
+@app.delete("/get_books/delete_book/{book_id}")
+async def delete_book(book_id: int):
+    for index, book in enumerate(BOOKS):
+        if book.id == book_id:
+            deleted_book = BOOKS.pop(index)
+            return deleted_book
+    raise HTTPException(status_code=404, detail="Book not found")
+
+# Run the application using uvicorn
+# uvicorn books2:app --reload
