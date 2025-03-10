@@ -23,7 +23,7 @@ Pydantic 2 has made some changes to the library. The three biggest are:
 * Optional variables need a = None --> For example: id: Optional[int] = None
 """
 
-from fastapi import FastAPI, Body, HTTPException
+from fastapi import FastAPI, Body, HTTPException, Path
 from typing import Optional, List
 from pydantic import BaseModel, Field
 
@@ -88,6 +88,14 @@ BOOKS = [
 async def get_all_books():
     return BOOKS
 
+@app.get("/books/publish/")
+async def get_books_by_publish_year(publish_year: int):
+    books_to_return = []
+    for book in BOOKS:
+        if book.published_year == publish_year:
+            books_to_return.append(book)
+    return books_to_return
+
 @app.post("/get_books/create_book")
 async def create_book(book_request: BookRequest):  # Use type hint for proper validation
     """
@@ -124,7 +132,7 @@ def find_book_by_id(book: Book):
     # book.id = 1 if len(BOOKS) == 0 else BOOKS[-1].id + 1
 
 @app.get("/get_books/{book_id}")
-async def get_book_by_id(book_id: int):
+async def get_book_by_id(book_id: int = Path(description="The ID of the book you want to get", gt=0)):
     for book in BOOKS:
         if book.id == book_id:
             return book
@@ -140,7 +148,7 @@ async def read_book_by_rating(book_rating: int):
 
 
 @app.put("/get_books/update_book/{book_id}")
-async def update_book(book_id: int, book_request: BookRequest):
+async def update_book(book_request: BookRequest, book_id: int = Path(gt=0)):
     for book in BOOKS:
         if book.id == book_id:
             book.title = book_request.title
@@ -151,7 +159,7 @@ async def update_book(book_id: int, book_request: BookRequest):
     raise HTTPException(status_code=404, detail="Book not found")
 
 @app.delete("/get_books/delete_book/{book_id}")
-async def delete_book(book_id: int):
+async def delete_book(book_id: int = Path(description="The ID of the book you want to delete", gt=0)):
     for index, book in enumerate(BOOKS): # This is to get the index of the book in the list
     # for i in range(len(BOOKS)):
     #     if BOOKS[i].id == book_id:
