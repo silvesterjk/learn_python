@@ -35,14 +35,20 @@ class Book:
     author: str
     description: Optional[str] = None
     category: Optional[str] = None
+    rating: Optional[int] = None
+    published_year: Optional[int] = None
 
-    def __init__(self, id: int, title: str, author: str, description: Optional[str] = None, category: Optional[str] = None):
+    def __init__(self, id: int, title: str, author: str, 
+                 description: Optional[str] = None, 
+                 category: Optional[str] = None, 
+                 rating: Optional[int] = None, published_year: Optional[int] = None):
         self.id = id
         self.title = title
         self.author = author
         self.description = description
         self.category = category
-
+        self.rating = rating
+        self.published_year = published_year
 
 class BookRequest(BaseModel):
     id: Optional[int] = Field(description="Not needed on create", default=None)  # Added Field with description and default=None
@@ -51,6 +57,7 @@ class BookRequest(BaseModel):
     description: Optional[str] = None # Made this optional with default=None
     category: str = Field(min_length=1, max_length=50)  # Added Field with min_length and max_length
     rating: Optional[int] = Field(ge=1, le=5, default=None)  # Added rating field
+    published_year: Optional[int] = Field(ge=1900, le=2022, default=None)  # Added published_year field
 
     model_config = {
         "json_schema_extra": {
@@ -59,21 +66,22 @@ class BookRequest(BaseModel):
                 "author": "Author One",
                 "description": "Amazing work",
                 "category": "history",
-                "rating" : 5
+                "rating" : 5,
+                "published_year": 2022
             }
         }
     }
 
 # Create a list of books
 BOOKS = [
-    BookRequest(id=1, title="Title One", author="Author One", description="Amazing work", category="history", rating=5),
-    BookRequest(id=2, title="Title Two", author="Author Two", category="science", rating=4),
-    BookRequest(id=3, title="Title Three", author="Author Three", category="fiction", rating=3),
-    BookRequest(id=4, title="Title Four", author="Author Four", category="history", rating=2),
-    BookRequest(id=5, title="Title Five", author="Author Five", category="science", rating=1),
-    BookRequest(id=6, title="Title Six", author="Author Six", category="fiction", rating=1),
-    BookRequest(id=7, title="Title Seven", author="Author Seven", description="Great work", category="history", rating=2),
-    BookRequest(id=8, title="Title Eight", author="Author Eight", category="science", rating=3)
+    BookRequest(id=1, title="Title One", author="Author One", description="Amazing work", category="history", rating=5, published_year=2022),
+    BookRequest(id=2, title="Title Two", author="Author Two", category="science", rating=4, published_year=2021),
+    BookRequest(id=3, title="Title Three", author="Author Three", category="fiction", rating=3, published_year=2020),
+    BookRequest(id=4, title="Title Four", author="Author Four", category="history", rating=2, published_year=2019),
+    BookRequest(id=5, title="Title Five", author="Author Five", category="science", rating=1, published_year=2018),
+    BookRequest(id=6, title="Title Six", author="Author Six", category="fiction", rating=1, published_year=2017),
+    BookRequest(id=7, title="Title Seven", author="Author Seven", description="Great work", category="history", rating=2, published_year=2016),
+    BookRequest(id=8, title="Title Eight", author="Author Eight", category="science", rating=3, published_year=2015),
 ]
 
 @app.get("/get_books")
