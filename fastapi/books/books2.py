@@ -118,3 +118,14 @@ async def get_book_by_id(book_id: int):
         if book.id == book_id:
             return book
     raise HTTPException(status_code=404, detail="Book not found")
+
+@app.put("/books/")
+async def update_book(book_request: BookRequest):
+    for book in BOOKS:
+        if book.id == book_request.id:
+            book.title = book_request.title
+            book.author = book_request.author
+            book.description = book_request.description
+            book.category = book_request.category
+            return book
+    raise HTTPException(status_code=404, detail="Book not found")
