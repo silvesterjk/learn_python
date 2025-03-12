@@ -222,3 +222,8 @@ Query Parameters: Query parameters are used to pass data to the server using the
 4. Query parameters are passed as arguments to the function.
 5. Query parameters are used to filter data from the server.
 """
+
+"""
+Request Body: The request body is used to send data to the server.
+
+"""
