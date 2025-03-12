@@ -226,4 +226,5 @@ Query Parameters: Query parameters are used to pass data to the server using the
 """
 Request Body: The request body is used to send data to the server.
 1. The request body is the data sent to the server.
+2. The request body is passed to the function as an argument.
 """
