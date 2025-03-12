@@ -229,4 +229,5 @@ Request Body: The request body is used to send data to the server.
 2. The request body is passed to the function as an argument.
 3. The request body is used to create new resources.
 4. The request body is used to update existing resources.
+5. The request body is used to delete resources.
 """
