@@ -19,8 +19,6 @@ class Enemy:
     def special_attack(self):
         print("The enemy has no special attack. Ha ha ha!")
 
-
-
 # SELF VS. SUPER
 """
 1. We use self when we're referring to a aruguments within the different methods of a Class.
