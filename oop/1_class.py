@@ -1,4 +1,4 @@
-class Student: # This is a class. The blueprint/template for creating data types / objects.
+class Student: # This is a class. The blueprint/template for creating new data types / objects.
     ...
 
 def main():
