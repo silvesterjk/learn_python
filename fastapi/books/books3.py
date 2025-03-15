@@ -8,4 +8,6 @@ app = FastAPI()
 
 class Book(BaseModel):
     title: str
+    author: str
+    read: bool
     
