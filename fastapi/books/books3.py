@@ -7,3 +7,4 @@ import sqlite3
 app = FastAPI()
 
 class Book(BaseModel):
+    title: str
