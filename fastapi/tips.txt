@@ -1,7 +1,4 @@
 1. https://youtu.be/XlnmN4BfCxw : 4 Tips for Building a Production-Ready FastAPI Backend
 2. https://youtu.be/zml0rTMJVXg :  10 Tips to Become REALLY Good at Python
     1. Master Comprehensions in Python: List, Set, Dict
-3. 
-
-
-
+3. https://youtu.be/8qJ8l2LMz6M : 10 Python Tips and Tricks For Writing Better Code
