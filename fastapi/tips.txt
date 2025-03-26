@@ -3,6 +3,3 @@
 
 3. Master Comprehensions in Python: List, Set, Dict
 4. Master Python Decorators
-5. Master Python Generators
-6. Master Python Lambda Functions
-7. Master Python List Comprehensions
