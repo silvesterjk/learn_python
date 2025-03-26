@@ -2,3 +2,4 @@
 2. https://youtu.be/zml0rTMJVXg :  10 Tips to Become REALLY Good at Python
 
 3. Master Comprehensions in Python: List, Set, Dict
+4. Master Python Decorators
