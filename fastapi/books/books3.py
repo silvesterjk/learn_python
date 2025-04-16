@@ -7,3 +7,4 @@ import sqlite3
 app = FastAPI()
 
 # Database connection
+def get_db_connection():
