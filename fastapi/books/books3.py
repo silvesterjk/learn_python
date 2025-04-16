@@ -25,3 +25,6 @@ def create_table():
     ''')
     conn.commit()
     conn.close()
+create_table()
+
+# Pydantic model for Book
