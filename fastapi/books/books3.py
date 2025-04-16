@@ -6,3 +6,4 @@ import sqlite3
 
 app = FastAPI()
 
+# Database connection
