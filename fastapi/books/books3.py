@@ -5,5 +5,3 @@ from typing import List
 import sqlite3
 
 app = FastAPI()
-
-# Database connection
