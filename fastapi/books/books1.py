@@ -225,3 +225,4 @@ Example Request Body:
 
 # The above path will not work because the path parameters are not in the correct order.
 # @app.delete("/books/delete_book/{title}") will not work because the path parameters are not in the correct order.
+# @app.delete("/books/delete_book/{title}") will not work because the path parameters are not in the correct order.
