@@ -238,3 +238,6 @@ async def read_category_author(category: str, author: str):
         if book.get('category').casefold() == category.casefold() and book.get('author').casefold() == author.casefold():
             books_to_return.append(book)
     return books_to_return
+
+"""
+Ex/
