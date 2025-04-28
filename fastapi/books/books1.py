@@ -222,7 +222,3 @@ Example Request Body:
 {"title": "Title Eight", "author": "Author One", "category": "history"}
 
 """
-
-# ___________________________________________________
-# Get all books from a specific category and author using query parameters
-@app.get("/books/category/{category}/author/{author}")
