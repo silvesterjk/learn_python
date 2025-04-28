@@ -233,8 +233,3 @@ async def read_category_author(category: str, author: str):
     3. The function returns all the books with the category and author that match the path parameters
     4. The function returns a list of books with the category and author that match the path parameters
     """
-    books_to_return = []
-    for book in BOOKS:
-        if book.get('category').casefold() == category.casefold() and book.get('author').casefold() == author.casefold():
-            books_to_return.append(book)
-    return books_to_return
