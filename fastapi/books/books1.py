@@ -226,10 +226,3 @@ Example Request Body:
 # ___________________________________________________
 # Get all books from a specific category and author using query parameters
 @app.get("/books/category/{category}/author/{author}")
-async def read_category_author(category: str, author: str):
-    """
-    1. The path parameters are the category and the author
-    2. The path parameters are passed to the function as arguments
-    3. The function returns all the books with the category and author that match the path parameters
-    4. The function returns a list of books with the category and author that match the path parameters
-    """
