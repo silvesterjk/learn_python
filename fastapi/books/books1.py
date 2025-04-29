@@ -218,3 +218,6 @@ async def delete_book_path(title: str):
 
 """
 Example REQUEST BODY:
+{"title": "Title Eight", "author": "Author One", "category": "history"}
+
+"""
