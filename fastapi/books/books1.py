@@ -221,6 +221,3 @@ Example REQUEST BODY:
 {"title": "Title Eight", "author": "Author One", "category": "history"}
 
 """
-
-# The above path will not work because the path parameters are not in the correct order.
-# @app.delete("/books/delete_book/{title}") will not work because the path parameters are not in the correct order.
