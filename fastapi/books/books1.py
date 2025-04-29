@@ -221,10 +221,3 @@ Example REQUEST BODY:
 {"title": "Title Eight", "author": "Author One", "category": "history"}
 
 """
-
-# ___________________________________________________
-# Get all books from a specific category and author using query parameters. Attached after the URL with a question mark.
-# The query parameters are the category and the author. They have name=value pairs.
-# The query parameters are passed to the function as arguments
-# The function returns all the books with the category and author that match the query parameters
-# The function returns a list of books with the category and author that match the query parameters
