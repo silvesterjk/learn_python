@@ -216,3 +216,7 @@ async def delete_book_path(title: str):
             return b
     return {"data": "Book not found."}
 
+"""
+Example REQUEST BODY:
+{"title": "Title Eight", "author": "Author One", "category": "history"}
+"""
