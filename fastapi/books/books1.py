@@ -200,3 +200,19 @@ Example REQUEST BODY:
 # The path parameter is the book title
 # The path parameter is passed to the function as an argument
 # The function returns the deleted book
+
+@app.delete("/books/delete_book/{title}")
+async def delete_book_path(title: str):
+    """
+    1. The path parameter is the book title
+    2. The path parameter is passed to the function as an argument
+    3. The function deletes the book
+    4. The function returns the deleted book
+    """
+    for b in BOOKS:
+        if b.get('title') == title:
+            BOOKS.remove(b)
+            print(f'"Book {title} has been deleted."')
+            return b
+    return {"data": "Book not found."}
+
