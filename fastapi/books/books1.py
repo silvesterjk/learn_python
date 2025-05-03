@@ -214,3 +214,4 @@ async def delete_book_path(title: str):
             BOOKS.remove(b)
             print(f'"Book {title} has been deleted."')
             return b
+    return {"data": "Book not found."}
