@@ -1,0 +1,32 @@
+**Database Schema:**
+
+* A table named `todos` is created with the following columns:
+    * `id`: INTEGER, NOT NULL, Primary Key (automatically increments).
+    * `title`: VARCHAR.
+    * `description`: VARCHAR.
+    * `priority`: INTEGER.
+    * `complete`: BOOLEAN (stored as 0 for False).
+* Indexes are created on the `title`, `priority`, `description`, and `id` columns for faster lookups.
+
+**Data Manipulation (INSERT and SELECT):**
+
+* **Inserting Data:** Records are added using the `INSERT INTO` command.
+    ```sql
+    insert into todos(title, description, priority, complete) values ('go to the store', 'pick up the eggs', 5, False);
+    insert into todos(title, description, priority, complete) values ('go to the mart', 'buy marbes', 3, False);
+    insert into todos(title, description, priority, complete) values ('Test Element', 'buy marbes', 3, False);
+    ```
+* **Selecting Data:** The `SELECT * from todos;` command retrieves all records from the table.
+* **Display Modes:** The output format of `SELECT` can be changed using `.mode`.
+    * `.mode column`: Displays results in aligned columns.
+    * `.mode markdown`: Displays results in Markdown table format.
+    * `.mode box`: Displays results in a box drawing format.
+    * `.mode table`: Displays results in a simple text-based table format (used by default after `.mode table`).
+
+**Data Deletion (DELETE):**
+
+* Records can be removed using the `DELETE FROM` command with a `WHERE` clause to specify which record(s) to delete.
+    ```sql
+    DELETE FROM todos where id = 3;
+    ```
+    This command deleted the record with `id` equal to 3.
