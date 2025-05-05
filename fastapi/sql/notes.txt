@@ -1,0 +1,4 @@
+1. SQL is a language for working with databases.
+2. Relational databases store data in tables. It uses rows and columns.
+3. It can Create, Read, Update, and Delete data.
+4. It can also Join tables, group data, and perform calculations.
