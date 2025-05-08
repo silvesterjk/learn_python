@@ -15,3 +15,11 @@ def get_db():
 
 db = SessionLocal()
 pass
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+@app.get("/todos")
+def read_todos():
+    return {"todos": []}
