@@ -16,7 +16,7 @@ def get_db():
     finally:
         db.close()
 
-annotated_db = Annotated[Session, Depends(get_db)]
+annotated_db = Annotated[Session, Depends(get_db)] # Depends is to get the database session
 
 class TodoRequest(BaseModel):
     title: str = Field(..., min_length=3) # ... means that the field is required
@@ -43,7 +43,7 @@ async def create_todo(db: annotated_db, todo_request: TodoRequest):
     return todo_model
 
 @app.put("/update_todo/{todo_id}")
-async def update_todo(db: annotated_db,  todo_request: TodoRequest, todo_id: int = Path(gt=0)):
+async def update_todo(db: annotated_db, todo_id: int = Path(gt=0), todo_request: TodoRequest = Body(...)):
     todo_model = db.query(Todos).filter(Todos.id == todo_id).first()
     if todo_model is None:
         raise HTTPException(status_code=404, detail="Todo not found")
@@ -57,7 +57,7 @@ async def update_todo(db: annotated_db,  todo_request: TodoRequest, todo_id: int
 
 @app.delete("/delete_todo/{todo_id}")
 async def delete_todo(db: annotated_db, todo_id: int = Path(gt=0)):
-    todo_model = db.query(Todos).filter(Todos.id == todo_id).first()
+    todo_model = db.query(Todos).filter(Todos.id == todo_id).first() # First is used to get the first record
     if todo_model is None:
         raise HTTPException(status_code=404, detail="Todo not found")
     db.delete(todo_model)
