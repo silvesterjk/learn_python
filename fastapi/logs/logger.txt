@@ -1,0 +1,32 @@
+1. Logger is a module that provides a way to log messages to a file or the console.
+2. It can be used to log messages at different severity levels (e.g., debug, info, warning, error, critical).
+3. It can be used to log messages to a file or the console.
+4. It can be used to log messages to a file or the console.
+
+Pros:
+1. It is a built-in module, so no additional installation is required.
+2. It is a simple and easy to use module.
+3. It is a cross-platform module.
+
+Cons:
+1. Too much logging can slow down the application.
+
+
+
+Primer:
+1. Loggers schedules log information for output.
+2. Each logger has one or more handlers.
+3. Handlers send the log records (created by loggers) to the appropriate destination.
+4. Each Handler has one formatter attached to it.
+5. Formatters specify the layout of log records in the final output.
+
+
+Logger --> Console Handler / File Handler --> Formatter (One for Console and One for File) --> Console / File
+
+
+Levels:
+1. Critical --> Errors that cause application failure such as crucial Database is not available.
+2. Error --> Such as HTTP 500 Internal Server Error.
+3. Warning --> Non critical errors such as deprecated code usage or low disk space.
+4. Info --> General information about the application.
+5. Debug --> Detailed information about the application.
