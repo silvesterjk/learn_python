@@ -30,3 +30,8 @@ Data Deletion (DELETE):
     DELETE FROM todos where id = 3;
     ```
     This command deleted the record with `id` equal to 3.
+
+# Production Databases
+
+1. SQLite3 vs PostgreSQL: SQLite is a file-based database, while PostgreSQL is a server-based database.
+2. 
