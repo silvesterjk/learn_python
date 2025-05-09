@@ -32,6 +32,5 @@ Data Deletion (DELETE):
     This command deleted the record with `id` equal to 3.
 
 # Production Databases
-
 1. SQLite3 vs PostgreSQL: SQLite is a file-based database, while PostgreSQL is a server-based database.
-2. 
+2. Additonally, PostgreSQL is more secure and has more features than SQLite.
