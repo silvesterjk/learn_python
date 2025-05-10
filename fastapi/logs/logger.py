@@ -27,4 +27,12 @@ filer_handler = logging.Filter("__main__")
 formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 
 handler.setFormatter(formatter)
+logger.addHandler(handler)
+logger.addFilter(filer_handler)
+
+logger.info("This is an informational message")
+logger.error("This is an error message")
+logger.warning("This is a warning message")
+logger.debug("This is a debug message")
+logger.critical("This is a critical message")
 
