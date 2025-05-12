@@ -25,6 +25,3 @@ The logs would get printed like this:
 handler = logging.StreamHandler()
 filer_handler = logging.Filter("__main__")
 formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
-
-handler.setFormatter(formatter)
-logger.addHandler(handler
