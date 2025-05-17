@@ -19,3 +19,5 @@ The logs would get printed like this:
 4. DEBUG:root:This is a debug message
 5. CRITICAL:root:This is a critical message
 """
+
+# Unknown
