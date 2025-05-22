@@ -5,7 +5,6 @@ from starlette import status
 
 app = FastAPI()
 
-
 class Book:
     id: int
     title: str
@@ -43,8 +42,6 @@ class BookRequest(BaseModel):
         }
     }
         
-
-
 
 BOOKS = [
     Book(1, 'Computer Science Pro', 'codingwithroby', 'A very nice book!', 5, 2030),
