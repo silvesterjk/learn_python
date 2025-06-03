@@ -16,8 +16,8 @@
 4. Encapsulation can be achieved by using access specifiers such as public, private, and protected.
 5. Public: Public members are accessible from outside the class.
 6. Private: Private members are only accessible within the class.
-   8. Encapsulation helps in achieving data hiding, reusability, and modularity.
-9. For Example: In the context of a car, the user only needs to know how to drive the car and not the internal working of the car.
+7. Encapsulation helps in achieving data hiding, reusability, and modularity.
+8. For Example: In the context of a car, the engine and internal components are encapsulated within the car's body, and only the necessary controls like steering wheel and pedals are exposed to the driver.
 
 Note: 
 * Interfaces are similar to abstract classes, but they only contain abstract methods and final variables.
