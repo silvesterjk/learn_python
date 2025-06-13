@@ -1,36 +1,49 @@
 Data Structures:
-- Arrays
-- Linked Lists (Singly, Doubly, Circular)
-- Stacks
-- Queues
-- Trees (Binary Trees, Binary Search Trees, AVL Trees, B-Trees)
-- Graphs (Representation, Traversal)
-- Hash Tables (Hashing Functions, Collision Resolution)
-- Heaps (Min-Heap, Max-Heap)
-- Tries
+- Arrays: A collection of items stored at contiguous memory locations.
+- Linked Lists (Singly, Doubly, Circular): Linear data structures where elements are not stored at contiguous memory locations but are linked using pointers.
+  - Singly Linked List: Elements are linked in a single direction.
+  - Doubly Linked List: Elements are linked in both forward and backward directions.
+  - Circular Linked List: The last element points back to the first element, forming a circle.
+- Stacks: A linear data structure that follows the LIFO (Last-In, First-Out) principle.
+- Queues: A linear data structure that follows the FIFO (First-In, First-Out) principle.
+- Trees (Binary Trees, Binary Search Trees, AVL Trees, B-Trees): Hierarchical data structures consisting of nodes connected by edges.
+  - Binary Trees: A tree data structure in which each node has at most two children.
+  - Binary Search Trees (BST): A binary tree where the left child contains only nodes with values lesser than the parent node, and the right child contains only nodes with values greater than the parent node.
+  - AVL Trees: A self-balancing Binary Search Tree where the difference between heights of left and right subtrees cannot be more than one for all nodes.
+  - B-Trees: A self-balancing tree data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time.
+- Graphs (Representation, Traversal): Non-linear data structures consisting of nodes (vertices) and edges that connect them.
+  - Representation: Methods to store graphs, e.g., Adjacency Matrix, Adjacency List.
+  - Traversal: Visiting all the nodes of a graph, e.g., BFS, DFS.
+- Hash Tables (Hashing Functions, Collision Resolution): Data structures that store key-value pairs and use a hash function to compute an index into an array of buckets or slots.
+  - Hashing Functions: Functions that map keys to specific slot locations.
+  - Collision Resolution: Techniques to handle when two keys hash to the same index (e.g., Chaining, Open Addressing).
+- Heaps (Min-Heap, Max-Heap): Specialized tree-based data structures that satisfy the heap property.
+  - Min-Heap: The key of the parent is less than or equal to the keys of its children.
+  - Max-Heap: The key of the parent is greater than or equal to the keys of its children.
+- Tries (Prefix Trees): Tree-like data structures efficient for storing and searching strings or sequences.
 
 Algorithms:
-- Sorting Algorithms:
-  - Bubble Sort
-  - Selection Sort
-  - Insertion Sort
-  - Merge Sort
-  - Quick Sort
-  - Heap Sort
-- Searching Algorithms:
-  - Linear Search
-  - Binary Search
-- Graph Algorithms:
-  - Breadth-First Search (BFS)
-  - Depth-First Search (DFS)
-  - Dijkstra's Algorithm
-  - Bellman-Ford Algorithm
-  - Kruskal's Algorithm
-  - Prim's Algorithm
-- Dynamic Programming:
-  - Memoization
-  - Tabulation
-- Recursion
-- Divide and Conquer
-- Greedy Algorithms
-- Backtracking
+- Sorting Algorithms: Algorithms that arrange elements of a list in a certain order (ascending or descending).
+  - Bubble Sort: Repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.
+  - Selection Sort: Repeatedly finds the minimum element from the unsorted part and puts it at the beginning.
+  - Insertion Sort: Builds the final sorted array one item at a time.
+  - Merge Sort: A Divide and Conquer algorithm that divides the array into halves, sorts them, and then merges them.
+  - Quick Sort: A Divide and Conquer algorithm that picks an element as a pivot and partitions the given array around the picked pivot.
+  - Heap Sort: A comparison-based sorting technique based on a Binary Heap data structure.
+- Searching Algorithms: Algorithms used to find an element within a data structure.
+  - Linear Search: Sequentially checks each element of the list until a match is found or the whole list has been searched.
+  - Binary Search: Efficiently finds an item from a sorted list of items by repeatedly dividing the search interval in half.
+- Graph Algorithms: Algorithms designed to solve problems using graph data structures.
+  - Breadth-First Search (BFS): An algorithm for traversing or searching tree or graph data structures, exploring all neighbor nodes at the present depth prior to moving on to nodes at the next depth level.
+  - Depth-First Search (DFS): An algorithm for traversing or searching tree or graph data structures, exploring as far as possible along each branch before backtracking.
+  - Dijkstra's Algorithm: Finds the shortest paths between nodes in a graph, which may represent, for example, road networks.
+  - Bellman-Ford Algorithm: Computes shortest paths from a single source vertex to all of the other vertices in a weighted digraph, even with negative edge weights.
+  - Kruskal's Algorithm: A greedy algorithm to find a Minimum Spanning Tree (MST) for a connected, undirected graph.
+  - Prim's Algorithm: A greedy algorithm to find a Minimum Spanning Tree (MST) for a weighted undirected graph.
+- Dynamic Programming: An optimization technique for solving complex problems by breaking them down into simpler subproblems and storing the results of subproblems to avoid redundant computations.
+  - Memoization (Top-Down): Storing the results of expensive function calls and returning the cached result when the same inputs occur again.
+  - Tabulation (Bottom-Up): Solving subproblems and using their solutions to build up solutions to larger problems.
+- Recursion: A method where the solution to a problem depends on solutions to smaller instances of the same problem.
+- Divide and Conquer: An algorithmic paradigm that involves breaking a problem into subproblems, solving the subproblems recursively, and then combining their solutions to solve the original problem.
+- Greedy Algorithms: An algorithmic paradigm that builds up a solution piece by piece, always choosing the next piece that offers the most obvious and immediate benefit.
+- Backtracking: An algorithmic technique for solving problems recursively by trying to build a solution incrementally, one piece at a time, removing those solutions that fail to satisfy the constraints of the problem at any point in time.
