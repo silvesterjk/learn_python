@@ -1,0 +1,23 @@
+Data Structures:
+- Arrays: A collection of items stored at contiguous memory locations.
+- Linked Lists (Singly, Doubly, Circular): Linear data structures where elements are not stored at contiguous memory locations but are linked using pointers.
+  - Singly Linked List: Elements are linked in a single direction.
+  - Doubly Linked List: Elements are linked in both forward and backward directions.
+  - Circular Linked List: The last element points back to the first element, forming a circle.
+- Stacks: A linear data structure that follows the LIFO (Last-In, First-Out) principle.
+- Queues: A linear data structure that follows the FIFO (First-In, First-Out) principle.
+- Trees (Binary Trees, Binary Search Trees, AVL Trees, B-Trees): Hierarchical data structures consisting of nodes connected by edges.
+  - Binary Trees: A tree data structure in which each node has at most two children.
+  - Binary Search Trees (BST): A binary tree where the left child contains only nodes with values lesser than the parent node, and the right child contains only nodes with values greater than the parent node.
+  - AVL Trees: A self-balancing Binary Search Tree where the difference between heights of left and right subtrees cannot be more than one for all nodes.
+  - B-Trees: A self-balancing tree data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time.
+- Graphs (Representation, Traversal): Non-linear data structures consisting of nodes (vertices) and edges that connect them.
+  - Representation: Methods to store graphs, e.g., Adjacency Matrix, Adjacency List.
+  - Traversal: Visiting all the nodes of a graph, e.g., BFS, DFS.
+- Hash Tables (Hashing Functions, Collision Resolution): Data structures that store key-value pairs and use a hash function to compute an index into an array of buckets or slots.
+  - Hashing Functions: Functions that map keys to specific slot locations.
+  - Collision Resolution: Techniques to handle when two keys hash to the same index (e.g., Chaining, Open Addressing).
+- Heaps (Min-Heap, Max-Heap): Specialized tree-based data structures that satisfy the heap property.
+  - Min-Heap: The key of the parent is less than or equal to the keys of its children.
+  - Max-Heap: The key of the parent is greater than or equal to the keys of its children.
+- Tries (Prefix Trees): Tree-like data structures efficient for storing and searching strings or sequences.

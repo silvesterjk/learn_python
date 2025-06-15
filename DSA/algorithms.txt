@@ -1,0 +1,25 @@
+Algorithms:
+- Sorting Algorithms: Algorithms that arrange elements of a list in a certain order (ascending or descending).
+  - Bubble Sort: Repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.
+  - Selection Sort: Repeatedly finds the minimum element from the unsorted part and puts it at the beginning.
+  - Insertion Sort: Builds the final sorted array one item at a time.
+  - Merge Sort: A Divide and Conquer algorithm that divides the array into halves, sorts them, and then merges them.
+  - Quick Sort: A Divide and Conquer algorithm that picks an element as a pivot and partitions the given array around the picked pivot.
+  - Heap Sort: A comparison-based sorting technique based on a Binary Heap data structure.
+- Searching Algorithms: Algorithms used to find an element within a data structure.
+  - Linear Search: Sequentially checks each element of the list until a match is found or the whole list has been searched.
+  - Binary Search: Efficiently finds an item from a sorted list of items by repeatedly dividing the search interval in half.
+- Graph Algorithms: Algorithms designed to solve problems using graph data structures.
+  - Breadth-First Search (BFS): An algorithm for traversing or searching tree or graph data structures, exploring all neighbor nodes at the present depth prior to moving on to nodes at the next depth level.
+  - Depth-First Search (DFS): An algorithm for traversing or searching tree or graph data structures, exploring as far as possible along each branch before backtracking.
+  - Dijkstra's Algorithm: Finds the shortest paths between nodes in a graph, which may represent, for example, road networks.
+  - Bellman-Ford Algorithm: Computes shortest paths from a single source vertex to all of the other vertices in a weighted digraph, even with negative edge weights.
+  - Kruskal's Algorithm: A greedy algorithm to find a Minimum Spanning Tree (MST) for a connected, undirected graph.
+  - Prim's Algorithm: A greedy algorithm to find a Minimum Spanning Tree (MST) for a weighted undirected graph.
+- Dynamic Programming: An optimization technique for solving complex problems by breaking them down into simpler subproblems and storing the results of subproblems to avoid redundant computations.
+  - Memoization (Top-Down): Storing the results of expensive function calls and returning the cached result when the same inputs occur again.
+  - Tabulation (Bottom-Up): Solving subproblems and using their solutions to build up solutions to larger problems.
+- Recursion: A method where the solution to a problem depends on solutions to smaller instances of the same problem.
+- Divide and Conquer: An algorithmic paradigm that involves breaking a problem into subproblems, solving the subproblems recursively, and then combining their solutions to solve the original problem.
+- Greedy Algorithms: An algorithmic paradigm that builds up a solution piece by piece, always choosing the next piece that offers the most obvious and immediate benefit.
+- Backtracking: An algorithmic technique for solving problems recursively by trying to build a solution incrementally, one piece at a time, removing those solutions that fail to satisfy the constraints of the problem at any point in time.
