@@ -1,23 +1,144 @@
 Data Structures:
-- Arrays: A collection of items stored at contiguous memory locations.
-- Linked Lists (Singly, Doubly, Circular): Linear data structures where elements are not stored at contiguous memory locations but are linked using pointers.
-  - Singly Linked List: Elements are linked in a single direction.
-  - Doubly Linked List: Elements are linked in both forward and backward directions.
-  - Circular Linked List: The last element points back to the first element, forming a circle.
-- Stacks: A linear data structure that follows the LIFO (Last-In, First-Out) principle.
-- Queues: A linear data structure that follows the FIFO (First-In, First-Out) principle.
-- Trees (Binary Trees, Binary Search Trees, AVL Trees, B-Trees): Hierarchical data structures consisting of nodes connected by edges.
-  - Binary Trees: A tree data structure in which each node has at most two children.
-  - Binary Search Trees (BST): A binary tree where the left child contains only nodes with values lesser than the parent node, and the right child contains only nodes with values greater than the parent node.
-  - AVL Trees: A self-balancing Binary Search Tree where the difference between heights of left and right subtrees cannot be more than one for all nodes.
-  - B-Trees: A self-balancing tree data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time.
-- Graphs (Representation, Traversal): Non-linear data structures consisting of nodes (vertices) and edges that connect them.
-  - Representation: Methods to store graphs, e.g., Adjacency Matrix, Adjacency List.
-  - Traversal: Visiting all the nodes of a graph, e.g., BFS, DFS.
-- Hash Tables (Hashing Functions, Collision Resolution): Data structures that store key-value pairs and use a hash function to compute an index into an array of buckets or slots.
-  - Hashing Functions: Functions that map keys to specific slot locations.
-  - Collision Resolution: Techniques to handle when two keys hash to the same index (e.g., Chaining, Open Addressing).
-- Heaps (Min-Heap, Max-Heap): Specialized tree-based data structures that satisfy the heap property.
-  - Min-Heap: The key of the parent is less than or equal to the keys of its children.
-  - Max-Heap: The key of the parent is greater than or equal to the keys of its children.
-- Tries (Prefix Trees): Tree-like data structures efficient for storing and searching strings or sequences.
+- Arrays:
+    - Definition: A fundamental data structure that stores a collection of elements of the same data type in contiguous memory locations. This allows for efficient access to elements using their index.
+    - Common Operations:
+        - Accessing an element (by index): O(1)
+        - Searching for an element (linear search): O(n)
+        - Searching for an element (binary search, if sorted): O(log n)
+        - Insertion/Deletion (at the end, if space available/dynamic array): Amortized O(1) or O(n) if resizing static array
+        - Insertion/Deletion (in the middle): O(n) due to shifting elements.
+    - Use Cases: Storing lists of items where size is known or access speed is critical, implementing other data structures (e.g., stacks, queues, hash tables), lookup tables, matrices.
+    - Advantages: Fast random access (O(1)), memory efficient for dense data due to minimal overhead.
+    - Disadvantages: Fixed size (in many static implementations, requiring resizing which can be O(n)), inefficient insertions/deletions in the middle (O(n)).
+
+- Linked Lists:
+    - Definition: Linear data structures where elements (nodes) are not necessarily stored at contiguous memory locations but are linked using pointers. Each node contains data and a reference (or link) to the next node (and possibly the previous node).
+    - Common Operations (for Singly Linked List):
+        - Accessing an element (by index): O(n)
+        - Searching for an element: O(n)
+        - Insertion/Deletion (at the beginning): O(1)
+        - Insertion/Deletion (at the end, without tail pointer): O(n)
+        - Insertion/Deletion (at the end, with tail pointer): O(1)
+        - Insertion/Deletion (in the middle, given pointer to previous node): O(1)
+    - Use Cases: Implementing dynamic lists where size changes frequently, undo functionality, managing file systems, adjacency lists for graphs.
+    - Advantages: Dynamic size (easy insertions/deletions without resizing an array), efficient insertions/deletions at known positions (especially at the beginning).
+    - Disadvantages: Slow random access (O(n)), requires extra memory for pointers.
+  - Singly Linked List:
+    - Definition: Each node contains data and a pointer to the next node in the sequence. Traversal is unidirectional.
+    - Characteristics: Simpler implementation, less memory per node compared to Doubly Linked List.
+  - Doubly Linked List:
+    - Definition: Each node contains data, a pointer to the next node, and a pointer to the previous node. Traversal can be done in both forward and backward directions.
+    - Common Operations (additional to Singly): Deletion of a node given only a pointer to it (O(1)), easier reverse traversal.
+    - Characteristics: More flexible traversal, but requires more memory per node and more complex pointer management during insertion/deletion.
+  - Circular Linked List:
+    - Definition: A linked list where the last node's "next" pointer points back to the first node, forming a circle. Can be singly or doubly circular.
+    - Use Cases: Implementing round-robin schedulers, managing resources in a loop, applications where the list needs to be treated as a cycle.
+    - Characteristics: Every node is accessible from any other node. Care must be taken to avoid infinite loops during traversal.
+
+- Stacks:
+    - Definition: A linear data structure that follows the Last-In, First-Out (LIFO) principle. Elements are added (pushed) and removed (popped) from the same end, called the top.
+    - Common Operations:
+        - Push (add element to top): O(1)
+        - Pop (remove element from top): O(1)
+        - Peek/Top (view top element): O(1)
+        - IsEmpty: O(1)
+    - Implementation: Can be implemented using arrays (static or dynamic) or linked lists.
+    - Use Cases: Function call management (call stack), expression evaluation (infix to postfix, postfix evaluation), backtracking algorithms (DFS), undo/redo features, browser history.
+    - Advantages: Simple to implement, fast operations.
+    - Disadvantages: Limited access to elements (only the top element is directly accessible).
+
+- Queues:
+    - Definition: A linear data structure that follows the First-In, First-Out (FIFO) principle. Elements are added (enqueued) at one end (rear/tail) and removed (dequeued) from the other end (front/head).
+    - Common Operations:
+        - Enqueue (add element to rear): O(1)
+        - Dequeue (remove element from front): O(1)
+        - Peek/Front (view front element): O(1)
+        - IsEmpty: O(1)
+    - Implementation: Can be implemented using arrays (circular buffer for efficiency) or linked lists.
+    - Use Cases: Managing tasks in order (e.g., print queues, CPU scheduling), breadth-first search (BFS) in graphs, handling requests in web servers, message queues.
+    - Advantages: Simple to implement, ensures order of processing.
+    - Disadvantages: Like stacks, limited access to elements (only front/rear). Array implementation needs careful management of front/rear pointers (circular array).
+
+- Trees:
+    - Definition: Hierarchical data structures consisting of nodes connected by edges. Each tree has a root node, and every node (except the root) has exactly one parent. Nodes can have zero or more children.
+    - Terminology: Root, parent, child, sibling, leaf node, internal node, depth, height, subtree.
+    - Use Cases: Representing hierarchical data (file systems, organization charts), syntax trees in compilers, decision trees, search algorithms (BSTs).
+  - Binary Trees:
+    - Definition: A tree data structure in which each node has at most two children, referred to as the left child and the right child.
+    - Types: Full, Complete, Perfect, Skewed Binary Trees.
+    - Traversal: In-order (LNR), Pre-order (NLR), Post-order (LRN), Level-order.
+    - Use Cases: Foundation for more complex trees like BSTs and heaps, expression trees.
+  - Binary Search Trees (BST):
+    - Definition: A binary tree where for each node, the value of its left child is less than or equal to its own value, and the value of its right child is greater than or equal to its own value. This property applies recursively to all subtrees.
+    - Common Operations:
+        - Search: Average O(log n), Worst O(n) (if skewed)
+        - Insertion: Average O(log n), Worst O(n)
+        - Deletion: Average O(log n), Worst O(n)
+        - Find Min/Max: Average O(log n), Worst O(n)
+    - Use Cases: Efficient searching, sorting (by in-order traversal), implementing lookup tables (like map or set objects).
+    - Advantages: Efficient search, insertion, deletion on average.
+    - Disadvantages: Performance degrades to O(n) for skewed trees (unbalanced).
+  - AVL Trees:
+    - Definition: A self-balancing Binary Search Tree. For every node, the height difference between its left and right subtrees (balance factor) is at most 1. Rotations are performed upon insertion/deletion to maintain balance.
+    - Common Operations: Search, Insertion, Deletion all O(log n) worst-case.
+    - Use Cases: Applications requiring guaranteed O(log n) performance for search, insert, delete, such as databases and lookup tables where performance predictability is critical.
+    - Advantages: Guaranteed logarithmic performance.
+    - Disadvantages: More complex implementation due to rotations, slightly slower insertion/deletion than unbalanced BSTs on average due to rebalancing overhead.
+  - B-Trees:
+    - Definition: A self-balancing tree data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time. Unlike binary trees, B-tree nodes can have many children (order m).
+    - Characteristics: All leaf nodes are at the same depth. Nodes are typically kept at least half-full.
+    - Common Operations: Search, Insertion, Deletion all O(log n) where n is number of keys. The base of the logarithm is related to the order of the B-tree, making it efficient for disk-based storage.
+    - Use Cases: Databases (e.g., indexing) and file systems, due to their efficiency in minimizing disk I/O operations.
+    - Advantages: Efficient for disk-based operations, always balanced, good for range queries.
+    - Disadvantages: More complex implementation than simpler trees.
+
+- Graphs:
+    - Definition: Non-linear data structures consisting of a set of vertices (nodes) and a set of edges that connect pairs of vertices. Edges can be directed or undirected, weighted or unweighted.
+    - Terminology: Vertex, Edge, Directed, Undirected, Weighted, Unweighted, Path, Cycle, Connected component.
+    - Use Cases: Social networks, web page linking, mapping and navigation systems, network routing, recommendation systems, state machines.
+  - Representation:
+    - Adjacency Matrix: A 2D array where `matrix[i][j] = 1` (or weight) if there's an edge from vertex `i` to `j`, else 0. Space: O(V^2). Good for dense graphs, quick edge checking.
+    - Adjacency List: An array of lists, where `adj[i]` contains a list of all vertices adjacent to vertex `i`. Space: O(V+E). Good for sparse graphs.
+  - Traversal:
+    - Breadth-First Search (BFS): Visits nodes level by level. Uses a queue. Finds shortest path in unweighted graphs. Complexity: O(V+E).
+    - Depth-First Search (DFS): Explores as far as possible along each branch before backtracking. Uses a stack (or recursion). Used for cycle detection, topological sort. Complexity: O(V+E).
+
+- Hash Tables (Hash Maps):
+    - Definition: Data structures that store key-value pairs. They use a hash function to compute an index (hash code) into an array of buckets or slots, from which the desired value can be found.
+    - Common Operations:
+        - Insertion: Average O(1), Worst O(n) (with many collisions)
+        - Deletion: Average O(1), Worst O(n)
+        - Search: Average O(1), Worst O(n)
+    - Hashing Functions:
+        - Definition: Functions that map keys of arbitrary size to a fixed-size value (hash code).
+        - Qualities of a good hash function: Deterministic, uniform distribution of hash values, minimizes collisions.
+    - Collision Resolution:
+        - Definition: Techniques to handle situations where two or more keys hash to the same index.
+        - Separate Chaining: Each bucket stores a linked list (or other data structure) of key-value pairs that hash to that bucket.
+        - Open Addressing (e.g., Linear Probing, Quadratic Probing, Double Hashing): If a collision occurs, probe for the next available slot in the table itself.
+    - Use Cases: Implementing dictionaries/maps in programming languages, database indexing, caching, symbol tables in compilers.
+    - Advantages: Very fast average time complexity for search, insert, delete.
+    - Disadvantages: Worst-case O(n) if many collisions occur or a poor hash function is used. Performance depends heavily on the hash function and load factor. Not suitable for ordered data retrieval.
+
+- Heaps:
+    - Definition: Specialized tree-based data structures that satisfy the heap property. Typically implemented as a complete binary tree stored in an array.
+    - Use Cases: Priority queues, heap sort algorithm, graph algorithms like Dijkstra's and Prim's.
+  - Min-Heap:
+    - Definition: The key of any node is less than or equal to the keys of its children. The smallest element is always at the root.
+    - Common Operations: Insert (O(log n)), DeleteMin (O(log n)), GetMin (O(1)).
+  - Max-Heap:
+    - Definition: The key of any node is greater than or equal to the keys of its children. The largest element is always at the root.
+    - Common Operations: Insert (O(log n)), DeleteMax (O(log n)), GetMax (O(1)).
+    - Advantages: Efficient for finding min/max element, efficient insertion/deletion while maintaining heap property.
+    - Disadvantages: Searching for an arbitrary element is O(n).
+
+- Tries (Prefix Trees):
+    - Definition: Tree-like data structures where nodes store characters of a key. Each path from the root to a node represents a prefix. A node can be marked as the end of a word.
+    - Common Operations:
+        - Insertion: O(L) where L is the length of the key.
+        - Search: O(L)
+        - Deletion: O(L)
+        - StartsWith (prefix search): O(L)
+    - Use Cases: Autocomplete/predictive text, spell checkers, dictionary implementations, IP routing tables (longest prefix match).
+    - Advantages: Efficient prefix-based search, efficient for string datasets. Can be faster than hash tables for certain string operations if many keys share common prefixes.
+    - Disadvantages: Can consume a lot of memory if keys are long or do not share many common prefixes (many nodes). Each node might store an array of pointers for all possible characters in the alphabet.
