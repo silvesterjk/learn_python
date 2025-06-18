@@ -1,0 +1,1 @@
+The Minimum Cut Problem (MCP) involves partitioning a graph's vertices into two disjoint sets, S and T. The goal is to minimize the sum of the capacities (or weights) of the edges that have one endpoint in S and the other in T. It's closely related to the max-flow min-cut theorem.
