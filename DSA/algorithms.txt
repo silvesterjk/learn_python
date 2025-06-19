@@ -10,6 +10,7 @@ Algorithms:
 - Searching Algorithms: Algorithms used to find an element within a data structure.
   - Linear Search: Sequentially checks each element of the list until a match is found or the whole list has been searched.
   - Binary Search: Efficiently finds an item from a sorted list of items by repeatedly dividing the search interval in half.
+
 - Graph Algorithms: Algorithms designed to solve problems using graph data structures.
   - Breadth-First Search (BFS): An algorithm for traversing or searching tree or graph data structures, exploring all neighbor nodes at the present depth prior to moving on to nodes at the next depth level.
   - Depth-First Search (DFS): An algorithm for traversing or searching tree or graph data structures, exploring as far as possible along each branch before backtracking.
