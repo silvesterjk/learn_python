@@ -22,6 +22,7 @@ Algorithms:
 - Dynamic Programming: An optimization technique for solving complex problems by breaking them down into simpler subproblems and storing the results of subproblems to avoid redundant computations.
   - Memoization (Top-Down): Storing the results of expensive function calls and returning the cached result when the same inputs occur again.
   - Tabulation (Bottom-Up): Solving subproblems and using their solutions to build up solutions to larger problems.
+
 - Recursion: A method where the solution to a problem depends on solutions to smaller instances of the same problem.
 - Divide and Conquer: An algorithmic paradigm that involves breaking a problem into subproblems, solving the subproblems recursively, and then combining their solutions to solve the original problem.
 - Greedy Algorithms: An algorithmic paradigm that builds up a solution piece by piece, always choosing the next piece that offers the most obvious and immediate benefit.
