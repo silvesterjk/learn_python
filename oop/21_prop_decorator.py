@@ -12,7 +12,6 @@ class Rectangle:
 Rectangle1 = Rectangle(10, 20)
 print(Rectangle1.length) # Accessing the length attribute of the Rectangle1 object
 print(Rectangle1.width) # Accessing the width attribute of the Rectangle1 object
-
 """
 
 class Rectangle:
