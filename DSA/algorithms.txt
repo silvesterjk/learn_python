@@ -6,6 +6,7 @@ Algorithms:
   - Merge Sort: A Divide and Conquer algorithm that divides the array into halves, sorts them, and then merges them.
   - Quick Sort: A Divide and Conquer algorithm that picks an element as a pivot and partitions the given array around the picked pivot.
   - Heap Sort: A comparison-based sorting technique based on a Binary Heap data structure.
+
 - Searching Algorithms: Algorithms used to find an element within a data structure.
   - Linear Search: Sequentially checks each element of the list until a match is found or the whole list has been searched.
   - Binary Search: Efficiently finds an item from a sorted list of items by repeatedly dividing the search interval in half.
