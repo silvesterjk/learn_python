@@ -2,6 +2,7 @@
 # Benefits of using the @property decorator: It allows you to access a method like an attribute. It also allows you to define a method that can be accessed like an attribute.
 # Gives you the ability to define a method that can be accessed like an attribute. It also allows you to define a method that can be accessed like an attribute.
 # Getter, setter, and deleter methods can be defined using the @property decorator.
+
 """
 class Rectangle:
     def __init__(self, length, width):
