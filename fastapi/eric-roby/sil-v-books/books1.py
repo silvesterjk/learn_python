@@ -29,6 +29,7 @@ async def read_all_books():
 
 # http://0.0.0.0:8000/ -> This is the base URL
 # books -> This is the path
+
 # Title One -> This is the path parameter (book title)
 
 # Dynamic path parameters
