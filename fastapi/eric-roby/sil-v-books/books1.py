@@ -31,7 +31,6 @@ async def read_all_books():
 # books -> This is the path
 
 # Title One -> This is the path parameter (book title)
-
 # Dynamic path parameters
 # Get all books from a specific category using path parameters
 
