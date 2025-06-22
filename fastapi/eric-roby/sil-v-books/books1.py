@@ -21,6 +21,7 @@ async def read_all_books():
     return BOOKS
 
 """PATH PARAMETERS"""
+
 # Get a specific book using path parameters
 # The path parameter is the book title
 # The path parameter is passed to the function as an argument
