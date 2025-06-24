@@ -26,7 +26,6 @@ async def read_all_books():
 # The path parameter is the book title
 # The path parameter is passed to the function as an argument
 # The function returns the book with the title that matches the path parameter
-
 # http://0.0.0.0:8000/ -> This is the base URL
 # books -> This is the path
 
