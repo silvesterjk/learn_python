@@ -51,6 +51,7 @@ class Book:
         self.rating = rating
         self.published_year = published_year
 
+
 class BookRequest(BaseModel):
     id: Optional[int] = Field(description="Not needed on create", default=None)  # Added Field with description and default=None
     title: str = Field(min_length=1, max_length=100)  # Added Field with min_length and max_length
