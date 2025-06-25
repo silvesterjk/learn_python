@@ -86,6 +86,7 @@ BOOKS = [
     BookRequest(id=8, title="Title Eight", author="Author Eight", category="science", rating=3, published_year=2015),
 ]
 
+
 @app.get("/get_books", status_code=status.HTTP_200_OK)
 async def get_all_books():
     return BOOKS
