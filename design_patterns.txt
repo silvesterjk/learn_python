@@ -5,4 +5,6 @@ Features of Good Design:
   - Design pattern could be the middle level.
 
 2. Extensibility:
-  - 
+  - Allow for the code to extend to more features.
+
+3. 
