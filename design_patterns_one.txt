@@ -19,23 +19,25 @@ Features of Good Design:
   - For a more flexible approach, define an interface or abstract class detailing the necessary methods one object needs from another. 
   - Then, make the dependent class rely on this interface instead of the concrete class, allowing for interchangeable implementations.
 
-  Here's a couple of points summarizing the idea presented in the examples:
+  Decoupling through Polymorphism and Interfaces: Initially, even with interfaces, the Company class might still be tied to concrete employee classes during object creation. 
+  By leveraging polymorphism and an Employee interface, the Company can interact with various employee types uniformly through a doWork() method. 
+  However, to truly decouple the Company from knowing about specific employee types during their instantiation, a further step is needed.
 
-  * Increased Flexibility through Interfaces:** Directly coupling classes (e.g., `Cat` to `Sausage`, or `Company` to `Designer`, `Programmer`, `Tester`) creates rigid dependencies. 
-  * By introducing an interface (like `Food` or `Employee`), the dependent class interacts with a contract rather than a concrete implementation. 
-  * This allows for easy swapping of different concrete types that implement the interface without modifying the dependent class, making the system more flexible and extensible.
-  
-  * Preparation for Future Extensibility:** While introducing interfaces might initially seem to add complexity without immediate benefit, it creates a crucial "extension point." 
-  * This design pattern anticipates future needs for adding new, related functionalities (e.g., different types of food, or new employee roles) without requiring significant refactoring of existing code.
+  Achieving Full Decoupling with the Factory Method Pattern: To make the Company class fully independent of concrete employee types, the responsibility of creating employee objects is moved to subclasses (e.g., GameDev   Company, Outsourcing Company). 
+  This is achieved by declaring a method (like getEmployees()) as abstract in the base Company class, forcing concrete company subclasses to implement their own specific employee creation logic. 
+  This approach, known as the Factory Method pattern, allows for the introduction of new employee types or company variations without altering the core Company class, enhancing extensibility and reusability.
 
-  Here's a quick chart using "-->" to illustrate the concept:
-
-  Initial (Tightly Coupled):
+  Initial (Tightly Coupled)
   Concrete Class A --> Concrete Class B
   (e.g., Cat --> Sausage)
   (e.g., Company --> Designer, Programmer, Tester)
   
-  Improved (Flexible with Interface):
+  Improved (Flexible with Interface)
   Concrete Class A --> Interface C <-- Concrete Class B
   (e.g., Cat --> Food <-- Sausage)
   (e.g., Company --> Employee <-- Designer, Programmer, Tester)
+  
+  Further Decoupling (Factory Method Pattern)
+  Abstract Company Class --> Abstract getEmployees() Method
+  Concrete Company Subclasses (e.g., GameDev Company, Outsourcing Company) --> Implement getEmployees() to create specific Employee types
+  Company Class (primary method) uses getEmployees() (polymorphically) --> Interface Employee --> Concrete Employee Types (e.g., Designer, Programmer, Artist, Tester)
