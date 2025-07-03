@@ -1,2 +1,8 @@
 Features of Good Design:
-1. 
+1. Reuse code as much as possible.
+  - At the low­est level, you reuse class­es: class libraries, con­tain­ers, maybe some class “teams” like con­tain­er/iter­a­tor.
+  - Frame­works are at the high­est level. They real­ly try to dis­till your design deci­sions. They iden­ti­fy the key abstrac­tions for solv­ing a prob­lem, rep­re­sent them by class­es and define rela­tion­ships between them.
+  - Design pattern could be the middle level.
+
+2. Extensibility:
+  - 
