@@ -13,7 +13,29 @@ Features of Good Design:
   - Identify the aspects of the app that changes and the ones that remain the same.
   - Method level: If a method that calculates the orderTotal, that can call getTaxRate method inside to calculate the tax, that way if the tax rate change, we'll only have to touch that.
   - Class level: Sometimes it is probably a good idea to seperate classes based on what it is expected to do. If a class computes all the order details class can handle all the tax related functionality.
-  - Program to an interface and not an implementation. 
-      * Initially, you might make one class directly dependent on another for collaboration, which is a common starting point.
-      * For a more flexible approach, define an interface or abstract class detailing the necessary methods one object needs from another. 
-      * Then, make the dependent class rely on this interface instead of the concrete class, allowing for interchangeable implementations.
+
+2. Program to an interface and not an implementation. 
+  - Initially, you might make one class directly dependent on another for collaboration, which is a common starting point.
+  - For a more flexible approach, define an interface or abstract class detailing the necessary methods one object needs from another. 
+  - Then, make the dependent class rely on this interface instead of the concrete class, allowing for interchangeable implementations.
+
+  Here's a couple of points summarizing the idea presented in the examples:
+
+  * Increased Flexibility through Interfaces:** Directly coupling classes (e.g., `Cat` to `Sausage`, or `Company` to `Designer`, `Programmer`, `Tester`) creates rigid dependencies. 
+  * By introducing an interface (like `Food` or `Employee`), the dependent class interacts with a contract rather than a concrete implementation. 
+  * This allows for easy swapping of different concrete types that implement the interface without modifying the dependent class, making the system more flexible and extensible.
+  
+  * Preparation for Future Extensibility:** While introducing interfaces might initially seem to add complexity without immediate benefit, it creates a crucial "extension point." 
+  * This design pattern anticipates future needs for adding new, related functionalities (e.g., different types of food, or new employee roles) without requiring significant refactoring of existing code.
+
+  Here's a quick chart using "-->" to illustrate the concept:
+
+  Initial (Tightly Coupled):
+  Concrete Class A --> Concrete Class B
+  (e.g., Cat --> Sausage)
+  (e.g., Company --> Designer, Programmer, Tester)
+  
+  Improved (Flexible with Interface):
+  Concrete Class A --> Interface C <-- Concrete Class B
+  (e.g., Cat --> Food <-- Sausage)
+  (e.g., Company --> Employee <-- Designer, Programmer, Tester)
