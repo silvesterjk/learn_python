@@ -142,7 +142,8 @@ manager.work() # Output: Charlie is managing projects.
 
 What are SOLID Principles?
 
-SOLID is an acronym for five design principles intended to make software designs more understandable, flexible, and maintainable. They were promoted by Robert C. Martin and are fundamental concepts in object-oriented programming.
+SOLID is an acronym for five design principles intended to make software designs more understandable, flexible, and maintainable. 
+They were promoted by Robert C. Martin and are fundamental concepts in object-oriented programming.
 
 ---
 
@@ -150,7 +151,8 @@ S - Single Responsibility Principle (SRP)
 A class should have one, and only one, reason to change.
 
 * Core Idea: Each class should have a single, well-defined responsibility. It should do one thing and do it well.
-* Why it Matters: This principle makes your classes more focused and easier to understand, test, and maintain. When a class has only one responsibility, future changes are less likely to have unintended side effects on other parts of the system.
+* Why it Matters: This principle makes your classes more focused and easier to understand, test, and maintain. 
+* When a class has only one responsibility, future changes are less likely to have unintended side effects on other parts of the system.
 
 ---
 
@@ -165,8 +167,10 @@ Software entities (classes, modules, functions) should be open for extension, bu
 L - Liskov Substitution Principle (LSP)
 Subtypes must be substitutable for their base types.
 
-* Core Idea: Objects of a superclass should be replaceable with objects of its subclasses without breaking the application. In other words, a child class must be able to do everything its parent class can do, without changing the expected behavior.
-* Why it Matters: This principle ensures that your inheritance hierarchies are correct and reliable. If a subclass doesn't behave as its parent's contract promises, it can lead to unexpected errors and bugs.
+* Core Idea: Objects of a superclass should be replaceable with objects of its subclasses without breaking the application. 
+* In other words, a child class must be able to do everything its parent class can do, without changing the expected behavior.
+* Why it Matters: This principle ensures that your inheritance hierarchies are correct and reliable. 
+* If a subclass doesn't behave as its parent's contract promises, it can lead to unexpected errors and bugs.
 
 ---
 
@@ -174,12 +178,16 @@ I - Interface Segregation Principle (ISP)
 No client should be forced to depend on methods it does not use.
 
 * Core Idea: It's better to have many small, specific interfaces (known as role interfaces) than one large, general-purpose one.
-* Why it Matters: "Fat" interfaces lead to bloated classes that must implement methods they don't need. By segregating interfaces, classes only need to be concerned with the methods that are relevant to them, which improves decoupling and makes the system easier to refactor and maintain.
+* Why it Matters: "Fat" interfaces lead to bloated classes that must implement methods they don't need. 
+* By segregating interfaces, classes only need to be concerned with the methods that are relevant to them, which improves decoupling and makes the system easier to refactor and maintain.
 
 ---
 
 D - Dependency Inversion Principle (DIP)
 High-level modules should not depend on low-level modules. Both should depend on abstractions (e.g., interfaces).
 
-* Core Idea: This principle inverts the traditional flow of dependency. Instead of a high-level component (e.g., a business logic class) depending directly on a low-level component (e.g., a database logger), both should depend on a shared abstraction (e.g., a `ILogger` interface).
-* Why it Matters: DIP decouples high-level and low-level components, making the system more modular and flexible. You can easily swap out the low-level implementation (e.g., change from a database logger to a file logger) without making any changes to the high-level module. This also makes testing much easier, as you can provide a "mock" implementation of the abstraction.
+* Core Idea: This principle inverts the traditional flow of dependency. 
+* Instead of a high-level component (e.g., a business logic class) depending directly on a low-level component (e.g., a database logger), both should depend on a shared abstraction (e.g., a `ILogger` interface).
+* Why it Matters: DIP decouples high-level and low-level components, making the system more modular and flexible. 
+* You can easily swap out the low-level implementation (e.g., change from a database logger to a file logger) without making any changes to the high-level module. 
+* This also makes testing much easier, as you can provide a "mock" implementation of the abstraction.
