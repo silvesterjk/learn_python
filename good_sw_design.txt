@@ -42,4 +42,98 @@ Features of Good Design:
   Concrete Company Subclasses (e.g., GameDev Company, Outsourcing Company) --> Implement getEmployees() to create specific Employee types
   Company Class (primary method) uses getEmployees() (polymorphically) --> Interface Employee --> Concrete Employee Types (e.g., Designer, Programmer, Artist, Tester)
 
-3. 
+3. Favoring composition over inheritance is a core principle in object-oriented programming that promotes building complex objects by combining simpler ones, rather than inheriting functionality from a parent class.
+
+Key Takeaways
+
+While inheritance ("is a" relationship) seems like a straightforward way to reuse code, it introduces several problems:
+
+  * Rigid Interfaces: A subclass must implement all abstract methods of its superclass, even those it doesn't need.
+  * Compatibility Risks: When overriding methods, you must ensure the new behavior is consistent with the parent's, as subclass objects can be used anywhere superclass objects are expected.
+  * Broken Encapsulation: Inheritance exposes the internal workings of the superclass to the subclass, creating a tight coupling.
+  * High Coupling: Changes in the superclass can easily break the functionality of its subclasses.
+  * Hierarchy Explosion: Attempting to model multiple independent attributes (e.g., a car that can be electric or gas, and also a sedan or SUV) with inheritance leads to a complex and bloated class structure.
+
+Composition ("has a" relationship) offers a more flexible alternative. Instead of a class inheriting behaviors, it holds an instance of another class that provides the required functionality. This approach avoids the pitfalls of inheritance by promoting flexibility and decoupling components.
+
+-----
+
+Pseudocode Example
+
+Here's an example illustrating the shift from a rigid inheritance model to a flexible composition model for different types of employees.
+
+#Inheritance Approach (Less Flexible)
+
+With inheritance, if we want to add a new type of work behavior, like `ManagesProjects`, we would have to create more specific subclasses like `ManagingProgrammer`, leading to a complex hierarchy.
+
+```python
+# --- Inheritance Example ---
+
+class Employee:
+    def __init__(self, name):
+        self.name = name
+
+    def work(self):
+        # Generic work behavior
+        print(f"{self.name} is working.")
+
+# Subclasses inherit from Employee
+class Programmer(Employee):
+    def work(self):
+        print(f"{self.name} is writing code.")
+
+class Salesperson(Employee):
+    def work(self):
+        print(f"{self.name} is selling products.")
+
+# Usage
+programmer = Programmer("Alice")
+programmer.work()  # Output: Alice is writing code.
+
+salesperson = Salesperson("Bob")
+salesperson.work() # Output: Bob is selling products.
+```
+
+#Composition Approach (More Flexible)
+
+With composition, an `Employee` has a work behavior. We can easily assign or change this behavior without altering the `Employee` class or creating new subclasses.
+
+```python
+# --- Composition Example ---
+
+# Define behavior classes
+class CodingBehavior:
+    def execute(self):
+        return "writing code."
+
+class SellingBehavior:
+    def execute(self):
+        return "selling products."
+
+class ProjectManagementBehavior:
+    def execute(self):
+        return "managing projects."
+
+# The Employee class is now composed with a work behavior
+class Employee:
+    def __init__(self, name, work_behavior):
+        self.name = name
+        # The Employee "has a" work behavior
+        self.work_behavior = work_behavior
+
+    def work(self):
+        action = self.work_behavior.execute()
+        print(f"{self.name} is {action}")
+
+# Usage
+# Create employees by "composing" them with different behaviors
+programmer = Employee("Alice", CodingBehavior())
+programmer.work()  # Output: Alice is writing code.
+
+salesperson = Employee("Bob", SellingBehavior())
+salesperson.work() # Output: Bob is selling products.
+
+# We can easily create a new type of role without a new subclass
+manager = Employee("Charlie", ProjectManagementBehavior())
+manager.work() # Output: Charlie is managing projects.
+```
