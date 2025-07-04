@@ -41,3 +41,5 @@ Features of Good Design:
   Abstract Company Class --> Abstract getEmployees() Method
   Concrete Company Subclasses (e.g., GameDev Company, Outsourcing Company) --> Implement getEmployees() to create specific Employee types
   Company Class (primary method) uses getEmployees() (polymorphically) --> Interface Employee --> Concrete Employee Types (e.g., Designer, Programmer, Artist, Tester)
+
+3. 
