@@ -366,14 +366,3 @@ def test_full_user_workflow():
     assert response.status_code == 200
     assert response.json()["username"] == "testuser"
 ```
-
-## Key Takeaways
-
-1. **APIRouter enables modular API design** - Split your application into logical, manageable pieces
-2. **Use prefixes and tags** for better organization and documentation
-3. **Apply common dependencies at the router level** to avoid repetition
-4. **Follow RESTful conventions** when designing your route structure
-5. **Test routers individually and as part of the larger application**
-6. **Version your APIs** using router prefixes for backward compatibility
-
-APIRouter is essential for building scalable, maintainable FastAPI applications. It promotes clean code architecture and makes large applications much easier to manage and understand.
