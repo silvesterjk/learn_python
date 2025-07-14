@@ -332,6 +332,251 @@ async def add_process_time_header(request: Request, call_next):
     return response
 ```
 
+`@router.middleware` is a decorator that allows you to add middleware to a specific router, rather than applying it to your entire FastAPI application. It's a way to run code before and/or after the route handlers in that particular router are executed.
+
+## How Router Middleware Works
+
+```python
+from fastapi import APIRouter, Request, Response
+import time
+
+router = APIRouter(prefix="/api")
+
+@router.middleware("http")
+async def add_process_time_header(request: Request, call_next):
+    # Code that runs BEFORE the route handler
+    start_time = time.time()
+    
+    # Call the actual route handler
+    response = await call_next(request)
+    
+    # Code that runs AFTER the route handler
+    process_time = time.time() - start_time
+    response.headers["X-Process-Time"] = str(process_time)
+    
+    return response
+
+@router.get("/users/")
+async def get_users():
+    return {"users": []}
+```
+
+## Key Characteristics
+
+**Scope**: Only affects routes within that specific router
+**Execution Order**: Runs for every request to routes in that router
+**Parameters**: 
+- `request`: The incoming request object
+- `call_next`: A function that calls the actual route handler
+
+    ## Common Use Cases
+    
+    ### 1. Logging Router-Specific Activity
+    ```python
+    import logging
+    
+    @router.middleware("http")
+    async def log_api_requests(request: Request, call_next):
+        logger = logging.getLogger("api_router")
+        logger.info(f"API request: {request.method} {request.url}")
+        
+        response = await call_next(request)
+        
+        logger.info(f"API response: {response.status_code}")
+        return response
+    ```
+    
+    ### 2. Authentication for Router Groups
+    ```python
+    @router.middleware("http")
+    async def verify_api_key(request: Request, call_next):
+        api_key = request.headers.get("X-API-Key")
+        
+        if not api_key or not is_valid_api_key(api_key):
+            return Response(
+                content="Invalid API key",
+                status_code=401,
+                headers={"WWW-Authenticate": "Bearer"}
+            )
+        
+        response = await call_next(request)
+        return response
+    ```
+    
+    ### 3. Rate Limiting for Specific Routes
+    ```python
+    from collections import defaultdict
+    from datetime import datetime, timedelta
+    
+    # Simple in-memory rate limiter (use Redis in production)
+    request_counts = defaultdict(list)
+    
+    @router.middleware("http")
+    async def rate_limit_middleware(request: Request, call_next):
+        client_ip = request.client.host
+        now = datetime.now()
+        
+        # Clean old requests (older than 1 minute)
+        request_counts[client_ip] = [
+            req_time for req_time in request_counts[client_ip]
+            if now - req_time < timedelta(minutes=1)
+        ]
+        
+        # Check if limit exceeded (max 10 requests per minute)
+        if len(request_counts[client_ip]) >= 10:
+            return Response(
+                content="Rate limit exceeded",
+                status_code=429,
+                headers={"Retry-After": "60"}
+            )
+        
+        # Add current request
+        request_counts[client_ip].append(now)
+        
+        response = await call_next(request)
+        return response
+    ```
+    
+    ### 4. Adding CORS Headers for Specific API Versions
+    ```python
+    @router.middleware("http")
+    async def add_cors_headers(request: Request, call_next):
+        response = await call_next(request)
+        
+        response.headers["Access-Control-Allow-Origin"] = "https://myapp.com"
+        response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE"
+        response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
+        
+        return response
+    ```
+    
+    ## Router Middleware vs App Middleware
+    
+    ### App-Level Middleware
+    ```python
+    from fastapi import FastAPI
+    
+    app = FastAPI()
+    
+    @app.middleware("http")
+    async def global_middleware(request: Request, call_next):
+        # Runs for ALL routes in the entire application
+        response = await call_next(request)
+        return response
+    ```
+    
+    ### Router-Level Middleware
+    ```python
+    router = APIRouter()
+    
+    @router.middleware("http")
+    async def router_specific_middleware(request: Request, call_next):
+        # Only runs for routes in THIS router
+        response = await call_next(request)
+        return response
+    ```
+    
+    ## Multiple Middlewares and Execution Order
+    
+    ```python
+    # First middleware (outermost)
+    @router.middleware("http")
+    async def first_middleware(request: Request, call_next):
+        print("First middleware - before")
+        response = await call_next(request)
+        print("First middleware - after")
+        return response
+    
+    # Second middleware (inner)
+    @router.middleware("http")
+    async def second_middleware(request: Request, call_next):
+        print("Second middleware - before")
+        response = await call_next(request)
+        print("Second middleware - after")
+        return response
+    
+    @router.get("/test")
+    async def test_route():
+        print("Route handler")
+        return {"message": "test"}
+    
+    # Execution order:
+    # 1. First middleware - before
+    # 2. Second middleware - before  
+    # 3. Route handler
+    # 4. Second middleware - after
+    # 5. First middleware - after
+    ```
+    
+    ## Error Handling in Router Middleware
+    
+    ```python
+    @router.middleware("http")
+    async def error_handling_middleware(request: Request, call_next):
+        try:
+            response = await call_next(request)
+            return response
+        except ValueError as e:
+            return Response(
+                content=f"Value error: {str(e)}",
+                status_code=400
+            )
+        except Exception as e:
+            return Response(
+                content="Internal server error",
+                status_code=500
+            )
+    ```
+    
+    ## Real-World Example: Admin Router with Middleware
+    
+    ```python
+    admin_router = APIRouter(prefix="/admin", tags=["admin"])
+    
+    @admin_router.middleware("http")
+    async def admin_auth_middleware(request: Request, call_next):
+        # Check if user is admin
+        token = request.headers.get("Authorization")
+        if not token or not verify_admin_token(token):
+            return Response(
+                content="Admin access required",
+                status_code=403
+            )
+        
+        response = await call_next(request)
+        return response
+    
+    @admin_router.middleware("http")
+    async def admin_audit_middleware(request: Request, call_next):
+        # Log all admin actions
+        user_id = get_user_from_token(request.headers.get("Authorization"))
+        log_admin_action(user_id, request.method, request.url)
+        
+        response = await call_next(request)
+        return response
+    
+    @admin_router.get("/users")
+    async def get_all_users():
+        # This will only run after both middlewares pass
+        return {"users": get_all_users_from_db()}
+    ```
+    
+    ## When to Use Router Middleware
+    
+    **Good for:**
+    - Router-specific authentication/authorization
+    - Feature-specific logging or monitoring
+    - API version-specific behavior
+    - Route group rate limiting
+    - Adding headers for specific API sections
+    
+    **Avoid for:**
+    - Global concerns (use app middleware instead)
+    - Heavy computational tasks (consider dependencies)
+    - Database operations that could fail (use dependencies with proper error handling)
+    
+    The key advantage is that router middleware gives you fine-grained control over which routes get which middleware, without affecting your entire application.
+
 ## Testing Routers
 
 ### Unit Testing Individual Routers
