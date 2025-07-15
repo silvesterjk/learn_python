@@ -1,14 +1,13 @@
 # FastAPI Authentication & CRUD Operations
 
 ## Table of Contents
-1. [Authentication Basics](#authentication-basics)
-2. [JWT Implementation](#jwt-implementation)
-3. [Password Security](#password-security)
-4. [CRUD Operations](#crud-operations)
-5. [Combining Auth + CRUD](#combining-auth--crud)
-6. [Real-World Implementation](#real-world-implementation)
-7. [Testing](#testing)
-8. [Best Practices](#best-practices)
+1. [JWT Implementation](#jwt-implementation)
+2. [Password Security](#password-security)
+3. [CRUD Operations](#crud-operations)
+4. [Combining Auth + CRUD](#combining-auth--crud)
+5. [Real-World Implementation](#real-world-implementation)
+6. [Testing](#testing)
+7. [Best Practices](#best-practices)
 
 ### Common Authentication Methods in FastAPI
 
