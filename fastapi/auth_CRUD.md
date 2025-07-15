@@ -20,6 +20,100 @@ Simple but less secure - good for service-to-service communication.
 #### 3. Session-based
 Traditional web authentication using cookies.
 
+fastapi-app/
+│
+├── app/                          # Main application package
+│   ├── __init__.py
+│   ├── main.py                   # FastAPI app instance and startup
+│   ├── config.py                 # Configuration settings
+│   │
+│   ├── core/                     # Core functionality
+│   │   ├── __init__.py
+│   │   ├── security.py           # JWT, password hashing, authentication
+│   │   ├── database.py           # Database connection and session
+│   │   └── deps.py               # Common dependencies
+│   │
+│   ├── models/                   # SQLAlchemy models
+│   │   ├── __init__.py
+│   │   ├── user.py               # User database model
+│   │   └── item.py               # Item database model
+│   │
+│   ├── schemas/                  # Pydantic schemas
+│   │   ├── __init__.py
+│   │   ├── user.py               # User Pydantic models
+│   │   ├── item.py               # Item Pydantic models
+│   │   └── token.py              # Token schemas
+│   │
+│   ├── crud/                     # CRUD operations
+│   │   ├── __init__.py
+│   │   ├── base.py               # Base CRUD class
+│   │   ├── user.py               # User CRUD operations
+│   │   └── item.py               # Item CRUD operations
+│   │
+│   ├── api/                      # API routes
+│   │   ├── __init__.py
+│   │   ├── api_v1/               # Version 1 of API
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py            # API router aggregation
+│   │   │   └── endpoints/        # Individual endpoint files
+│   │   │       ├── __init__.py
+│   │   │       ├── auth.py       # Authentication endpoints
+│   │   │       ├── users.py      # User CRUD endpoints
+│   │   │       └── items.py      # Item CRUD endpoints
+│   │   └── deps.py               # API-specific dependencies
+│   │
+│   ├── services/                 # Business logic layer
+│   │   ├── __init__.py
+│   │   ├── user_service.py       # User business logic
+│   │   └── item_service.py       # Item business logic
+│   │
+│   └── utils/                    # Utility functions
+│       ├── __init__.py
+│       ├── validators.py         # Input validation functions
+│       └── exceptions.py         # Custom exception classes
+│
+├── tests/                        # Test files
+│   ├── __init__.py
+│   ├── conftest.py               # Pytest configuration and fixtures
+│   ├── test_main.py              # Main app tests
+│   │
+│   ├── api/                      # API endpoint tests
+│   │   ├── __init__.py
+│   │   ├── test_auth.py          # Authentication tests
+│   │   ├── test_users.py         # User endpoint tests
+│   │   └── test_items.py         # Item endpoint tests
+│   │
+│   ├── crud/                     # CRUD operation tests
+│   │   ├── __init__.py
+│   │   ├── test_user_crud.py     # User CRUD tests
+│   │   └── test_item_crud.py     # Item CRUD tests
+│   │
+│   └── utils/                    # Utility tests
+│       ├── __init__.py
+│       └── test_validators.py    # Validation tests
+│
+├── alembic/                      # Database migrations
+│   ├── versions/                 # Migration files
+│   ├── env.py                    # Alembic configuration
+│   ├── script.py.mako            # Migration template
+│   └── alembic.ini               # Alembic settings
+│
+├── scripts/                      # Utility scripts
+│   ├── create_superuser.py       # Create admin user script
+│   ├── init_db.py                # Initialize database
+│   └── populate_data.py          # Seed database with sample data
+│
+├── .env                          # Environment variables (not in git)
+├── .env.example                  # Example environment file
+├── .gitignore                    # Git ignore rules
+├── requirements.txt              # Python dependencies
+├── requirements-dev.txt          # Development dependencies
+├── pyproject.toml               # Project configuration
+├── README.md                     # Project documentation
+├── Dockerfile                    # Docker configuration
+├── docker-compose.yml           # Docker Compose setup
+└── pytest.ini                   # Pytest configuration
+
 ## JWT Implementation
 
 ### Required Dependencies
