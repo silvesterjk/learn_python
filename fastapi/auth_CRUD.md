@@ -19,7 +19,7 @@ Simple but less secure - good for service-to-service communication.
 
 #### 3. Session-based
 Traditional web authentication using cookies.
-
+```
 fastapi-app/
 │
 ├── app/                          # Main application package
@@ -113,6 +113,7 @@ fastapi-app/
 ├── Dockerfile                    # Docker configuration
 ├── docker-compose.yml           # Docker Compose setup
 └── pytest.ini                   # Pytest configuration
+```
 
 ## JWT Implementation
 
