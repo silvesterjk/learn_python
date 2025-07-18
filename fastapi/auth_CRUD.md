@@ -1087,3 +1087,5 @@ async def not_found_handler(request: Request, exc: HTTPException):
         ).dict()
     )
 ```
+
+
