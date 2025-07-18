@@ -48,7 +48,7 @@ fastapi-app/
 │   │   ├── __init__.py
 │   │   ├── base.py               # Base CRUD class
 │   │   ├── user.py               # User CRUD operations
-│   │   └── item.py               # Item CRUD operations
+│   │   └── item.py               # Item CRUD operations 
 │   │
 │   ├── api/                      # API routes
 │   │   ├── __init__.py
