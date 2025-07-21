@@ -17,7 +17,7 @@ Most common for APIs - uses tokens for stateless authentication.
 #### 2. API Keys
 Simple but less secure - good for service-to-service communication.
 
-#### 3. Session-based
+#### 3. Session-based 
 Traditional web authentication using cookies.
 ```
 fastapi-app/
