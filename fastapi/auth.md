@@ -22,7 +22,7 @@
 
 ### JWT Structure
 
-A JWT consists of three parts separated by dots (`.`):
+A JWT consists of three parts separated by dots (`.`): 
 
 ```
 header.payload.signature
