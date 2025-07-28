@@ -8,6 +8,7 @@
 5. [Real-World Implementation](#real-world-implementation)
 6. [Testing](#testing)
 7. [Best Practices](#best-practices)
+   
 
 ### Common Authentication Methods in FastAPI
 
