@@ -793,4 +793,5 @@ async def get_current_user_with_logging(token: str = Depends(oauth2_scheme)):
 ```
 
 ## Use cases may include:
-1. JWTs, or JSON Web Tokens, are primarily used for authentication and authorization in modern web applications and APIs. After a user successfully logs in with their credentials, the server generates a JWT and sends it to the client. 
+1. JWTs, or JSON Web Tokens, are primarily used for authentication and authorization in modern web applications and APIs. After a user successfully logs in with their credentials, the server generates a JWT and sends it to the client.
+2. The client then includes this token in the header of every subsequent request to access protected routes or resources. The server can verify the token's signature to authenticate the request without needing to query a database for user session information, making it a stateless and scalable solution. Another key use case is secure information exchange. 
