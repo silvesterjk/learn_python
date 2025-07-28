@@ -791,3 +791,6 @@ async def get_current_user_with_logging(token: str = Depends(oauth2_scheme)):
         logger.warning(f"JWT validation failed: {str(e)}")
         raise HTTPException(...)
 ```
+
+## Use cases may include:
+
