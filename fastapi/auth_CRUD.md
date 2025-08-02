@@ -7,7 +7,6 @@
 4. [Combining Auth + CRUD](#combining-auth--crud)
 5. [Real-World Implementation](#real-world-implementation)
 6. [Testing](#testing)
-
    
 
 ### Common Authentication Methods in FastAPI
