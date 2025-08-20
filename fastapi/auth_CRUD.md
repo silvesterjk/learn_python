@@ -8,7 +8,7 @@
 5. [Real-World Implementation](#real-world-implementation)
 6. [Testing](#testing)
 
-### Common Authentication Methods in FastAPI
+### Common Authentication Methods in FastAPI-
 
 #### 1. OAuth2 with Password (and Bearer)
 Most common for APIs - uses tokens for stateless authentication.
