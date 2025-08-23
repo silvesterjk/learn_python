@@ -8,8 +8,6 @@
 5. [Real-World Implementation](#real-world-implementation)
 6. [Testing](#testing)
 
-7. 
-
 ### Common Authentication Methods in FastAPI
 
 #### 1. OAuth2 with Password (and Bearer)
