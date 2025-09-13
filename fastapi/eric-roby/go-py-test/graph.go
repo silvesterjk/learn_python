@@ -1,4 +1,3 @@
-// graph.go
 // This file defines a graph structure for BFS and DFS algorithms
 
 package main
