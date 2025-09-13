@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-# main.py
 # Main script to run and compare BFS and DFS implementations in Python and Go
 
 import os
