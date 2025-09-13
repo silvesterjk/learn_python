@@ -1,4 +1,3 @@
-// main.go
 // Main entry point for Go BFS and DFS implementation
 
 package main

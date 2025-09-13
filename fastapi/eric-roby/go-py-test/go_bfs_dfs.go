@@ -1,4 +1,3 @@
-// go_bfs_dfs.go
 // Implementation of BFS and DFS algorithms in Go
 
 package main
