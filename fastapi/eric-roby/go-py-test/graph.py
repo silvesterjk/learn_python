@@ -1,4 +1,3 @@
-# graph.py
 # This file defines a graph structure for BFS and DFS algorithms
 
 class Graph:
