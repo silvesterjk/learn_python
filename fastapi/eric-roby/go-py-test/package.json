@@ -1,0 +1,19 @@
+{
+  "name": "bfs-dfs-typescript-benchmark",
+  "version": "1.0.0",
+  "description": "TypeScript implementation for BFS/DFS performance benchmarking",
+  "type": "module",
+  "main": "ts_bfs_dfs.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node ts_bfs_dfs.js",
+    "benchmark": "node ts_bfs_dfs.js"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
