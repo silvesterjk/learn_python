@@ -6,7 +6,6 @@ import subprocess
 import time
 import json
 from python_bfs_dfs import run_python_benchmark
-from graph import create_binary_tree
 
 def run_go_implementation(graph_size=50000, concurrency=1, use_binary_tree=False):
     """
