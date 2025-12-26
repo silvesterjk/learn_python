@@ -4,7 +4,7 @@
 **JWT (JSON Web Token)** is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed.
 
 ### Key Characteristics
-- **Stateless**: No server side session storage required
+- **Stateless**: No server side-session storage required
 - **Self-contained**: All necessary information is in the token itself
 - **Compact**: Small size, suitable for URLs, HTTP headers, and HTML form parameters
 - **Secure**: Digitally signed to prevent tampering
