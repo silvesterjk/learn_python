@@ -9,7 +9,7 @@
 - **Compact**: Small size, suitable for URLs, HTTP headers, and HTML form parameters
 - **Secure**: Digitally signed to prevent tampering
 
-## How JWT Works::
+## How JWT Works
 
 ### The Flow
 1. **User Login**: Client sends credentials to server
