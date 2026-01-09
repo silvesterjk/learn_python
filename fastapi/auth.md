@@ -137,6 +137,7 @@ class UserInDB(User):
     hashed_password: str
 ```
 
+
 #### 3. Utility Functions
 
 ```python
